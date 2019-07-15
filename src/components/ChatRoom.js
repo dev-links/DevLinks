@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import snapShot from 'firebase'
 import firebase from '../config/Firebase'
 
 
@@ -9,16 +8,14 @@ export class ChatRoom extends Component {
         this.state = {
             messages: [],
             message: ''
-
         }
     }
 
     componentDidMount() {
         firebase.database()
-            .ref('messages/')
-            .on('value', () => {
-                
-                const currentMessages = snapShot.val()
+            .ref('chatrooms/')
+            .on('value', (snapshot) => {
+                const currentMessages = snapshot.val()
                 if (currentMessages != null) {
                     this.setState({ messages: currentMessages })
                 }
@@ -36,12 +33,12 @@ export class ChatRoom extends Component {
                 id:messages.length,
                 text: message
             }
-            firebase.database().ref('messages/'+nextMessage.id).set(nextMessage)
+            firebase.database().ref('chatrooms/'+nextMessage.id).set(nextMessage)
         }
     }
 
     render() {
-        console.log(snapShot)
+        
         console.log(this.state.message)
         const currentMessages = this.state.messages.map(message => {
             return (
@@ -69,23 +66,3 @@ export class ChatRoom extends Component {
 
 export default ChatRoom
 
-
-// import firebase from 'firebase'
-// import 'firebase/firestore'
-
-
-//   // Your web app's Firebase configuration
-//   var firebaseConfig = {
-//     apiKey: "AIzaSyCIGv6XlpSD9OnO5quHNQrBZQcTIwhxrhg",
-//     authDomain: "dev-links-e4992.firebaseapp.com",
-//     databaseURL: "https://dev-links-e4992.firebaseio.com",
-//     projectId: "dev-links-e4992",
-//     storageBucket: "dev-links-e4992.appspot.com",
-//     messagingSenderId: "67187498838",
-//     appId: "1:67187498838:web:87fd366657598082"
-//   };
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
-//   firebase.firestore().settings({ timestampsInSnapshots: true })
-
-//   export default firebase
