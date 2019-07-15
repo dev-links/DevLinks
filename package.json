@@ -6,7 +6,6 @@
   "proxy": "http://localhost:9009",
   "dependencies": {
     "axios": "^0.19.0",
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -15,24 +14,18 @@
     "express-session": "^1.16.2",
     "firebase": "^6.3.0",
     "firebaseui": "^4.0.0",
+    "google-map-react": "^1.1.4",
     "google-maps-react": "^2.0.2",
+    "googleapis": "^41.0.0",
     "massive": "^5.11.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-firebaseui": "^3.1.2",
     "react-google-autocomplete": "^1.1.0",
+    "react-google-maps": "^9.4.5",
     "react-places-autocomplete": "^7.2.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4"
-=======
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "express-session": "^1.16.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "session": "^0.1.0"
->>>>>>> master
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +36,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+ 
   "browserslist": {
     "production": [
       ">0.2%",

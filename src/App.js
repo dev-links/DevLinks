@@ -1,5 +1,5 @@
 import React from 'react';
-import JobListings from './components/JobListings';
+import JobListings from './components/JobListings/JobListings';
 
 import './App.css';
 
