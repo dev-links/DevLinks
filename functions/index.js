@@ -2,9 +2,10 @@ const functions = require('firebase-functions');
 const firebase = require('firebase')
 const express = require('express');
 const app = express();
-const {signUp} = require('./handler/authController')
-const admin = require('firebase-admin');
-admin.initializeApp();
+const {signUp, login} = require('./handler/authController')
+// const admin = require('firebase-admin');
+// admin.initializeApp();
+const { db, admin }= require('./utility/admin')
 
 const firebaseConfig = {
     apiKey: "AIzaSyCIGv6XlpSD9OnO5quHNQrBZQcTIwhxrhg",
@@ -24,6 +25,10 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
  response.send("Hello Chris!");
 });
 
-
+// Auth endpoints
 app.post(`/signUp`, signUp)
+app.post(`/login`, login)
+
+
+
 exports.api =functions.https.onRequest(app);
