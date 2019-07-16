@@ -1,13 +1,13 @@
-import React from 'react';
-import {Switch, Route, HashRouter} from 'react-router-dom';
-import Landing from './components/Landing/Landing';
-import Login from './components/Login/Login';
-import ClientDashboard from './components/clientDashboard/clientDashboard';
+import React from 'react'
+import { Switch, Route } from "react-router-dom";
+import App from './App';
+import Step1 from './components/JobWizard/Step1';
+import Step2 from './components/JobWizard/Step2';
 
 export default (
     <Switch>
-        <Route exact path={'/'} component={Landing} />
-        <Route path={'/login'} component={Login}/>
-        <Route exact path={'/dashboard'} component={ClientDashboard} />
+        <Route exact path='/' component={App}/>
+        <Route path='/Step1' component={Step1}/>
+        <Route path='/Step2' component={Step2}/>
     </Switch>
-);
+)

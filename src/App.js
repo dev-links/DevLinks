@@ -3,9 +3,10 @@ import JobListings from './components/JobListings';
 import ClientDashboard from './components/clientDashboard/clientDashboard';
 import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
-import Chatroom from './components/ChatRoom'
+import ClientRegister from './components/clientRegister/clientRegister';
 
 import './App.css';
+import routes from './routes';
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
-      <Chatroom />
+
+      <ClientRegister />
+
+      {routes}
+
     </div>
   );
 }

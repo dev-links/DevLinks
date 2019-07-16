@@ -3,7 +3,6 @@ const express = require('express'),
     session = require('express-session'),
     app = express(),
     {signUp} = require('../handler/authController'),
-    {helloWorld} =require('../index'),
     { PORT, SESSION_SECRET } = process.env;
 
 app.use( express.static( `${__dirname}/../build` ) );
@@ -22,7 +21,6 @@ app.use(express.json())
 
 // authController 
 app.post(`/api/signUp`, signUp)
-app.get(`/api/hello`, helloWorld)
 
 app.listen(PORT, () => {
     console.log(`${PORT} is listening`)
