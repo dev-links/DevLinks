@@ -1,0 +1,54 @@
+.landing-container {
+    background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    width: 100vw;
+    height: 100vh;
+    /* filter: blur(8px); */
+    /* -webkit-filter: blur(8px); */
+}
+
+.signin-button {
+    font-size: 3vh;
+    position: absolute;
+    bottom: 20vh;
+    right:  18.5vw;
+    color: white;
+    background-color: #F8E60B;
+    border-radius: 30px;
+    padding-right: 22vw;
+    padding-left: 20vw;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bolder;
+    border: solid rgb(143, 143, 143) 1px;
+}
+
+.signup-button {
+    font-size: 3vh;
+    position: absolute;
+    bottom: 28vh;
+    right:  18vw;
+    background-color: white;
+    border-radius: 30px;
+    padding-right: 20vw;
+    padding-left: 20vw;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bolder;
+    border: solid rgb(143, 143, 143) 1px;
+}
+
+.dev {
+    position: absolute;
+    right: 55vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: #F8E60B;
+}
+
+.links {
+    position: absolute;
+    right: 30vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+}

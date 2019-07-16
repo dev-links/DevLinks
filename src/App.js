@@ -1,7 +1,8 @@
 import React from 'react';
-import JobListings from './components/JobListings/JobListings';
-import Step2 from './components/JobWizard/Step2';
-import Step1 from './components/JobWizard/Step1';
+import JobListings from './components/JobListings';
+import ClientDashboard from './components/clientDashboard/clientDashboard';
+import Landing from './components/Landing/Landing';
+import Login from './components/Login/Login';
 
 import './App.css';
 import routes from './routes';
@@ -9,8 +10,11 @@ import routes from './routes';
 function App() {
   return (
     <div className="App">
-     <JobListings/>
-     {routes}
+      <JobListings/>
+      {/* <ClientDashboard /> */}
+      {/* <Landing /> */}
+      {/* <Login /> */}
+      {routes}
     </div>
   );
 }

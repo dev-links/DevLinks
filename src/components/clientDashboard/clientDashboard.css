@@ -1,0 +1,140 @@
+body {
+    background-color: #E6E6E6;
+}
+
+.header-picture {
+    height: 15vh;
+    width: 100vw;
+}
+
+.white-container {
+    background-color: white;
+    height: 20vh;
+    width: 100vw;
+    margin-top: -.5vh;
+    box-shadow: 1vh .5vh 1vh rgb(71, 71, 71);
+}
+
+.profile-container {
+    height: 9vh;
+    width: 20vw;
+    position: absolute;
+    top: 10vh; 
+    right: 70vw;
+    background-color: rgb(255, 255, 255);
+    border: solid black 1px;
+    border-radius: 90px;
+}
+
+.profile-pic {
+    height: 9vh;
+    width: 20vw;
+    position: absolute;
+    border-radius: 90px;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    margin-top: -15vh;
+    margin-left: 5vw;
+    font-size: 2.5vh;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.bio {
+    top:40vh;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 17px;
+    margin-left: 5vw;
+}
+
+.card-title {
+    top:40vh;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    margin-left: 5vw;
+}
+
+.about-paragraph {
+    position: absolute;
+    bottom: 48vh;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 17px;
+    margin-left: 5vw;
+}
+
+.experience-paragraph {
+    position: absolute;
+    bottom: 32.5vh;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 17px;
+    margin-left: 5vw;
+    border-bottom: solid black 1px;
+}
+
+.logout {
+    position: absolute;
+    top: 15vh;
+    right: 10vw;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+}
+
+/* .border {
+    border-bottom: solid 1px black;
+    position: absolute;
+} */
+
+#about-container {
+    position: absolute;
+    top:40vh;
+    font-size: 1.5vh;
+    height: 15vh;
+}
+
+#experience-container {
+    position: absolute;
+    top:60vh;
+    font-size: 1.5vh;
+    height: 20vh;
+}
+
+#line2-experience {
+    position: absolute;
+    top: 70vh;
+    border-top: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 17px;
+    margin-left: 5vw;
+    border-bottom: solid black 1px;
+}
+
+#bio-edit {
+    height: 1.8vh;
+    position: absolute;
+    right: -8vw;
+}
+
+#experience-edit {
+    height: 1.8vh;
+    position: absolute;
+    right: 2vw;
+    bottom: 18vh;
+}
+
+#about-edit {
+    height: 1.8vh;
+    position: absolute;
+    right: 2vw;
+    bottom: 12.9vh;
+}
