@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import firebase from '../config/Firebase'
+import './Chatroom.css'
 
 
 export class ChatRoom extends Component {
@@ -47,18 +48,19 @@ export class ChatRoom extends Component {
         })
         return (
             <div>
-                <h1>chat room</h1>
                 <ul>
                 {currentMessages}
                 </ul>
 
-                <input type="text" placeholder='Message' name='message'
+            <div className='input'>
+                <input id='input' type="text" placeholder='Message' name='message'
                 onChange={e => this.updateMessage(e)}
                 />
-                <br />
+                
                 <button
                 onClick={() => this.submitMessage()}
                 >Send</button>
+            </div>
             </div>
         )
     }
