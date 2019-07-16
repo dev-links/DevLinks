@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import ClientRegister from './components/clientRegister/clientRegister';
 
 import './App.css';
+import routes from './routes';
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
+
       <ClientRegister />
+
+      {routes}
+
     </div>
   );
 }
