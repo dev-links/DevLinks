@@ -15,8 +15,8 @@ function App() {
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
-      {/* <ClientRegister /> */}
-      <AdminRegister />
+      <ClientRegister />
+      {/* <AdminRegister /> */}
     </div>
   );
 }
