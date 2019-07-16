@@ -5,6 +5,7 @@ import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 
 import './App.css';
+import routes from './routes';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
+      {routes}
     </div>
   );
 }
