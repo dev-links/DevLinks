@@ -21,7 +21,7 @@ app.use(express.json())
 
 
 // authController 
-app.post(`/signUp`, signUp)
+app.post(`/api/signUp`, signUp)
 app.get(`/api/hello`, helloWorld)
 
 app.listen(PORT, () => {
