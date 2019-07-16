@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+// import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
 
 
@@ -13,14 +13,15 @@ const mapStyles = {
     constructor(props) {
       super(props);
       this.state = {
-          location: ''
+          location: '',
+          stores: [{lat: 47.49855629475769, lng: -122.14184416996333}]
       }
     }
     
     handleChange = location => {
         this.setState({ location });
       };
-      
+
     displayMarkers = () => {
       return this.state.stores.map((store, index) => {
         return <Marker key={index} id={index} position={{
@@ -45,6 +46,13 @@ const mapStyles = {
             type='text'/>
             <button>Search</button>
             </form>
+            {/* <PlacesAutocomplete
+            value={this.state.address}
+            onChange={this.handleChange}
+            onSelect={this.handleSelect}
+            >
+
+            </PlacesAutocomplete> */}
           <Map
             google={this.props.google}
             zoom={8}
