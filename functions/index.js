@@ -1,34 +1,22 @@
 const functions = require('firebase-functions');
-const firebase = require('firebase')
 const express = require('express');
 const app = express();
-const {signUp, login} = require('./handler/authController')
-// const admin = require('firebase-admin');
-// admin.initializeApp();
-const { db, admin }= require('./utility/admin')
+const { db }= require('./utility/admin')
+const AuthFB = require('./utility/AuthFB')
+const {signUp, login, uploadImage} = require('./handler/authController')
+const {getAllFeeds, createFeed} = require('./handler/feeds')
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCIGv6XlpSD9OnO5quHNQrBZQcTIwhxrhg",
-    authDomain: "dev-links-e4992.firebaseapp.com",
-    databaseURL: "https://dev-links-e4992.firebaseio.com",
-    projectId: "dev-links-e4992",
-    storageBucket: "dev-links-e4992.appspot.com",
-    messagingSenderId: "67187498838",
-    appId: "1:67187498838:web:87fd366657598082"
-};
 
-firebase.initializeApp(firebaseConfig)
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello Chris!");
-});
+
+app.get(`/feeds`, getAllFeeds)
+app.get(`/feed/feedId`)
+app.post(`/feed`, createFeed)
 
 // Auth endpoints
 app.post(`/signUp`, signUp)
 app.post(`/login`, login)
+app.post(`/user/image`, AuthFB, uploadImage)
 
 
 
-exports.api =functions.https.onRequest(app);
+exports.api = functions.https.onRequest(app);
