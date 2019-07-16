@@ -1,0 +1,104 @@
+.company-placeholder {
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+    position: absolute;
+    top: 57vh;
+    font-size: 1.3vh;
+    left: 20vw;
+}
+
+.register-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid #F8E60B 1px;
+    outline: none;
+}
+
+.admin-register {
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+    border: none;
+    padding: 0;
+    border-bottom: solid white 1px;
+    width: 25vw;
+    position: absolute;
+    top: 73vh;
+    left: 35vw;
+    outline: none;
+    background: transparent;
+    outline: none;
+    font-size: 2vh;
+}
+
+.employer-button {
+    outline: none;
+    background-color: white;
+    border: none;
+    position: absolute;
+    top: 83vh;
+    left: -5vw;
+    border-radius: 40px;
+    height: 5vh;
+    width: 60vw;
+    font-size: 2.5vh;
+}
+
+.client-button {
+    outline: none;
+    background-color: #F8E60B;
+    border: none;
+    position: absolute;
+    top: 89vh;
+    right: -5vw;
+    border-radius: 40px;
+    height: 5vh;
+    width: 60vw;
+    font-size: 2.5vh;
+    color: white;
+}
+
+.register-admin-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: solid white 1px;
+}
+
+.admin-username-placeholder {
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+    position: absolute;
+    top: 37vh;
+    font-size: 1.3vh;
+    left: 20vw;
+}
+
+.admin-password-placeholder { 
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+    position: absolute;
+    top: 47vh;
+    font-size: 1.3vh;
+    left: 20vw;
+}
+
+#register-company {
+    position: absolute;
+    top: 60vh;
+    left: 20vw;
+    width: 60vw;
+}
+
+#admin-username {
+    position: absolute;
+    top: 40vh;
+    left: 20vw;
+    width: 60vw;
+}
+
+#admin-password {
+    position: absolute;
+    top: 50vh;
+    left: 20vw;
+    width: 60vw;
+}
