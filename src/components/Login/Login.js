@@ -6,9 +6,11 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            
+            username: '',
+            password: '',
+            // redirect: false
         }
-    }
+    } 
 
     render() {
         return (
@@ -20,6 +22,14 @@ class Login extends Component {
                 <div className='links'>
                     LINKS
                 </div>
+
+                <h1 className='login-username-placeholder'>USERNAME</h1>
+
+                <input id='login-username' className='input' />
+
+                <h1 className='login-password-placeholder'>PASSWORD</h1>
+
+                <input id='login-password' className='input' type='password' />
 
                 <button className='login-button'>
                     LOGIN
