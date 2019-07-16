@@ -1,0 +1,69 @@
+.login-container {
+    background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    width: 100vw;
+    height: 100vh;
+    /* filter: blur(8px); */
+    /* -webkit-filter: blur(8px); */
+}
+
+.dev {
+    position: absolute;
+    right: 52vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: #F8E60B;
+}
+
+.links {
+    position: absolute;
+    right: 30vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+}
+
+.login-button {
+    font-size: 3vh;
+    position: absolute;
+    bottom: 28vh;
+    right:  18vw;
+    background-color: #F8E60B;
+    color: white;
+    border-radius: 30px;
+    padding-right: 20vw;
+    padding-left: 20vw;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bolder;
+    border: solid rgb(143, 143, 143) 1px;
+    outline: none;
+}
+
+.or {
+    font-size: 3vh;
+    position: absolute;
+    bottom: 23vh;
+    right:  42.8vw;
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+    font-weight: bolder;
+}
+
+.github {
+    position: absolute;
+    top: 80vh;
+    left: 25vw;
+    height: 9vh;
+    width: 20vw;
+    outline: none;
+}
+
+.google {
+    position: absolute;
+    top: 80vh;
+    left: 60vw;
+    height: 9vh;
+    width: 20vw;
+    outline: none;
+}

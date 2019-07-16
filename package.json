@@ -21,7 +21,8 @@
     "react-google-autocomplete": "^1.1.0",
     "react-places-autocomplete": "^7.2.1",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "session": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
