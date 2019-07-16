@@ -8,7 +8,7 @@
 
 .dev {
     position: absolute;
-    right: 52vw;
+    right: 54vw;
     bottom: 70vh;
     font-size: 4vh;
     font-family: 'DM Sans', sans-serif;
@@ -36,8 +36,8 @@
     padding-left: 20vw;
     font-family: 'DM Sans', sans-serif;
     font-weight: bolder;
-    border: solid rgb(143, 143, 143) 1px;
-    outline: none;
+    border: solid white 1px;
+    outline: none; 
 }
 
 .or {
@@ -66,4 +66,43 @@
     height: 9vh;
     width: 20vw;
     outline: none;
+}
+
+.input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: solid white 1px;
+}
+
+.login-username-placeholder {
+    font-family: 'DM Sans', sans-serif;
+    color: #F8E60B;
+    position: absolute;
+    top: 37vh;
+    font-size: 1.3vh;
+    left: 20vw;
+}
+
+.login-password-placeholder {
+    font-family: 'DM Sans', sans-serif;
+    color: #F8E60B;
+    position: absolute;
+    top: 47vh;
+    font-size: 1.3vh;
+    left: 20vw;
+}
+
+#login-username {
+    position: absolute;
+    top: 40vh;
+    left: 20vw;
+    width: 60vw;
+}
+
+#login-password {
+    position: absolute;
+    top: 50vh;
+    left: 20vw;
+    width: 60vw;
 }

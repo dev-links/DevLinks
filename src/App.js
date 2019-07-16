@@ -12,7 +12,7 @@ function App() {
       <JobListings/>
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
-      {/* <Login /> */}
+      <Login />
     </div>
   );
 }
