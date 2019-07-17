@@ -14,12 +14,15 @@ function App() {
   return (
     <Router>
     <div className="App">
+
       <JobListings/>
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
 
       <ClientRegister />
+
+
 
 
       {routes}
