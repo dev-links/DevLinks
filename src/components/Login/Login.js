@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import './Login.css';
 
 class Login extends Component {
@@ -15,13 +15,13 @@ class Login extends Component {
     render() {
         return (
             <div className='login-container'>
-                <div className='dev'>
+                <Link to='/'><div className='dev'>
                     DEV
-                </div>
+                </div></Link>
 
-                <div className='links'>
+                <Link to='/'><div className='links'>
                     LINKS
-                </div>
+                </div></Link>
 
                 <h1 className='login-username-placeholder'>USERNAME</h1>
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import './adminRegister.css';
 
 class adminRegister extends Component {
@@ -16,13 +16,13 @@ class adminRegister extends Component {
         return (
             //need to change login container
             <div className='login-container'>
-                <div className='dev'>
+                <Link to='/'><div className='dev'>
                     DEV
-                </div>
+                </div></Link>
 
-                <div className='links'>
+                <Link to='/'><div className='links'>
                     LINKS
-                </div>
+                </div></Link>
 
                 <h1 className='admin-username-placeholder'>USERNAME</h1>
 
@@ -39,9 +39,9 @@ class adminRegister extends Component {
                 <button className='admin-register'>REGISTER</button>
 
                 {/* Add line */}
-                <button className='employer-button'>EMPLOYER</button>
+                <Link to='admin-register'><button className='employer-button'>EMPLOYER</button></Link>
 
-                <button className='client-button'>CLIENT</button>
+                <Link to='client-register'><button className='client-button'>CLIENT</button></Link>
             </div>
         )
     }

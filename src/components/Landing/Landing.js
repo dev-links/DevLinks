@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect, Link} from 'react-router-dom';
 import './Landing.css';
 
 class Landing extends Component {
@@ -20,13 +21,13 @@ class Landing extends Component {
                 LINKS
             </div>
 
-                <button className='signup-button'>
+                <Link to='/client-register'><button className='signup-button'>
                         SIGN UP
-                    </button>
+                    </button></Link>
 
-                    <button className='signin-button'>
+                    <Link to='/login'><button className='signin-button'>
                         SIGN IN
-                    </button>
+                    </button></Link>
             </div>
         )
     }
