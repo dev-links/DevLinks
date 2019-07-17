@@ -19,7 +19,6 @@ export class ChatRoom extends Component {
     }
 
     componentDidMount() {
-        
         firebase.database()
             .ref()
             .child('chatroom') // FIX change to the combined id of the two users to create a new chat room
