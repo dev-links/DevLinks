@@ -3,6 +3,7 @@ import firebase from '../config/Firebase'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
 import './Chatroom.css'
+import { stringify } from 'querystring';
 
 const ROOT_CSS = css({
     height: 650,
@@ -21,7 +22,8 @@ export class ChatRoom extends Component {
     componentDidMount() {
 
         firebase.database()
-            .ref('chatrooms/')
+            .ref()
+            .child('chatroom') // FIX change to the combined id of the two users to create a new chat room
             .on('value', (snapshot) => {
                 const currentMessages = snapshot.val()
                 if (currentMessages != null) {
@@ -31,26 +33,26 @@ export class ChatRoom extends Component {
     }
 
 
-
-
     updateMessage = (e) => {
         this.setState({ [e.target.name]:e.target.value })
     }
 
     submitMessage = () => {
         let { message, messages } = this.state
+        let time = new Date().toLocaleTimeString()
+        
         if(this.state.message !== '') {
             let nextMessage = {
                 id:messages.length,
-                text: message
+                text: message,
+                // FIX start user and senderId with '' add values when logged in -- delete hard code
+                user: 'chris',
+                senderId: '109',
+                time: `${time}`
             }
-            firebase.database().ref('chatrooms/'+nextMessage.id).set(nextMessage)
+            firebase.database().ref().child('chatroom/'+nextMessage.id).set(nextMessage)
             
-            // this.setState({ message: '' })
-            
-            // nextMessage.text = ''
-
-
+            this.setState({ message: '' })
             
         }
     }
@@ -58,12 +60,18 @@ export class ChatRoom extends Component {
     
 
     render() {
-        console.log(this.state.message)
-
+        // console.log(this.state.message)
+        
+        let date = JSON.stringify(new Date()).slice(12,17)
+        let hours = date.slice(0,2)
+        let mins = date.slice(3,5)
+        console.log(hours)
+        let { message } = this.state
         const currentMessages = this.state.messages.map(message => {
             return (
                 <div key={message.id} >
-                <h6>Chris</h6>
+                {/* fix to add the right user when a message is added */}
+                <h6>{message.user}</h6>
                 <li className='speech-bubble'>{message.text}</li>
                 </div>
             )
@@ -75,7 +83,7 @@ export class ChatRoom extends Component {
                 </ul>
 
             <div className='input'>
-                <input id='input' type="text" placeholder='Message' name='message'
+                <input id='input' type="text" placeholder='Message' name='message' value={message}
                 onChange={e => this.updateMessage(e)}
                 />
                 
