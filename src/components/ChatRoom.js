@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import firebase from '../config/Firebase'
+import ScrollToBottom from 'react-scroll-to-bottom';
+import { css } from 'glamor';
 import './Chatroom.css'
 
+const ROOT_CSS = css({
+    height: 650,
+    width: 400
+  });
 
 export class ChatRoom extends Component {
     constructor(props,context) {
@@ -13,6 +19,7 @@ export class ChatRoom extends Component {
     }
 
     componentDidMount() {
+
         firebase.database()
             .ref('chatrooms/')
             .on('value', (snapshot) => {
@@ -23,6 +30,9 @@ export class ChatRoom extends Component {
         })
     }
 
+
+
+
     updateMessage = (e) => {
         this.setState({ [e.target.name]:e.target.value })
     }
@@ -30,24 +40,36 @@ export class ChatRoom extends Component {
     submitMessage = () => {
         let { message, messages } = this.state
         if(this.state.message !== '') {
-            const nextMessage = {
+            let nextMessage = {
                 id:messages.length,
                 text: message
             }
             firebase.database().ref('chatrooms/'+nextMessage.id).set(nextMessage)
+            
+            // this.setState({ message: '' })
+            
+            // nextMessage.text = ''
+
+
+            
         }
     }
 
+    
+
     render() {
-        
         console.log(this.state.message)
+
         const currentMessages = this.state.messages.map(message => {
             return (
-                <li key={message.id}>{message.text}</li>
+                <div key={message.id} >
+                <h6>Chris</h6>
+                <li className='speech-bubble'>{message.text}</li>
+                </div>
             )
         })
         return (
-            <div>
+            <ScrollToBottom className={ROOT_CSS}>
                 <ul>
                 {currentMessages}
                 </ul>
@@ -61,7 +83,7 @@ export class ChatRoom extends Component {
                 onClick={() => this.submitMessage()}
                 >Send</button>
             </div>
-            </div>
+            </ScrollToBottom>
         )
     }
 }

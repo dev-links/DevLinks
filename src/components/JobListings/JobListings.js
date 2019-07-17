@@ -1,40 +1,53 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-// import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+import '../JobListings/JobListings.css'
+import GoogleMapReact from 'google-map-react'
 
 
 
 const mapStyles = {
-    width: '25%',
-    height: '25%',
-  };
+    width: '50%',
+    height: '50%',
+    
+  }
+
  
  class JobListings extends Component {
     constructor(props) {
       super(props);
       this.state = {
-          location: '',
-          stores: [{lat: 47.49855629475769, lng: -122.14184416996333}]
+        locations: [{lat: 47.49855629475769, lng: -122.14184416996333}],
+        jobs:''
       }
+
     }
     
-    handleChange = location => {
-        this.setState({ location });
-      };
+    handleChange = jobs => {
+      this.setState({ jobs });
+    };
+
 
     displayMarkers = () => {
-      return this.state.stores.map((store, index) => {
-        return <Marker key={index} id={index} position={{
-         lat: store.latitude,
-         lng: store.longitude
+      return this.state.locations.map((jobs, index) => {
+        return <Marker 
+        key={index} 
+        id={index} 
+        position={{
+         lat: jobs.latitude,
+         lng: jobs.longitude
        }}
-       onClick={() => console.log('it works')} />
+        />
       })
     }
+
+    
+
+  
   
     render() {
       return (
 
+        
         <div>
             <form>
             <h1>Job Listings</h1>
@@ -46,26 +59,24 @@ const mapStyles = {
             type='text'/>
             <button>Search</button>
             </form>
-            {/* <PlacesAutocomplete
-            value={this.state.address}
-            onChange={this.handleChange}
-            onSelect={this.handleSelect}
-            >
-
-            </PlacesAutocomplete> */}
-          <Map
+            
+          
+            <Map className='map-container'
             google={this.props.google}
-            zoom={8}
+            zoom={15}
             style={mapStyles}
-            initialCenter={{ lat: 32.777735199999995, lng: -96.79551099999999}}
+            initialCenter={{ lat: 32.7777, lng: -96.7955}}
             >
+            <Marker position={{ lat: 32.7777, lng: -96.7955}} />
             {this.displayMarkers()}
           </Map>
+         
             </div>
       );
     }
   }
 
-  export default  GoogleApiWrapper({
+  export default  
+  GoogleApiWrapper({
     apiKey: 'AIzaSyD_EZ0L3z6RTmVbrPG1Z1IZ3zsuZopE-aQ'
   })(JobListings);
