@@ -24,12 +24,14 @@ export class ChatRoom extends Component {
         firebase.database()
             .ref()
             .child('chatroom') // FIX change to the combined id of the two users to create a new chat room
+            .limitToLast(40)
             .on('value', (snapshot) => {
                 const currentMessages = snapshot.val()
                 if (currentMessages != null) {
                     this.setState({ messages: currentMessages })
                 }
         })
+
     }
 
 
@@ -62,10 +64,6 @@ export class ChatRoom extends Component {
     render() {
         // console.log(this.state.message)
         
-        let date = JSON.stringify(new Date()).slice(12,17)
-        let hours = date.slice(0,2)
-        let mins = date.slice(3,5)
-        console.log(hours)
         let { message } = this.state
         const currentMessages = this.state.messages.map(message => {
             return (

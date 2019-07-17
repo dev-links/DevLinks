@@ -10,10 +10,7 @@ import Login from './components/Login/Login';
 import ClientRegister from './components/clientRegister/clientRegister';
 import AdminRegister from './components/adminRegister/adminRegister';
 
-import Landing from './components/Landing/Landing';
-import Login from './components/Login/Login';
-import ClientRegister from './components/clientRegister/clientRegister';
-import AdminRegister from './components/adminRegister/adminRegister';
+
 
 export default (
     <Switch>

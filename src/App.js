@@ -15,12 +15,12 @@ function App() {
     <Router>
     <div className="App">
 
-      <JobListings/>
+      {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
 
-      <ClientRegister />
+      {/* <ClientRegister /> */}
 
 
 
