@@ -14,6 +14,8 @@ import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 import ClientRegister from './components/clientRegister/clientRegister';
 import AdminRegister from './components/adminRegister/adminRegister';
+import ClientDashboard from './components/clientDashboard/clientDashboard';
+import AdminDashboard from './components/adminDashboard/adminDashboard';
 
 export default (
     <Switch>
@@ -25,6 +27,11 @@ export default (
         <Route path='/login' component={Login} />
         <Route path='/client-register' component={ClientRegister} />
         <Route path='/admin-register' component={AdminRegister} />
+
+        <Route path='/client-dashboard' component={ClientDashboard} />
+        <Route path='/admin-dashboard' component={AdminDashboard} />
+
         <Route path='/chat' component={ChatRoom} />
+
     </Switch>
 )
