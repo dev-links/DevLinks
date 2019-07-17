@@ -1,5 +1,5 @@
 import React from 'react';
-import JobListings from './components/JobListings';
+import JobListings from './components/JobListings/JobListings';
 import ClientDashboard from './components/clientDashboard/clientDashboard';
 import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
@@ -7,6 +7,7 @@ import ClientRegister from './components/clientRegister/clientRegister';
 
 import './App.css';
 import routes from './routes';
+import ChatRoom from './components/ChatRoom';
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
       {/* <Landing /> */}
       {/* <Login /> */}
 
-      <ClientRegister />
-
+      {/* <ClientRegister /> */}
+      <ChatRoom />
       {routes}
 
     </div>
