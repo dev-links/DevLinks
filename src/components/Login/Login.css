@@ -1,3 +1,139 @@
+/* COMPUTER RESPONSIVE */
+.login-container {
+    /* background-color: black; */
+    /* background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'); */
+    width: 100vw;
+    height: 100vh;
+    /* filter: blur(8px); */
+    /* -webkit-filter: blur(8px); */
+}
+
+.dev {
+    position: absolute;
+    right: 54vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: #F8E60B;
+}
+
+.links {
+    position: absolute;
+    right: 30vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+}
+
+.login-button {
+    font-size: 3vh;
+    position: absolute;
+    bottom: 35vh;
+    right:  35vw;
+    background-color: #F8E60B;
+    color: white;
+    border-radius: 30px;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bolder;
+    border: solid white 1px;
+    outline: none; 
+}
+
+.or {
+    font-size: 3vh;
+    position: absolute;
+    bottom: 29vh;
+    right:  46vw;
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+    font-weight: bolder;
+}
+
+.github {
+    position: absolute;
+    top: 70vh;
+    left: 40vw;
+    height: 9vh;
+    width: 20vw;
+    outline: none;
+    width: 5vw;
+    height: 7vh;
+}
+
+.google {
+    position: absolute;
+    top: 70vh;
+    left: 60vw;
+    height: 9vh;
+    width: 20vw;
+    outline: none;
+    width: 5vw;
+    height: 7vh;
+}
+
+.input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: solid white 1px;
+}
+
+.login-username-placeholder {
+    font-family: 'DM Sans', sans-serif;
+    color: #F8E60B;
+    position: absolute;
+    top: 37vh;
+    font-size: 1.3vh;
+    left: 20vw;
+}
+
+.login-password-placeholder { 
+    font-family: 'DM Sans', sans-serif;
+    color: #F8E60B;
+    position: absolute;
+    top: 47vh;
+    font-size: 1.3vh;
+    left: 20vw;
+}
+
+#login-username {
+    position: absolute;
+    top: 40vh;
+    left: 20vw;
+    width: 60vw;
+}
+
+#login-password {
+    position: absolute;
+    top: 50vh;
+    left: 20vw;
+    width: 60vw;
+}
+
+#landing-image {
+    height: 60vh;
+    width: 50vw;
+}
+
+#landing-image-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20vh;
+}
+
+
+
+
+
+
+
+
+
+/* IPHONE X RESPONSIVE */
+@media (max-width: 375px) {
 .login-container {
     background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
     width: 100vw;
@@ -106,3 +242,4 @@
     left: 20vw;
     width: 60vw;
 }
+    }
