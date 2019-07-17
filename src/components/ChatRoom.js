@@ -3,7 +3,6 @@ import firebase from '../config/Firebase'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
 import './Chatroom.css'
-import { stringify } from 'querystring';
 
 const ROOT_CSS = css({
     height: 650,
@@ -20,10 +19,10 @@ export class ChatRoom extends Component {
     }
 
     componentDidMount() {
-
         firebase.database()
             .ref()
             .child('chatroom') // FIX change to the combined id of the two users to create a new chat room
+            .limitToLast(40)
             .on('value', (snapshot) => {
                 const currentMessages = snapshot.val()
                 if (currentMessages != null) {
@@ -62,10 +61,6 @@ export class ChatRoom extends Component {
     render() {
         // console.log(this.state.message)
         
-        let date = JSON.stringify(new Date()).slice(12,17)
-        let hours = date.slice(0,2)
-        let mins = date.slice(3,5)
-        console.log(hours)
         let { message } = this.state
         const currentMessages = this.state.messages.map(message => {
             return (
