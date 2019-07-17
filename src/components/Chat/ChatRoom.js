@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import firebase from '../config/Firebase'
+import firebase from '../../config/Firebase'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
 import './Chatroom.css'
-import { stringify } from 'querystring';
 
 const ROOT_CSS = css({
     height: 650,
@@ -20,7 +19,7 @@ export class ChatRoom extends Component {
     }
 
     componentDidMount() {
-
+        
         firebase.database()
             .ref()
             .child('chatroom') // FIX change to the combined id of the two users to create a new chat room

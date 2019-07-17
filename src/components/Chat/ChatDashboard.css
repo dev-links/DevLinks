@@ -1,0 +1,54 @@
+
+
+.chat {
+    width: 100vw;
+    height: 10vh;
+    background: rgb(92, 137, 148);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-basis: 40vw;
+}
+
+.left h6 {
+    margin-left: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.chat img {
+    /* position: relative; */
+    width: 5%;
+    height: 85%;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+
+.chat button {
+    margin-right: 1rem;
+    width: 18vw;
+}
+
+.dummyNav {
+    width:100vw;
+    height: 10vh;
+    background: black;
+}
+
+@media (max-width: 450px) {
+    
+    .chat img {
+        position: relative;
+        width: 45%;
+        height: 45%;
+        border-radius: 50%;
+        margin-left: 1rem;
+    }
+    
+}

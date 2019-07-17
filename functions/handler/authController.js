@@ -87,6 +87,100 @@ exports.login = (req,res) =>{
             })
 }
 
+
+// Add user details
+exports.addUserDetails = (req,res) =>{
+    let userDetails = reduceUserDetails(req.body);
+
+    db.doc(`/users/${req.user.handle}`).update(userDetails)
+        .then(() =>{
+            return res.json({ message: 'Details added successfully'});
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({error: err.code})
+        })
+}
+
+
+
+// Get own user details
+exports.getAuthUser = (req,res) =>{
+    let userData = {}
+    db.doc(`/users/${req.user.handle}`).get()
+        .then(doc => {
+            if (doc.exists){
+                userData.credentials =doc.data();
+                return db.collection('comments')
+                        .where('userHandle', '==', req.user.handle)
+                        .get()
+            }
+        })
+        .then((data) => {
+            userData.comments =[];
+            data.forEach(doc =>{
+                userData.comments.push(doc.data())
+            });
+            return db.collection('notifications').where('recipient', '==', req.user.handle)
+                .orderBy('createAt', 'desc').limit(8).get()
+        })
+        .then(data =>{
+            userData.notification= []
+            data.forEach(doc =>{
+                userData.notification.push({
+                    recipient: doc.data().recipient,
+                    sender: doc.data().sender,
+                    createAt: doc.data().createAt,
+                    feedId: doc.data().feedId,
+                    type: doc.data().type,
+                    read: doc.data().read,
+                    notificationId: doc.id
+                })
+            })
+            return res.json(userData)
+        })
+        .catch(err => {
+            console.error(err)
+            return res.status(500 .json({error:err.code}))
+        })
+}
+
+exports.getUserDetails = (req,res)=>{
+    let userData = {};
+
+    db.doc(`/users/${req.params.handle}`).get()
+        .then(doc => {
+            if(doc.exists){
+                userData.user =doc.data();
+                return db.collection('feeds').where('userHandle', '==', req.params.handle)
+                    .orderBy('createAt', 'desc')
+                    .get();
+            } else{
+                return res.status(404).json({error: "User not found"})
+            }
+        })
+        .then(data =>{
+            userData.feeds = [];
+            data.forEach(doc => {
+                userData.feeds.push({
+                    body: doc.data().body,
+                    createAt: doc.data().createAt,
+                    userHandle: doc.data().userHandle,
+                    userImage: doc.data().userImage,
+                    commentCount: doc.data().commentCount,
+                    feedId: doc.id
+                })
+            })
+            return res.json(userData);
+        })
+        .catch(err =>{
+            console.error(err);
+            return res.status(500).json({error: err.code})
+        })
+}
+
+
+
 //Profile Image
 
 exports.uploadImage = (req,res) =>{
@@ -133,4 +227,20 @@ exports.uploadImage = (req,res) =>{
         })
     });
     busboy.end(req.rawBody)
+}
+
+exports.notificationsRead = (req,res) =>{
+    let batch = db.batch();
+    req.body.forEach(notificationId =>{
+        const notification = db.doc(`/notifications/${notificationId}`);
+        batch.update(notification, {read: true});
+    })
+    batch.commit()
+        .then(()=>{
+            return res.json({message: 'Notifications marked read'})
+        })
+        .catch(err =>{
+            console.error(err)
+            return res.status(500).json({error: err.code})
+        })
 }
