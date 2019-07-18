@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import axios from 'axios'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './Login.css';
@@ -8,23 +9,57 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            email: '',
             password: '',
+            errors: {},
+            loading: false,
             redirect: false
         }
     } 
 
+    handleClick = (e) => {
+        e.preventDefault();
+        this.setState({
+            loading : true
+        })
+        const userData = {
+            email : this.state.email,
+            password : this.state.password
+        }
+        axios.post('/login', userData)
+        .then(res => {
+            console.log(res.data)
+            this.setState({
+                loading: false
+            })
+            this.props.history.push('/')
+        })
+        .catch(err => {
+            this.setState({
+                errors: err.response.data,
+                loading: false
+            })
+        })
+    }
+
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
     render() {
 
         //Checking to see if client or admin
-        if(this.state.redirect === true && this.state.user.admin === true) {
-            console.log('Logged in as Employer')
-            return <Redirect to='admin-dashboard' />
-        }
-        if(this.state.redirect === true && this.state.user.admin === false) {
-            console.log('Logged in as Client')
-            return <Redirect to='client-dashboard' />
-        }
+        // if(this.state.redirect === true && this.state.user.admin === true) {
+        //     console.log('Logged in as Employer')
+        //     return <Redirect to='admin-dashboard' />
+        // }
+        // if(this.state.redirect === true && this.state.user.admin === false) {
+        //     console.log('Logged in as Client')
+        //     return <Redirect to='client-dashboard' />
+        // }
 
         return (
             <div className='login-container'>
@@ -42,13 +77,13 @@ class Login extends Component {
 
                 <h1 className='login-username-placeholder'>USERNAME</h1>
 
-                <input id='login-username' className='input' />
+                <input id='login-username' className='input'  name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
 
                 <h1 className='login-password-placeholder'>PASSWORD</h1>
 
-                <input id='login-password' className='input' type='password' />
+                <input id='login-password' className='input' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
 
-                <button className='login-button'>
+                <button className='login-button' onClick={this.handleClick} >
                     LOGIN
                 </button>
 
