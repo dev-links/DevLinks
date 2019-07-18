@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect, Link} from 'react-router-dom';
 import './Landing.css';
 
 class Landing extends Component {
@@ -12,6 +13,9 @@ class Landing extends Component {
     render() {
         return (
             <div className='landing-container'>
+
+            <div id= 'landing-image-container'><img id='landing-image' src='https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' /></div>
+
             <div className='dev'>
                 DEV
             </div>
@@ -20,13 +24,13 @@ class Landing extends Component {
                 LINKS
             </div>
 
-                <button className='signup-button'>
+                <Link to='/client-register'><button className='signup-button'>
                         SIGN UP
-                    </button>
+                    </button></Link>
 
-                    <button className='signin-button'>
+                    <Link to='/login'><button className='signin-button'>
                         SIGN IN
-                    </button>
+                    </button></Link>
             </div>
         )
     }

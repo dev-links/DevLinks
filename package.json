@@ -26,6 +26,10 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+<<<<<<< HEAD
+=======
+    "react-scroll-to-bottom": "^1.3.2",
+>>>>>>> master
     "redux": "^4.0.4",
     "session": "^0.1.0"
   },

@@ -1,0 +1,58 @@
+body {
+    background: whitesmoke;
+}
+
+.input {
+    display: flex;
+    position:fixed;
+    bottom:0;
+    max-height: 20vh;
+}
+
+.input input {
+    width: 75vw;
+    font-size: 1.3rem;
+}
+
+.input button {
+    width: 25vw;
+    height:7vh;
+}
+
+li {
+    word-wrap: break-word;
+}
+
+h6 {
+    margin-top: .7rem;
+}
+
+.speech-bubble {
+	position: relative;
+	background: #004080;
+    border-radius: .4em;
+    margin-bottom: .5rem;
+    width: 60vw;
+    max-width: 80vw;
+    min-height: 5vh;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 0.313em solid transparent;
+	border-top-color: #004080;
+	border-bottom: 0;
+	margin-left: -0.312em;
+    margin-bottom: -0.312em;
+}
