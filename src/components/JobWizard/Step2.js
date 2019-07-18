@@ -47,9 +47,7 @@ class Step2 extends Component {
             Company, JobTitle, Location, JobDescription, EmploymentTypeMenu, SeniorityLevelMenu,VisaStatusMenu,SubmitResumeMenu,EducationMenu,Address,City,State,Zipcode
         })
         const db = firestore.firestore();
-        // db.setting({
-        //     timestampsInSnapshots: true
-        // });
+        
         const jobListingss = db.collection('jobListings').add({
             Company,Address,City,State,Zipcode,
             JobTitle,
