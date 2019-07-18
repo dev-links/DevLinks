@@ -4,13 +4,14 @@ import App from './App';
 import Step1 from './components/JobWizard/Step1';
 import Step2 from './components/JobWizard/Step2';
 import NavBar from './components/NavBar/NavBar';
-import ChatRoom from './components/ChatRoom'
+import ChatRoom from './components/Chat/ChatRoom'
 import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 import ClientRegister from './components/clientRegister/clientRegister';
 import AdminRegister from './components/adminRegister/adminRegister';
 import ClientDashboard from './components/clientDashboard/clientDashboard';
 import AdminDashboard from './components/adminDashboard/adminDashboard';
+import ChatDashboard from './components/Chat/ChatDashboard'
 
 export default (
     <Switch>
@@ -27,6 +28,6 @@ export default (
         <Route path='/admin-dashboard' component={AdminDashboard} />
 
         <Route path='/chat' component={ChatRoom} />
-
+        <Route path='/chatDash' component={ChatDashboard}/>
     </Switch>
 )
