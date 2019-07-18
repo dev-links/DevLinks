@@ -51,7 +51,6 @@ function App() {
 
 
 
-
       {/* {routes} */}
     </div>
     </Router>

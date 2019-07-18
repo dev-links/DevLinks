@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import {loginUser} from '../../redux/actions/userAction';
+import axios from 'axios'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './Login.css';
@@ -11,6 +11,8 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            errors: {},
+            loading: false,
             redirect: false
         }
         this.handleChange = this.handleChange.bind(this)
@@ -38,6 +40,38 @@ class Login extends Component {
             password: this.state.password
         }
         this.props.loginUser(userData, this.props.history)
+    }
+
+    handleClick = (e) => {
+        e.preventDefault();
+        this.setState({
+            loading : true
+        })
+        const userData = {
+            email : this.state.email,
+            password : this.state.password
+        }
+        axios.post('/login', userData)
+        .then(res => {
+            console.log(res.data)
+            this.setState({
+                loading: false
+            })
+            this.props.history.push('/')
+        })
+        .catch(err => {
+            this.setState({
+                errors: err.response.data,
+                loading: false
+            })
+        })
+    }
+
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     }
 
     render() {
@@ -68,13 +102,13 @@ class Login extends Component {
 
                 <h1 className='login-username-placeholder'>USERNAME</h1>
 
-                <input id='login-username' className='input' onChange={this.handleChange} />
+                <input id='login-username' className='input'  name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
 
                 <h1 className='login-password-placeholder'>PASSWORD</h1>
 
-                <input id='login-password' className='input' type='password' onChange={this.handleChange} />
+                <input id='login-password' className='input' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
 
-                <button className='login-button' onSubmit={this.handleSubmit}>
+                <button className='login-button' onClick={this.handleClick} >
                     LOGIN
                 </button>
 
