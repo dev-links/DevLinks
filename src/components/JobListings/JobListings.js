@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import firestore from '../../config/Firebase'
+
 import '../JobListings/JobListings.css'
 import GoogleMapReact from 'google-map-react'
+import Axios from 'axios';
 
 
 
@@ -11,13 +14,17 @@ const mapStyles = {
     
   }
 
+
  
  class JobListings extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        locations: [{lat: 47.49855629475769, lng: -122.14184416996333}],
-        jobs:''
+        locations: [],
+        jobs:'',
+        Address:'1 Hacker Way Menlo Park, CA 94025',
+        lat: "",
+      lng: ""
       }
 
     }
@@ -25,7 +32,22 @@ const mapStyles = {
     handleChange = jobs => {
       this.setState({ jobs });
     };
-
+    componentDidMount(){
+      let locations = this.state
+      Axios.get('https://Dev-Links.firebaseio.com/jobListings/.json?auth=8BAXB62tMF2F9FrgFETKa7AQ3AmE1dfSfaLGwkng')
+      .then( data => {
+        this.setState({locations: data.data})
+      })
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          this.setState({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+          console.log(this.state.lat, this.state.lng);
+        }.bind(this)
+      );
+    }
 
     displayMarkers = () => {
       return this.state.locations.map((jobs, index) => {
@@ -40,16 +62,11 @@ const mapStyles = {
       })
     }
 
-    
-
-  
-  
     render() {
+      console.log(this.state.locations)
       return (
-
-        
         <div>
-            <form>
+            {/* <form>
             <h1>Job Listings</h1>
             <input
             placeholder='Search jobs'
@@ -58,7 +75,7 @@ const mapStyles = {
             placeholder='Search location'
             type='text'/>
             <button>Search</button>
-            </form>
+            </form> */}
             
           
             <Map className='map-container'
@@ -68,7 +85,7 @@ const mapStyles = {
             initialCenter={{ lat: 32.7777, lng: -96.7955}}
             >
             <Marker position={{ lat: 32.7777, lng: -96.7955}} />
-            {this.displayMarkers()}
+            {/* {this.displayMarkers()} */}
           </Map>
          
             </div>

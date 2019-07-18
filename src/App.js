@@ -33,19 +33,19 @@ function App() {
   return (
     <Router>
     <div className="App">
-      {/* <JobListings/> */}
+      <JobListings/>
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
       {/* <ClientRegister /> */}
       {/* <NavBar/> */}
-      <JobWizard/>
-      {routes}
+      {/* <JobWizard/> */}
+      {/* {routes} */}
 
       {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
-      <Login />
+      {/* <Login /> */}
 
       {/* <ClientRegister /> */}
 
