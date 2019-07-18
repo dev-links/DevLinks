@@ -13,6 +13,9 @@ class Landing extends Component {
     render() {
         return (
             <div className='landing-container'>
+
+            <div id= 'landing-image-container'><img id='landing-image' src='https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' /></div>
+
             <div className='dev'>
                 DEV
             </div>

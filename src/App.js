@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import ClientRegister from './components/clientRegister/clientRegister';
 import AdminRegister from './components/adminRegister/adminRegister';
 import NavBar from './components/NavBar/NavBar';
+import JobWizard from './components/JobWizard/Step1';
 
 import './App.css';
 import routes from './routes';
@@ -15,12 +16,25 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <JobListings/>
+      {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
       {/* <Login /> */}
       {/* <ClientRegister /> */}
       {/* <NavBar/> */}
+      <JobWizard/>
+      {routes}
+
+      {/* <JobListings/> */}
+      {/* <ClientDashboard /> */}
+      {/* <Landing /> */}
+      {/* <Login /> */}
+
+      {/* <ClientRegister /> */}
+
+
+
+
       {/* {routes} */}
     </div>
     </Router>

@@ -23,11 +23,15 @@ li {
     word-wrap: break-word;
 }
 
+h6 {
+    margin-top: .7rem;
+}
+
 .speech-bubble {
 	position: relative;
 	background: #004080;
     border-radius: .4em;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     width: 60vw;
     max-width: 80vw;
     min-height: 5vh;
