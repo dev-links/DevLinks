@@ -108,12 +108,14 @@ exports.addUserDetails = (req,res) =>{
 exports.getAuthUser = (req,res) =>{
     let userData = {}
     db.doc(`/users/${req.user.handle}`).get()
-        .then(doc => {
-            if (doc.exists){
+        .then((doc) => {
+        if(doc.exists){
                 userData.credentials =doc.data();
                 return db.collection('comments')
                         .where('userHandle', '==', req.user.handle)
                         .get()
+            } else{
+                return true
             }
         })
         .then((data) => {

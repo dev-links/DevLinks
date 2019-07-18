@@ -31,7 +31,7 @@ exports.createNotificationOnComment = functions.region('us-central1').firestore.
     .onCreate((snapshot)=>{
        return db.doc(`/feeds/${snapshot.data().feedId}`).get()
             .then(doc => {
-                if(doc.exists){
+                if(doc.exists && doc.data().userHandle !== snapshot.data().userHandle){
                     return db.doc(`/notifications/${snapshot.id}`).set({
                         createAt: new Date().toLocaleString(),
                         recipient: doc.data().userHandle,
@@ -40,9 +40,49 @@ exports.createNotificationOnComment = functions.region('us-central1').firestore.
                         read: false,
                         feedId: doc.id
                     })
+                } else {
+                    return true
                 }
             })
             .catch(err =>{
                 console.error(err)
             })
+    })
+
+exports.onUserImageChange = functions.region('us-central1').firestore.document('/users/{userId}')
+    .onUpdate((change) =>{
+        console.log(change.before.data());
+        console.log(change.after.data());
+        if(change.before.data().imageUrl !== change.after.data().imageUrl){
+            console.log('image has changed')
+            let batch = db.batch()
+        return db.collection('feeds').where('userHandle', '==', change.before.data().handle).get()
+            .then(data =>{
+                data.forEach(doc =>{
+                    const feed = db.doc(`/feeds/${doc.id}`);
+                    batch.update(feed, {userIamge: change.after.data().imageUrl})
+                })
+                return batch.commit()
+            })
+        } else return true;
+    })
+
+exports.onFeedDelete = functions.region('us-central1').firestore.document('/feeds/{feedId}')
+    .onDelete((snapshot, context)=>{
+        const feedId = context.params.feedId;
+        const batch = db.batch();
+        return db.collection('comments').where('feedId', '==', feedId).get()
+                .then(data =>{
+                    data.forEach(doc =>{
+                        batch.delete(db.doc(`/comments/${doc.id}`));
+                    })
+                    return db.collection('notifications').where('feedId', '==', feedId).get()
+                })
+                .then(data =>{
+                    data.forEach(doc =>{
+                        batch.delete(db.doc(`/notifications/${doc.id}`))
+                    })
+                    return batch.commit();
+                })
+                .catch(err => console.error(err))
     })
