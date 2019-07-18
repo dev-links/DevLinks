@@ -1,6 +1,6 @@
 /* COMPUTER RESPONSIVE */
 .login-container {
-    /* background-color: black; */
+    background-color: black;
     /* background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'); */
     width: 100vw;
     height: 100vh;
@@ -205,6 +205,7 @@
 }
 
 .input {
+    margin-top: -17vh;
     background-color: transparent;
     outline: none;
     border: none;
@@ -241,5 +242,9 @@
     top: 50vh;
     left: 20vw;
     width: 60vw;
+}
+
+#landing-image {
+    display: none;
 }
     }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+// import {registerUser} from "../redux/actions/userAction"
 import './clientRegister.css';
 
 class clientRegister extends Component {
@@ -7,14 +8,16 @@ class clientRegister extends Component {
         super();
         this.state = {
             username: '',
+            email: '',
             password: '',
             firstName: '',
             lastName: '',
-            // redirect: false
+            redirect: false
         }
     } 
 
     render() {
+        const {classes, UI: {loading}} = this.props
         return (
             //need to change login container
             <div className='login-container'>
