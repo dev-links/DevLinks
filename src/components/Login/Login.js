@@ -15,7 +15,32 @@ class Login extends Component {
             loading: false,
             redirect: false
         }
-    } 
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    componentWillReceiveProps(nextProps){
+        if (nextProps.UI.errors){
+            this.setState({
+                errors: nextProps.UI.errors
+            })
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id] : e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        this.props.loginUser(userData, this.props.history)
+    }
 
     handleClick = (e) => {
         e.preventDefault();
@@ -101,4 +126,21 @@ class Login extends Component {
     }
 }
 
-export default Login;
+Login.propTypes ={
+    loginUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => {
+    return{
+        user: state.user,
+        UI: state.UI
+    }
+}
+
+const mapActionsToProps = {
+    loginUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Login)

@@ -52,6 +52,7 @@ class clientRegister extends Component {
     }
 
     render() {
+        const {classes, UI: {loading}} = this.props
         return (
             //need to change login container
             <div className='login-container'>

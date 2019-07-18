@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {handleCompany, handleJobTitle, handleLocation} from '../../redux/jobReducer' ;
+import {handleCompany, handleJobTitle, handleAddress, handleCity, handleState, handleZipcode} from '../../redux/jobReducer' ;
 import {Link} from 'react-router-dom';
 import axios from 'axios'
 
@@ -10,7 +10,10 @@ class Step1 extends Component {
         this.state = {
             Company: '',
             JobTitle: '',
-            Location: ''
+            Address: '',
+            City: '',
+            State: '',
+            Zipcode: ''
         }
     }
     componentDidMount(){
@@ -23,15 +26,22 @@ class Step1 extends Component {
 
     handleStep1 = (e) => {
         // e.preventDefault()
-        let {Company, JobTitle, Location} = this.state
+        let {Company, JobTitle, Address,City,State,Zipcode} = this.state
         this.props.handleCompany(Company)
         this.props.handleJobTitle(JobTitle)
-        this.props.handleLocation(Location)
+        this.props.handleAddress(Address)
+        this.props.handleCity(City)
+        this.props.handleState(State)
+        this.props.handleZipcode(Zipcode)
+
+
+
     }
 
 
     render(){
         console.log(this.props)
+        console.log(this.state.Address)
         return (
             <div className='step1-container'>
                 <h1>Begin your Job Post Here</h1>
@@ -49,10 +59,28 @@ class Step1 extends Component {
                     name='JobTitle'/>
                     <br/>
                     <input
-                    placeholder='Location'
+                    placeholder='Address'
                     onChange={e=>this.handleChange(e)}
-                    value={this.state.Location}
-                    name='Location'/>
+                    value={this.state.Address}
+                    name='Address'/>
+                    <br/>
+                    <input
+                    placeholder='City'
+                    onChange={e=>this.handleChange(e)}
+                    value={this.state.City}
+                    name='City'/>
+                    <br/>
+                    <input
+                    placeholder='State'
+                    onChange={e=>this.handleChange(e)}
+                    value={this.state.State}
+                    name='State'/>
+                    <br/>
+                    <input
+                    placeholder='Zipcode'
+                    onChange={e=>this.handleChange(e)}
+                    value={this.state.Zipcode}
+                    name='Zipcode'/>
                     <br/>
                     <Link to='/Step2'>
                     <button 
@@ -66,11 +94,14 @@ class Step1 extends Component {
     }
 }
 const mapStateToProps = (state) => {
-const {Company, JobTitle, Location} = state
+const {Company, JobTitle, Address, City, State, Zipcode} = state
 return {
     Company,
     JobTitle,
-    Location
+    Address,
+    City,
+    State,
+    Zipcode
 }
 }
-export default connect(mapStateToProps,{handleCompany, handleJobTitle, handleLocation})(Step1)
+export default connect(mapStateToProps,{handleCompany, handleJobTitle,handleAddress, handleCity, handleState,handleZipcode})(Step1)

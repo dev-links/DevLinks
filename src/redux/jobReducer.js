@@ -3,14 +3,17 @@
 const initialState = {
     Company: '',
     JobTitle: '',
-    Location: '',
+    Address: '',
+    City: '',
+    State: '',
+    Zipcode: '',
     JobDescription: '',
-    EmploymentTypeMenu:false,
-    SeniorityLevelMenu:false,
-    VisaStatusMenu: false,
-    SubmitResumeMenu:false,
-    EducationMenu: false,
-    JobPosting: []
+    EmploymentTypeMenu:'',
+    SeniorityLevelMenu:'',
+    VisaStatusMenu: '',
+    SubmitResumeMenu:'',
+    EducationMenu: '',
+    JobListings: []
 }
 
 const HANDLE_COMPANY = 'HANDLE_COMPANY'
@@ -32,12 +35,37 @@ export const handleJobTitle = (JobTitle) => {
     }
  }
 
- const HANDLE_LOCATION = 'HANDLE_LOCATION'
+ const HANDLE_ADDRESS = 'HANDLE_ADDRESS'
 
-export const handleLocation = (Location) => {
+export const handleAddress = (Address) => {
     return {
-        type: HANDLE_LOCATION,
-        payload: Location
+        type: HANDLE_ADDRESS,
+        payload: Address
+    }
+ }
+
+ const HANDLE_CITY = 'HANDLE_CITY'
+
+export const handleCity = (City) => {
+    return {
+        type: HANDLE_CITY,
+        payload: City
+    }
+ }
+ const HANDLE_STATE = 'HANDLE_STATE'
+
+export const handleState = (State) => {
+    return {
+        type: HANDLE_STATE,
+        payload: State
+    }
+ }
+ const HANDLE_ZIPCODE = 'HANDLE_ZIPCODE'
+
+export const handleZipcode = (Zipcode) => {
+    return {
+        type: HANDLE_ZIPCODE,
+        payload: Zipcode
     }
  }
  const HANDLE_JOBDESCRIPTION = 'HANDLE_JOBDESCRIPTION'
@@ -92,6 +120,14 @@ export const handleVisaStatusMenu = (VisaStatusMenu) => {
           payload: EducationMenu
       }
    }
+   const HANDLE_JOBLISTINGS = 'HANDLE_JOBLISTINGS'
+
+export const handleJobListings = (JobListing) => {
+    return {
+        type: HANDLE_JOBLISTINGS,
+        payload: JobListing
+    }
+ }
 
    export default function reducer(state=initialState,action) {
     const { type, payload } = action
@@ -101,8 +137,14 @@ export const handleVisaStatusMenu = (VisaStatusMenu) => {
             return { ...state,  Company: payload}
         case HANDLE_JOBTITLE:
             return { ...state, JobTitle: payload}
-        case HANDLE_LOCATION:
-            return { ...state, Location: payload }
+        case HANDLE_ADDRESS:
+            return { ...state, Address: payload }
+        case HANDLE_CITY:
+                return { ...state, City: payload }
+        case HANDLE_STATE:
+            return { ...state, State: payload }
+        case HANDLE_ZIPCODE:
+            return { ...state, Zipcode: payload }
         case HANDLE_JOBDESCRIPTION:
             return { ...state, JobDescription: payload }
         case HANDLE_EMPLOYMENTTYPEMENU:
@@ -115,6 +157,8 @@ export const handleVisaStatusMenu = (VisaStatusMenu) => {
             return { ...state, SubmitResumeMenu: payload }
         case HANDLE_EDUCATIONMENU:
             return { ...state, EducationMenu: payload }
+        case HANDLE_JOBLISTINGS:
+                return { ...state,  JobListing: payload}
         default: return state
     }
  }

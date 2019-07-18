@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {handleJobDescription,handleEmploymentTypeMenu,handleSeniorityLevelMenu,handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu} from '../../redux/jobReducer' ;
+import {handleJobTitle,handleJobDescription,handleEmploymentTypeMenu,handleSeniorityLevelMenu,
+handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu,handleJobListings} from '../../redux/jobReducer' ;
+import firestore from '../../config/Firebase'
 
 
 
@@ -26,22 +28,43 @@ class Step2 extends Component {
     }
     handleStep2 = (e) =>{
         e.preventDefault()
-        let {JobDescription,
+        let {JobTitle,
+        JobDescription,
         EmploymentTypeMenu,
         SeniorityLevelMenu,
         VisaStatusMenu,
         SubmitResumeMenu,
         EducationMenu,} = this.state
+        let {Company,Address,City,State,Zipcode} = this.props
+        this.props.handleJobTitle(JobTitle)
         this.props.handleJobDescription(JobDescription)
         this.props.handleEmploymentTypeMenu(EmploymentTypeMenu)
         this.props.handleSeniorityLevelMenu(SeniorityLevelMenu)
         this.props.handleVisaStatusMenu(VisaStatusMenu)
         this.props.handleSubmitResumeMenu(SubmitResumeMenu)
         this.props.handleEducationMenu(EducationMenu)
+        this.props.handleJobListings({
+            Company, JobTitle, Location, JobDescription, EmploymentTypeMenu, SeniorityLevelMenu,VisaStatusMenu,SubmitResumeMenu,EducationMenu,Address,City,State,Zipcode
+        })
+        const db = firestore.firestore();
+        
+        const jobListingss = db.collection('jobListings').add({
+            Company,Address,City,State,Zipcode,
+            JobTitle,
+            JobDescription,
+            EmploymentTypeMenu,
+            SeniorityLevelMenu,
+            VisaStatusMenu,
+            SubmitResumeMenu,
+            EducationMenu,
+
+          });
     }
 
 
     render(){
+        console.log(this.props)
+        let {Company,Address,City,State,Zipcode} = this.props
         return (
         <div className='step2-container'>
             <h1>Step 2: What job do you want to post</h1>
@@ -51,6 +74,7 @@ class Step2 extends Component {
             <input
             type='text'
             name='Company'
+            value={`${Company}`}
             onChange={e=>this.handleChange(e)}/>
             <br/>
             <h3>Job Title</h3>
@@ -63,10 +87,11 @@ class Step2 extends Component {
             <input
             type='text'
             name='Location'
+            value={`${Address} ${City}, ${State} ${Zipcode}`}
             onChange={e=>this.handleChange(e)}/>
             <br/>
             <h3>Employment Type</h3>
-            <select onClick={this.EmploymentTypeMenu}
+            <select onChange={e=>this.handleChange(e)}
             name='EmploymentTypeMenu'>
                 <option>Choose one...</option>
                 <option>Full-Time</option>
@@ -76,7 +101,7 @@ class Step2 extends Component {
             </select>
             <br/>
             <h3>Seniority Level</h3>
-            <select onClick={this.SeniorityLevelMenu}
+            <select onChange={e=>this.handleChange(e)}
             name='SeniorityLevelMenu'>
                 <option>Choose one...</option>
                 <option>Entry Level</option>
@@ -94,7 +119,7 @@ class Step2 extends Component {
             <br/>
             <h3>Visa Status</h3>
             <h4>Will you now, or in the future, require sponsorship for employment visa status (e.g. H-1B visa status)?</h4>
-            <select onClick={this.VisaStatusMenu}
+            <select onChange={e=>this.handleChange(e)}
             name='VisaStatusMenu'>
                  <option>Choose one...</option>
                 <option>yes</option>
@@ -103,7 +128,7 @@ class Step2 extends Component {
             <br/>
             <h3>Submit Resume</h3>
             <h4>Do you want the candidate to submit a resume?</h4>
-            <select onClick={e=>this.handleChange(e)}
+            <select onChange={e=>this.handleChange(e)}
             name='SubmitResumeMenu'>
                 <option>Choose one...</option>
                 <option>yes</option>
@@ -112,7 +137,7 @@ class Step2 extends Component {
             <br/>
             <h3>Education</h3>
             <h4>Preferred level of education</h4>
-            <select onClick={e=>this.handleChange(e)}
+            <select onChange={e=>this.handleChange(e)}
             name='EducationMenu'>
                 <option>Choose one...</option>
                 <option>High Diploma or equivalent and higher</option>
@@ -130,14 +155,23 @@ class Step2 extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const {JobDescription, EmploymentTypeMenu, SeniorityLevelMenu,VisaStatusMenu,SubmitResumeMenu,EducationMenu} = state
+    const {Company, JobTitle, Location, JobDescription, EmploymentTypeMenu, SeniorityLevelMenu,VisaStatusMenu,SubmitResumeMenu,EducationMenu,Address,City,State,Zipcode, JobListing} = state
+
     return {
+        Company,
+        JobTitle,
+        Location,
         JobDescription,
-            EmploymentTypeMenu,
+        EmploymentTypeMenu,
             SeniorityLevelMenu,
             VisaStatusMenu,
             SubmitResumeMenu,
-            EducationMenu
+            EducationMenu,
+            Address,
+        City,
+        State,
+        Zipcode,
+        JobListing
     }
     }
-    export default connect(mapStateToProps,{handleJobDescription,handleEmploymentTypeMenu,handleSeniorityLevelMenu,handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu})(Step2)
+    export default connect(mapStateToProps,{handleJobTitle,handleJobDescription,handleEmploymentTypeMenu,handleSeniorityLevelMenu,handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu,handleJobListings})(Step2)
