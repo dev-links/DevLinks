@@ -38,10 +38,7 @@ function App() {
       <Login />
 
       {/* <ClientRegister /> */}
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 
 
 
