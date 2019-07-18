@@ -7,8 +7,9 @@ class adminRegister extends Component {
         super();
         this.state = {
             username: '',
+            email: '',
             password: '',
-            // redirect: false
+            redirect: false
         }
     } 
 
