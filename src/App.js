@@ -1,5 +1,5 @@
 import React from 'react';
-import JobListings from './components/JobListings';
+import JobListings from './components/JobListings/JobListings';
 import ClientDashboard from './components/clientDashboard/clientDashboard';
 import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
@@ -14,9 +14,9 @@ function App() {
       <JobListings/>
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
-      {/* <Login /> */}
+      <Login />
 
-      <ClientRegister />
+      {/* <ClientRegister /> */}
 
       {routes}
 

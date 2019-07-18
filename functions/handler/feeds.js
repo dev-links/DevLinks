@@ -60,7 +60,7 @@ exports.createFeed = ((req,res) =>{
         .then(doc =>{
             const resFeed = newFeed
             resFeed.feedId = doc.id
-            res.json(resFeed)
+            return res.json(resFeed)
         })
         .catch(err =>{
             res.status(500).json({error: 'Something went wrong'})
@@ -69,7 +69,7 @@ exports.createFeed = ((req,res) =>{
 })
 
 exports.commentOnFeed = (req,res) => {
-    if(req.body.body.trim() === '') return res.status(400).json({ error: 'Must not be empty'})
+    if(req.body.body.trim() === '') return res.status(400).json({ comment: 'Must not be empty'})
 
     const newComment = {
         body: req.body.body,
@@ -90,7 +90,7 @@ exports.commentOnFeed = (req,res) => {
             return db.collection('comments').add(newComment)
         })
         .then(() =>{
-            res.json(newComment)
+            return res.json(newComment)
         })
         .catch(err =>{
             console.error(err)
@@ -114,7 +114,7 @@ exports.deleteFeed = (req,res) =>{
             }
         })
         .then(()=>{
-            res.json({ message: 'Feed delete successfully'})
+            return res.json({ message: 'Feed delete successfully'})
         })
         .catch( err =>{
             console.error(err)
