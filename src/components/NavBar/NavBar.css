@@ -1,0 +1,9 @@
+.hamburger-image {
+    height: 30px;
+    width:30px;
+}
+
+.hamburger-container {
+    display: flex;
+    justify-content: flex-end;
+}

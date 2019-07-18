@@ -5,6 +5,8 @@ import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 import ClientRegister from './components/clientRegister/clientRegister';
 import AdminRegister from './components/adminRegister/adminRegister';
+import NavBar from './components/NavBar/NavBar';
+import JobWizard from './components/JobWizard/Step1';
 
 import './App.css';
 import routes from './routes';
@@ -31,6 +33,14 @@ function App() {
   return (
     <Router>
     <div className="App">
+      {/* <JobListings/> */}
+      {/* <ClientDashboard /> */}
+      {/* <Landing /> */}
+      {/* <Login /> */}
+      {/* <ClientRegister /> */}
+      {/* <NavBar/> */}
+      <JobWizard/>
+      {routes}
 
       {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
@@ -38,14 +48,11 @@ function App() {
       <Login />
 
       {/* <ClientRegister /> */}
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
 
 
-      {routes}
+
+      {/* {routes} */}
     </div>
     </Router>
   );
