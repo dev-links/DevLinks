@@ -31,6 +31,7 @@ class clientRegister extends Component {
         axios.post('/signUp', userData)
         .then(res => {
             console.log(res.data)
+            localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
             this.setState({
                 loading: false
             })
@@ -38,7 +39,7 @@ class clientRegister extends Component {
         })
         .catch(err => {
             this.setState({
-                errors: err.response.data,
+                errors: err.data,
                 loading: false
             })
         })
@@ -52,7 +53,6 @@ class clientRegister extends Component {
     }
 
     render() {
-        const {classes, UI: {loading}} = this.props
         return (
             //need to change login container
             <div className='login-container'>
