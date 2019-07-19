@@ -1,24 +1,58 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-// import {registerUser} from "../redux/actions/userAction"
+import axios from 'axios'
 import './clientRegister.css';
 
 class clientRegister extends Component {
     constructor() {
         super();
         this.state = {
-            username: '',
             email: '',
             password: '',
-            firstName: '',
-            lastName: '',
-            redirect: false
+            handle:'',
+            loading: false,
+            errors: {}
+            // firstName: '',
+            // lastName: '',
+            // redirect: false
         }
     } 
 
+    handleClick = (e) => {
+        e.preventDefault();
+        this.setState({
+            loading : true
+        })
+        const userData = {
+            email : this.state.email,
+            password : this.state.password,
+            handle: this.state.handle
+        }
+        axios.post('/signUp', userData)
+        .then(res => {
+            console.log(res.data)
+            localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
+            this.setState({
+                loading: false
+            })
+            this.props.history.push('/')
+        })
+        .catch(err => {
+            this.setState({
+                errors: err.data,
+                loading: false
+            })
+        })
+    }
+
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
     render() {
-        // const {classes, UI: {loading}} = this.props
         return (
             //need to change login container
             <div className='login-container'>
@@ -30,31 +64,31 @@ class clientRegister extends Component {
                     LINKS
                 </div></Link>
 
-                <form action="">
-                    <div id="email-input-field">
-                        <input type="text" id="name" required />
-                        <label for="name">Email:</label>
-                    </div>
-                </form>
+                <h1 className='firstname-placeholder'>EMAIL</h1>
 
-                <form action="">
-                    <div id="password-input-field">
-                        <input type="text" id="name" required />
-                        <label for="name">Password:</label>
-                    </div>
-                </form>
+                <input id='register-firstName' className='register-input'  name='email' type='email' value={this.state.email} onChange={this.handleChange} />
 
                 <Button variant="contained" color="primary" id='register-button'>
                     Register
                 </Button>
 
-                <div class="switch-wrap">
-                    <input class="switch" id="check1" type="checkbox"/><label for="check1">&nbsp;</label>
-                </div>
+                <input id='login-password' className='register-input' name='password' type='password' value={this.state.password} onChange={this.handleChange}/>
 
-                <h1 id='employee'>Employee</h1>
 
-                <h1 id='employer'>Employer</h1>
+                <h1 className='login-username-placeholder'>USERNAME</h1>
+
+                <input id='login-username' className='register-input' name='handle' type='handle' value={this.state.handle} onChange={this.handleChange} />
+
+                {/* <h1 className='lastName-placeholder'>LAST NAME</h1>
+
+                <input id='register-lastName' className='register-input' /> */}
+
+                <button className='client-register' onClick={this.handleClick}>REGISTER</button>
+
+                <Link to='admin-register'><button className='employer-button'>EMPLOYER</button></Link>
+
+                {/* Add line */}
+                <Link to='client-register'><button className='client-button'>CLIENT</button></Link>
             </div>
         )
     }

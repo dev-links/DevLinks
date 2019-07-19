@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import {loginUser} from '../../redux/actions/userAction';
+import axios from 'axios'
 import {connect} from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -14,33 +14,43 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            errors: {},
+            loading: false,
             redirect: false
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
+    } 
 
-    componentWillReceiveProps(nextProps){
-        if (nextProps.UI.errors){
-            this.setState({
-                errors: nextProps.UI.errors
-            })
-        }
-    }
-
-    handleChange = (e) => {
+    handleClick = (e) => {
+        e.preventDefault();
         this.setState({
-            [e.target.id] : e.target.value
+            loading : true
+        })
+        const userData = {
+            email : this.state.email,
+            password : this.state.password
+        }
+        axios.post('/login', userData)
+        .then(res => {
+            console.log(res.data)
+            localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
+            this.setState({
+                loading: false
+            })
+            this.props.history.push('/')
+        })
+        .catch(err => {
+            this.setState({
+                errors: err.data,
+                loading: false
+            })
         })
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const userData = {
-            email: this.state.email,
-            password: this.state.password
-        }
-        this.props.loginUser(userData, this.props.history)
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     }
 
     render() {
@@ -84,15 +94,15 @@ class Login extends Component {
                     Log in
                 </Button>
 
-                <h1 id='or'>Or</h1>
+                <input id='login-username' className='input'  name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
 
                 <label id='line-1'></label>
 
-                <label id='line-2'></label>
+                <input id='login-password' className='input' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
 
-                <a class="btn btn-block btn-social btn-github" id='github'>
-                    <span class="fa fa-twitter"></span> Sign in with Github
-                </a>
+                <button className='login-button' onClick={this.handleClick} >
+                    LOGIN
+                </button>
 
                 <label><img id='github-icon' src='https://cdn3.iconfinder.com/data/icons/free-social-icons/67/github_circle_gray-256.png' /></label>
 
@@ -108,21 +118,4 @@ class Login extends Component {
     }
 }
 
-Login.propTypes ={
-    loginUser: PropTypes.func.isRequired,
-    user: PropTypes.object.isRequired,
-    UI: PropTypes.object.isRequired
-}
-
-const mapStateToProps = (state) => {
-    return{
-        user: state.user,
-        UI: state.UI
-    }
-}
-
-const mapActionsToProps = {
-    loginUser
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(Login)
+export default Login;

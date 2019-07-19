@@ -18,11 +18,11 @@ export default (
         <Route exact path='/app' component={App}/>
         <Route path='/Step1' component={Step1}/>
         <Route path='/Step2' component={Step2}/>
-
         <Route exact path='/' component={Landing} />
         <Route path='/login' component={Login} />
         <Route path='/client-register' component={ClientRegister} />
         <Route path='/admin-register' component={AdminRegister} />
+        <Route path='/NavBar' component={NavBar}/>
 
         <Route path='/client-dashboard' component={ClientDashboard} />
         <Route path='/admin-dashboard' component={AdminDashboard} />

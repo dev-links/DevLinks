@@ -40,6 +40,7 @@
     font-weight: bolder;
     border: solid white 1px;
     outline: none; 
+    cursor: pointer;
 }
 
 .or {
