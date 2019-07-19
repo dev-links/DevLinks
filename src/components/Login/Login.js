@@ -18,7 +18,32 @@ class Login extends Component {
             loading: false,
             redirect: false
         }
-    } 
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    componentWillReceiveProps(nextProps){
+        if (nextProps.UI.errors){
+            this.setState({
+                errors: nextProps.UI.errors
+            })
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id] : e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        this.props.loginUser(userData, this.props.history)
+    }
 
     handleClick = (e) => {
         e.preventDefault();
@@ -32,7 +57,6 @@ class Login extends Component {
         axios.post('/login', userData)
         .then(res => {
             console.log(res.data)
-            localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
             this.setState({
                 loading: false
             })
@@ -40,7 +64,7 @@ class Login extends Component {
         })
         .catch(err => {
             this.setState({
-                errors: err.data,
+                errors: err.response.data,
                 loading: false
             })
         })
@@ -78,31 +102,31 @@ class Login extends Component {
 
                 <form action="">
                     <div id="email-input-field">
-                        <input type="text" id="name" required />
+                        <input name='email' type='email' value={this.state.email}  onChange={this.handleChange} type="text" id="name" required />
                         <label for="name">Email:</label>
                     </div>
                 </form>
 
                 <form action="">
                     <div id="password-input-field">
-                        <input type="text" id="name" required />
+                        <input name='password' type='password' value={this.state.password} onChange={this.handleChange} id="name" required />
                         <label for="name">Password:</label>
                     </div>
                 </form>
 
-                <Button variant="contained" color="primary" id='login-button'>
+                <Button variant="contained" color="primary" id='login-button' onClick={this.handleClick}>
                     Log in
                 </Button>
 
-                <input id='login-username' className='input'  name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
+                <h1 id='or'>Or</h1>
 
                 <label id='line-1'></label>
 
-                <input id='login-password' className='input' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
+                <label id='line-2'></label>
 
-                <button className='login-button' onClick={this.handleClick} >
-                    LOGIN
-                </button>
+                <a class="btn btn-block btn-social btn-github" id='github'>
+                    <span class="fa fa-twitter"></span> Sign in with Github
+                </a>
 
                 <label><img id='github-icon' src='https://cdn3.iconfinder.com/data/icons/free-social-icons/67/github_circle_gray-256.png' /></label>
 
@@ -111,11 +135,26 @@ class Login extends Component {
                 </a>
 
                 <img id='google-icon' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
-                    {/* GOOGLE */}
-                    {/* <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' /> */}
             </div>
         )
     }
 }
 
-export default Login;
+Login.propTypes ={
+    loginUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => {
+    return{
+        user: state.user,
+        UI: state.UI
+    }
+}
+
+const mapActionsToProps = {
+    // loginUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Login)
