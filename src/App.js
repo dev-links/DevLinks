@@ -35,13 +35,9 @@ function App() {
       {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
-      <Login />
+      {/* <Login /> */}
 
       {/* <ClientRegister /> */}
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
 
 

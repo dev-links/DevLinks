@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 // import {registerUser} from "../redux/actions/userAction"
 import './clientRegister.css';
 
@@ -17,40 +18,43 @@ class clientRegister extends Component {
     } 
 
     render() {
-        const {classes, UI: {loading}} = this.props
+        // const {classes, UI: {loading}} = this.props
         return (
             //need to change login container
             <div className='login-container'>
-                <Link to='/'><div className='dev'>
+                <Link to='/'><div id='register-dev'>
                     DEV
                 </div></Link>
 
-                <Link to='/'><div className='links'>
+                <Link to='/'><div id='register-links'>
                     LINKS
                 </div></Link>
 
-                <h1 className='login-username-placeholder'>USERNAME</h1>
+                <form action="">
+                    <div id="email-input-field">
+                        <input type="text" id="name" required />
+                        <label for="name">Email:</label>
+                    </div>
+                </form>
 
-                <input id='login-username' className='register-input' />
+                <form action="">
+                    <div id="password-input-field">
+                        <input type="text" id="name" required />
+                        <label for="name">Password:</label>
+                    </div>
+                </form>
 
-                <h1 className='login-password-placeholder'>PASSWORD</h1>
+                <Button variant="contained" color="primary" id='register-button'>
+                    Register
+                </Button>
 
-                <input id='login-password' className='register-input' type='password' />
+                <div class="switch-wrap">
+                    <input class="switch" id="check1" type="checkbox"/><label for="check1">&nbsp;</label>
+                </div>
 
-                <h1 className='firstname-placeholder'>FIRST NAME</h1>
+                <h1 id='employee'>Employee</h1>
 
-                <input id='register-firstName' className='register-input' />
-
-                <h1 className='lastName-placeholder'>LAST NAME</h1>
-
-                <input id='register-lastName' className='register-input' />
-
-                <button className='client-register'>REGISTER</button>
-
-                <Link to='admin-register'><button className='employer-button'>EMPLOYER</button></Link>
-
-                {/* Add line */}
-                <Link to='client-register'><button className='client-button'>CLIENT</button></Link>
+                <h1 id='employer'>Employer</h1>
             </div>
         )
     }

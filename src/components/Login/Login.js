@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {loginUser} from '../../redux/actions/userAction';
 import {connect} from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import './Login.css';
+import 'bootstrap-social';
 
 class Login extends Component {
     constructor(props) {
@@ -53,40 +56,53 @@ class Login extends Component {
         // }
 
         return (
-            <div className='login-container'>
+            <div className='login-container'> 
 
-                <div id= 'landing-image-container'><img id='landing-image' src='https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' /></div>
-
-
-                <Link to='/'><div className='dev'>
+                <Link to='/'><div id='login-dev'>
                     DEV
                 </div></Link>
 
-                <Link to='/'><div className='links'>
+                <Link to='/'><div id='login-links'>
                     LINKS
                 </div></Link>
 
-                <h1 className='login-username-placeholder'>USERNAME</h1>
+                <form action="">
+                    <div id="email-input-field">
+                        <input type="text" id="name" required />
+                        <label for="name">Email:</label>
+                    </div>
+                </form>
 
-                <input id='login-username' className='input' onChange={this.handleChange} />
+                <form action="">
+                    <div id="password-input-field">
+                        <input type="text" id="name" required />
+                        <label for="name">Password:</label>
+                    </div>
+                </form>
 
-                <h1 className='login-password-placeholder'>PASSWORD</h1>
+                <Button variant="contained" color="primary" id='login-button'>
+                    Log in
+                </Button>
 
-                <input id='login-password' className='input' type='password' onChange={this.handleChange} />
+                <h1 id='or'>Or</h1>
 
-                <button className='login-button' onSubmit={this.handleSubmit}>
-                    LOGIN
-                </button>
+                <label id='line-1'></label>
 
-                <div className='or'>
-                    OR
-                </div>
+                <label id='line-2'></label>
 
-                    {/* GITHUB */}
-                    <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />
+                <a class="btn btn-block btn-social btn-github" id='github'>
+                    <span class="fa fa-twitter"></span> Sign in with Github
+                </a>
 
+                <label><img id='github-icon' src='https://cdn3.iconfinder.com/data/icons/free-social-icons/67/github_circle_gray-256.png' /></label>
+
+                <a class="btn btn-block btn-social btn-google" id='google'>
+                    <span class="fa fa-twitter"></span> Sign in with Google
+                </a>
+
+                <img id='google-icon' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
                     {/* GOOGLE */}
-                    <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
+                    {/* <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' /> */}
             </div>
         )
     }
