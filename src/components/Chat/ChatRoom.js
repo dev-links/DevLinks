@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import firebase from '../../config/Firebase'
+import firebase from '../../config/Firebase';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
 import './Chatroom.css'
+import { connect } from 'react-redux'
+
 
 const ROOT_CSS = css({
-    height: 650,
-    width: 400
+    height: 720,
+    // width: 400
   });
 
 export class ChatRoom extends Component {
@@ -19,6 +21,7 @@ export class ChatRoom extends Component {
     }
 
     componentDidMount() {
+
         firebase.database()
             .ref()
             .child('chatroom') // FIX change to the combined id of the two users to create a new chat room
@@ -29,6 +32,16 @@ export class ChatRoom extends Component {
                     this.setState({ messages: currentMessages })
                 }
         })
+
+        const db = firebase.firestore()
+
+        db.collection('users').get().then(snapshot => {
+            snapshot.forEach(doc => {
+                console.log(`${doc.id}`)
+            })
+        })
+
+        console.log(this.props.credentials)
 
     }
 
@@ -92,5 +105,10 @@ export class ChatRoom extends Component {
     }
 }
 
-export default ChatRoom
+function mapStateToProps(state) {
+    let { credentials } = state
+    return credentials
+}
+
+export default connect(mapStateToProps)(ChatRoom)
 

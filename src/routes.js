@@ -28,6 +28,7 @@ export default (
         <Route path='/admin-dashboard' component={AdminDashboard} />
 
         <Route path='/chat' component={ChatRoom} />
+        <Route path='/chat/:id' component={ChatRoom} />
         <Route path='/chatDash' component={ChatDashboard}/>
     </Switch>
 )
