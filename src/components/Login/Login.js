@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios'
 import {connect} from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import './Login.css';
+import 'bootstrap-social';
 
 class Login extends Component {
     constructor(props) {
@@ -15,7 +18,32 @@ class Login extends Component {
             loading: false,
             redirect: false
         }
-    } 
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    componentWillReceiveProps(nextProps){
+        if (nextProps.UI.errors){
+            this.setState({
+                errors: nextProps.UI.errors
+            })
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id] : e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        this.props.loginUser(userData, this.props.history)
+    }
 
     handleClick = (e) => {
         e.preventDefault();
@@ -29,7 +57,6 @@ class Login extends Component {
         axios.post('/login', userData)
         .then(res => {
             console.log(res.data)
-            localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
             this.setState({
                 loading: false
             })
@@ -37,7 +64,7 @@ class Login extends Component {
         })
         .catch(err => {
             this.setState({
-                errors: err.data,
+                errors: err.response.data,
                 loading: false
             })
         })
@@ -63,43 +90,71 @@ class Login extends Component {
         // }
 
         return (
-            <div className='login-container'>
+            <div className='login-container'> 
 
-                <div id= 'landing-image-container'><img id='landing-image' src='https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' /></div>
-
-
-                <Link to='/'><div className='dev'>
+                <Link to='/'><div id='login-dev'>
                     DEV
                 </div></Link>
 
-                <Link to='/'><div className='links'>
+                <Link to='/'><div id='login-links'>
                     LINKS
                 </div></Link>
 
-                <h1 className='login-username-placeholder'>USERNAME</h1>
+                <form action="">
+                    <div id="email-input-field">
+                        <input name='email' type='email' value={this.state.email}  onChange={this.handleChange} type="text" id="name" required />
+                        <label for="name">Email:</label>
+                    </div>
+                </form>
 
-                <input id='login-username' className='input'  name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
+                <form action="">
+                    <div id="password-input-field">
+                        <input name='password' type='password' value={this.state.password} onChange={this.handleChange} id="name" required />
+                        <label for="name">Password:</label>
+                    </div>
+                </form>
 
-                <h1 className='login-password-placeholder'>PASSWORD</h1>
+                <Button variant="contained" color="primary" id='login-button' onClick={this.handleClick}>
+                    Log in
+                </Button>
 
-                <input id='login-password' className='input' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
+                <h1 id='or'>Or</h1>
 
-                <button className='login-button' onClick={this.handleClick} >
-                    LOGIN
-                </button>
+                <label id='line-1'></label>
 
-                <div className='or'>
-                    OR
-                </div>
+                <label id='line-2'></label>
 
-                    {/* GITHUB */}
-                    <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />
+                <a class="btn btn-block btn-social btn-github" id='github'>
+                    <span class="fa fa-twitter"></span> Sign in with Github
+                </a>
 
-                    {/* GOOGLE */}
-                    <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
+                <label><img id='github-icon' src='https://cdn3.iconfinder.com/data/icons/free-social-icons/67/github_circle_gray-256.png' /></label>
+
+                <a class="btn btn-block btn-social btn-google" id='google'>
+                    <span class="fa fa-twitter"></span> Sign in with Google
+                </a>
+
+                <img id='google-icon' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
             </div>
         )
     }
 }
 
-export default Login;
+Login.propTypes ={
+    loginUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => {
+    return{
+        user: state.user,
+        UI: state.UI
+    }
+}
+
+const mapActionsToProps = {
+    // loginUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Login)

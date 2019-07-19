@@ -50,7 +50,7 @@ function App() {
       {/* <Landing /> */}
       {/* <Login /> */}
 
-      <ClientRegister />
+      {/* <ClientRegister /> */}
 
 
 
