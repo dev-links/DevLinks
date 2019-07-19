@@ -1,81 +1,101 @@
-.firstname-placeholder {
+#register-dev {
+    position: absolute;
+    right: 54vw;
+    bottom: 70vh;
+    font-size: 4vh;
     font-family: 'DM Sans', sans-serif;
-    color: #F8E60B;
-    position: absolute;
-    top: 57vh;
-    font-size: 1.3vh;
-    left: 20vw;
+    color: #2679E3;
 }
 
-.lastName-placeholder {
+#register-links {
+    position: absolute;
+    right: 30vw;
+    bottom: 70vh;
+    font-size: 4vh;
     font-family: 'DM Sans', sans-serif;
-    color: #F8E60B;
-    position: absolute;
-    top: 67vh;
-    font-size: 1.3vh;
-    left: 20vw;
-}
-
-.register-input {
-    background-color: transparent;
-    border: none;
-    border-bottom: solid #F8E60B 1px;
-    outline: none;
-}
-
-.client-register {
-    font-family: 'DM Sans', sans-serif;
-    color: #F8E60B;
-    border: none;
-    padding: 0;
-    border-bottom: solid #F8E60B 1px;
-    width: 25vw;
-    position: absolute;
-    top: 73vh;
-    left: 35vw;
-    outline: none;
-    background: transparent;
-    outline: none;
-    font-size: 2vh;
-}
-
-.employer-button {
-    outline: none;
-    background-color: white;
-    border: none;
-    position: absolute;
-    top: 83vh;
-    left: -5vw;
-    border-radius: 40px;
-    height: 5vh;
-    width: 60vw;
-    font-size: 2.5vh;
-}
-
-.client-button {
-    outline: none;
-    background-color: #F8E60B;
-    border: none;
-    position: absolute;
-    top: 89vh;
-    right: -5vw;
-    border-radius: 40px;
-    height: 5vh;
-    width: 60vw;
-    font-size: 2.5vh;
     color: white;
 }
 
-#register-firstName {
+#register-button {
     position: absolute;
-    top: 60vh;
-    left: 20vw;
-    width: 60vw;
+    bottom: 28vh;
+    right:  10vw;
+    padding: 13px 119px;
+    background-color: transparent;
+    color: #2679E3;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    border: solid #2679E3 1px;
+    outline: none;
 }
 
-#register-lastName {
+#employee {
     position: absolute;
-    top: 70vh;
-    left: 20vw;
-    width: 60vw;
+    bottom: 14vh;
+    font-size: 2vh;
+    left: 15vw;
+    color: #494949;
+}
+
+#employer {
+    position: absolute;
+    bottom: 14vh;
+    font-size: 2vh;
+    left: 65vw;
+    color: #494949;
+}
+
+*,:after,:before{box-sizing:border-box}
+.pull-left{float:left}
+.pull-right{float:right}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+
+/* .switch-wrap{
+	margin:auto;
+	width:400px;
+	padding:30px;
+	text-align:center;
+	background:#383e47;
+} */
+
+.switch{
+	display:none;
+}
+.switch + label{
+	width:70px;
+	height:35px;
+    position:relative;
+    margin-top: 85vh;
+    margin-left: 40vw;
+	background:#212121;
+	border-radius:35px;
+	display:inline-block;
+	border:2px solid #fff;
+	transition:all .4s ease-in-out 0s;
+}
+.switch + label:before{
+	top:50%;
+	content:'';
+	right:38px;
+	width:23px;
+	height:23px;
+	background:#fff;
+	border-radius:50%;
+	position:absolute;
+	margin-top:-11.5px;
+	transition:inherit;
+}
+.switch:checked + label{
+	background:#212121;
+	border-color:#212121;
+	box-shadow:0 1px 1px rgba(206,206,206,.5);
+}
+.switch:checked + label:before{
+	right:3px;
+    /* background:#cecece; */
+    background: #2679E3;
+	border-color:transparent;
+	box-shadow:0 3px 3px #000;
 }

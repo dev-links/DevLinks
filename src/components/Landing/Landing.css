@@ -8,7 +8,7 @@
     /* -webkit-filter: blur(8px); */
 }
 
-.signin-button {
+#signin-button-landing {
     font-size: 3vh;
     position: absolute;
     bottom: 20vh;
@@ -22,9 +22,26 @@
     font-weight: bolder;
     border: solid rgb(143, 143, 143) 1px;
     margin-bottom: 3vh;
+
+    color: white;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
 }
 
-.signup-button {
+#signin-button-landing:hover {
+    background-color: #2679E3;
+}
+
+#signup-button-landing {
     font-size: 3vh;
     position: absolute;
     bottom: 28vh;
@@ -79,62 +96,158 @@
 
 /* IPHONE X RESPONSIVE */
 @media (max-width: 375px) {
+
 .landing-container {
-    background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-color: #292E31;
     width: 100vw;
     height: 100vh;
-    /* filter: blur(8px); */
-    /* -webkit-filter: blur(8px); */
 }
 
-.signin-button {
-    font-size: 3vh;
+#signin-button-landing {
+    padding: 13px 123px;
     position: absolute;
+    right:  8.5vw;
     bottom: 20vh;
-    right:  18.5vw;
-    color: white;
-    background-color: #F8E60B;
+    background-color: #2679E3;
+    color: #292E31;
+    font-family: 'Montserrat', sans-serif; 
     border-radius: 30px;
-    padding-right: 22vw;
-    padding-left: 20vw;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: bolder;
-    border: solid rgb(143, 143, 143) 1px;
+    outline: none;
+    font-weight: bold;
 }
 
-.signup-button {
-    font-size: 3vh;
+#signup-button-landing {
+    padding: 13px 119px;
     position: absolute;
+    right:  8.5vw;
     bottom: 28vh;
-    right:  18vw;
-    background-color: white;
+    color: #2679E3;
+    background-color: transparent;
     border-radius: 30px;
-    padding-right: 20vw;
-    padding-left: 20vw;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: bolder;
-    border: solid rgb(143, 143, 143) 1px;
+    font-family: 'Montserrat', sans-serif;
+    border: solid #2679E3 1px;
+    font-weight: bold;
+    font-size: 2vh;
 }
 
-.dev {
+#landing-dev {
     position: absolute;
-    right: 55vw;
+    right: 54vw;
     bottom: 70vh;
     font-size: 4vh;
     font-family: 'DM Sans', sans-serif;
-    color: #F8E60B;
+    color: #2679E3;
+    /* text-shadow: 2px 2px rgb(20, 20, 20); */
 }
 
-.links {
+#landing-links {
     position: absolute;
     right: 30vw;
     bottom: 70vh;
     font-size: 4vh;
     font-family: 'DM Sans', sans-serif;
     color: white;
+    /* text-shadow: 2px 2px rgb(20, 20, 20); */
 }
 
 #landing-image {
     display: none;
 }
+
+.lds-ripple {
+    display: inline-block;
+    position: absolute;
+    right: 20vw;
+    top: 22vh;
+    width: 64px;
+    height: 64px;
     }
+.lds-ripple div {
+    position: absolute;
+    border: 4px solid #2679E3;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+.lds-ripple div:nth-child(2) {
+    animation-delay: -0.7s;
+    }
+@keyframes lds-ripple {
+0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+    }
+100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+        }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+/* RANDOM COOL ANIMATION */
+/* .element {
+    position: absolute;
+    right: 36.5vw;
+    bottom: 50vh;
+    height: 10vh;
+    width: 30vw;
+    margin: 0 auto;
+    background-color: red;
+    animation-name: stretch;
+    animation-duration: 1.5s; 
+    animation-timing-function: ease-out; 
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+
+@keyframes stretch {
+0% {
+    transform: scale(.3);
+    background-color: rgb(0, 255, 255);
+    border-radius: 100%;
+}
+50% {
+    background-color: rgb(38, 136, 227);
+}
+100% {
+    transform: scale(1.5);
+    background-color: #2679E3;
+    border-radius: 25px;
+}
+}
+
+body,
+html {
+    height: 100%;
+    }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    } */
+        }

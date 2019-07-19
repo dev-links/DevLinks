@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     /* filter: blur(8px); */
-    /* -webkit-filter: blur(8px); */
+    /* -webkit-filter: blur(8px); */ 
 }
 
 .dev {
@@ -40,6 +40,7 @@
     font-weight: bolder;
     border: solid white 1px;
     outline: none; 
+    cursor: pointer;
 }
 
 .or {
@@ -135,23 +136,21 @@
 /* IPHONE X RESPONSIVE */
 @media (max-width: 375px) {
 .login-container {
-    background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-color: #292E31;
     width: 100vw;
     height: 100vh;
-    /* filter: blur(8px); */
-    /* -webkit-filter: blur(8px); */
 }
 
-.dev {
+#login-dev {
     position: absolute;
     right: 54vw;
     bottom: 70vh;
     font-size: 4vh;
     font-family: 'DM Sans', sans-serif;
-    color: #F8E60B;
+    color: #2679E3;
 }
 
-.links {
+#login-links {
     position: absolute;
     right: 30vw;
     bottom: 70vh;
@@ -160,39 +159,79 @@
     color: white;
 }
 
-.login-button {
-    font-size: 3vh;
+#login-button {
     position: absolute;
     bottom: 28vh;
-    right:  18vw;
-    background-color: #F8E60B;
-    color: white;
+    right:  10vw;
+    padding: 13px 119px;
+    background-color: #2679E3;
+    color: #292E31;
     border-radius: 30px;
-    padding-right: 20vw;
-    padding-left: 20vw;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
-    border: solid white 1px;
+    /* border: solid white 1px; */
     outline: none; 
 }
 
-.or {
-    font-size: 3vh;
+#or {
+    font-size: 2vh;
     position: absolute;
-    bottom: 23vh;
-    right:  42.8vw;
-    font-family: 'DM Sans', sans-serif;
+    bottom: 22vh;
+    right:  47vw;
+    font-family: 'Montserrat', sans-serif;
     color: white;
-    font-weight: bolder;
+    /* font-weight: bolder; */
 }
 
-.github {
+#line-1 {
+    margin-top: 75.8vh;
+    height: 1px;
+    width: 40vw;
+    background-color: white;
+}
+
+#line-2 {
+    margin-top: 75.8vh;
+    margin-left: 60vw;
+    height: 1px;
+    width: 40vw;
+    background-color: white;
+}
+
+#github {
     position: absolute;
     top: 80vh;
-    left: 25vw;
-    height: 9vh;
-    width: 20vw;
+    left: 5vw;
+    width: 90vw;
     outline: none;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#github-icon {
+    height: 3vh;
+    width: 7vw;
+    position: absolute;
+    top: 81vh;
+    right: 87.5vw;
+}
+
+#google {
+    position: absolute;
+    top: 88vh;
+    left: 5vw;
+    width: 90vw;
+    outline: none;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#google-icon {
+    height: 3vh;
+    width: 7vw;
+    position: absolute;
+    top: 89vh;
+    right: 87.5vw;
 }
 
 .google {
@@ -202,14 +241,6 @@
     height: 9vh;
     width: 20vw;
     outline: none;
-}
-
-.input {
-    margin-top: -17vh;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    border-bottom: solid white 1px;
 }
 
 .login-username-placeholder {
@@ -247,4 +278,96 @@
 #landing-image {
     display: none;
 }
+
+form {
+    margin: 100px;
     }
+#email-input-field {
+    position: absolute;
+    width: 250px;
+    height: 44px;
+    line-height: 44px;
+    top: 35vh;
+    right: 16vw;
+    }
+label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #d3d3d3;
+    transition: 0.2s all;
+    cursor: text;
+    }
+input {
+    background-color: transparent;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #d3d3d3;
+    box-shadow: none;
+    color: #111;
+    }
+input:invalid {
+    outline: 0;
+    /* // color: #ff2300; */
+    /* //   border-color: #ff2300; */
+    }
+input:focus,
+input:valid {
+    border-color: #2679E3;
+    }
+input:focus~label,
+input:valid~label {
+    font-size: 14px;
+    top: -24px;
+    color: #2679E3;
+    }
+
+    form {
+        margin: 100px;
+        }
+    #password-input-field {
+        position: absolute;
+        width: 250px;
+        height: 44px;
+        line-height: 44px;
+        top: 45vh;
+        right: 16vw;
+        }
+    label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: #d3d3d3;
+        transition: 0.2s all;
+        cursor: text;
+        }
+    input {
+        background-color: transparent;
+        width: 100%;
+        border: 0;
+        outline: 0;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid #d3d3d3;
+        box-shadow: none;
+        color: #111;
+        }
+    input:invalid {
+        outline: 0;
+        /* // color: #ff2300; */
+        /* //   border-color: #ff2300; */
+        }
+    input:focus,
+    input:valid {
+        border-color: #2679E3;
+        }
+    input:focus~label,
+    input:valid~label {
+        font-size: 14px;
+        top: -24px;
+        color: #2679E3;
+        }
+        }
