@@ -4,6 +4,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
 import './Chatroom.css'
 
+
 const ROOT_CSS = css({
     height: 650,
     width: 400
@@ -29,7 +30,12 @@ export class ChatRoom extends Component {
                     this.setState({ messages: currentMessages })
                 }
         })
-
+        const db = firebase.firestore();
+     db.collection("users").get().then((querySnapshot) => {
+       querySnapshot.forEach((doc) => {
+           console.log(`${doc.id}` )
+       })
+    })
     }
 
 

@@ -7,6 +7,7 @@ import ClientRegister from './components/clientRegister/clientRegister';
 import AdminRegister from './components/adminRegister/adminRegister';
 import NavBar from './components/NavBar/NavBar';
 import JobWizard from './components/JobWizard/Step1';
+import Chat from './components/Chat/ChatRoom'
 
 import './App.css';
 import routes from './routes';
@@ -52,7 +53,9 @@ function App() {
 
       {/* <ClientRegister /> */}
 
+      {/* <ClientRegister /> */}
 
+      <Chat/>
 
       {routes}
     </div>
