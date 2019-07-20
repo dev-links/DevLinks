@@ -1,5 +1,83 @@
-body {
+/* body {
     background-color: #E6E6E6;
+} */
+
+.dash-container  {
+    background-color: #E6E6E6;
+}
+
+.header-container {
+    margin-top: 2rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.header-pic {
+    width: 90vw;
+    margin: auto;
+}
+
+.profile-header-pic {
+    width: 20vw;
+    height: 10vh;
+    margin-top: -5vh;
+    margin-left: 9vw;
+    z-index: 9;
+    border: 1px white solid;
+    border-radius: 50%;
+    box-shadow: #000;
+}
+
+.header-info {
+    width: 90vw;
+    height: 20vh;
+    background: white;
+    margin: 0 auto;
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.header-info h2, .header-info h5, .header-info h6  {
+    margin-bottom: .5rem;
+}
+
+.header-info-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    
+}
+
+.header-info-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-top: 4rem;
+}
+
+.about-container {
+    width: 100vw;
+    height: 15vh;
+    background: white;
+    margin: 1rem 2rem;
+}
+
+.about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-info {
+
 }
 
 /* .header-picture {
@@ -26,12 +104,7 @@ body {
     border-radius: 90px;
 }
 
-.profile-pic {
-    height: 9vh;
-    width: 20vw;
-    position: absolute;
-    border-radius: 90px;
-}
+
 
 .name {
     display: flex;

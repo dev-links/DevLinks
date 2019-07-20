@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import NavBar from '../NavBar/NavBar'
 import './clientDashboard.css';
 import { connect } from 'react-redux'
+import travel from '../../assets/travelpic.PNG'
+import { Button, Container, Row, Col } from 'reactstrap'
 
 class ClientDashboard extends Component {
     constructor() {
@@ -18,59 +20,86 @@ class ClientDashboard extends Component {
 
     render() {
         return (
-            <div>
-                <NavBar />
-                <div>
-                    <img className='header-picture' src='https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' />
-                </div>
-
-                <div className='white-container'>
-                    {/* White space */}
-                </div>
-
-                <div className='profile-container'>
-                    <img className='profile-pic' src='https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500' />
-                </div>
-
-                <div className='name-container'>
-                    <h1 className='name'>Alexander Williams</h1>
-                </div>
-
-                <div>
-                    <h1 className='bio'>Web Developer in DFW | JavaScript | React.JS</h1>
-                </div>
-
-                <div id='about-container' className='white-container'>
-                    <h1 className='card-title'>About</h1>
-                    <img id='about-edit' src='https://cdn0.iconfinder.com/data/icons/entypo/78/pencil5-512.png' />
-                </div>
-
-                <div>
-                    <h1 className='about-paragraph'>This web developer sample job description 
-                        can assist in your creating a job 
-                        application that will attract job candidates 
-                        who are qualified for the job. </h1>
-                </div>
-
-                <div id='experience-container' className='white-container'>
-                    <h1 className='card-title'>Experience</h1>
-                    <img id='experience-edit' src='https://cdn0.iconfinder.com/data/icons/entypo/78/pencil5-512.png' />
-                </div>
-
-                <div>
-                    <h1 id='line1-experience' className='experience-paragraph'>Student
-                        DevMountain Student Developers
-                        Apr 2019 - present</h1>
-                </div>
-
-                <div>
-                    <h1 id='line2-experience' >BlueLife
-                        March 2018 - 2019
-                    </h1>
-                </div>
-
+        <div className='dash-container'>
+            <NavBar />
+            <Container className='header-container'>
+                <Row className='header'>
+                    <Col  xs='12' >
+                    <img className='header-pic' src={travel} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col  xs='3' >
+                    <img className='profile-header-pic' src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""/>
+                    </Col>
+                </Row>
+                <Row className='header-info'>
+                <Col xs='6' className='header-info-left' >
+                    <h2>First LastName</h2>
+                    <h5>Full Stack Developer</h5>
+                    <h6>Dallas, Texas</h6>
+                </Col>
+                <Col xs='2'></Col>
+                <Col  xs='4' className='header-info-right'>
+                    <img src="#" alt="edit"/>
+                    <Button>Contact Info</Button>
+                </Col>
+                
+                </Row>
+                <Row>
+                    <Col className='about-container'>
+                    <div className='about-header'>
+                    <h3>About</h3>
+                    <img src="#" alt="edit"/>
+                    </div>
+                    <div className="about-info">
+                        {/* add editable input textarea */}
+                    </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className='about-container'>
+                    <div className='about-header'>
+                    <h3>Experience</h3>
+                    <img src="#" alt="edit"/>
+                    </div>
+                    <div className="about-info">
+                        {/* add editable input textarea */}
+                    </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className='about-container'>
+                    <div className='about-header'>
+                    <h3>Education</h3>
+                    <img src="#" alt="edit"/>
+                    </div>
+                    <div className="about-info">
+                        {/* add editable input textarea */}
+                    </div>
+                    </Col>
+                </Row>
+                <Row>
+                    
+                    <Col className='about-container'>
+                    <div className='about-header'>
+                    <h3>Skills</h3>
+                    <img src="#" alt="edit"/>
+                    </div>
+                    {/* add dropdown for skills */}
+                    {/* list skills */}
+                    </Col>
+                    
+                </Row>
+            </Container>
+            
             
             </div>
+            
+               
+
+            
+            
         )
     }
 }
