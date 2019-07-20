@@ -107,7 +107,7 @@ export class ChatRoom extends Component {
 
 function mapStateToProps(state) {
     let { credentials } = state
-    return credentials
+    return {credentials}
 }
 
 export default connect(mapStateToProps)(ChatRoom)
