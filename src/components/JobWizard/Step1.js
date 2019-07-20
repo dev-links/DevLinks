@@ -25,7 +25,6 @@ class Step1 extends Component {
     }
 
     handleStep1 = (e) => {
-        // e.preventDefault()
         let {Company, JobTitle, Address,City,State,Zipcode} = this.state
         this.props.handleCompany(Company)
         this.props.handleJobTitle(JobTitle)

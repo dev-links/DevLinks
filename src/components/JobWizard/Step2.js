@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {handleJobTitle,handleJobDescription,handleEmploymentTypeMenu,handleSeniorityLevelMenu,
 handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu,handleJobListings} from '../../redux/jobReducer' ;
-import firestore from '../../config/Firebase'
+import firestore from '../../config/Firebase';
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -44,7 +46,19 @@ class Step2 extends Component {
         this.props.handleSubmitResumeMenu(SubmitResumeMenu)
         this.props.handleEducationMenu(EducationMenu)
         this.props.handleJobListings({
-            Company, JobTitle, Location, JobDescription, EmploymentTypeMenu, SeniorityLevelMenu,VisaStatusMenu,SubmitResumeMenu,EducationMenu,Address,City,State,Zipcode
+            Company, 
+            JobTitle, 
+            Location, 
+            JobDescription, 
+            EmploymentTypeMenu, 
+            SeniorityLevelMenu,
+            VisaStatusMenu,
+            SubmitResumeMenu,
+            EducationMenu,
+            Address,
+            City,
+            State,
+            Zipcode
         })
         const db = firestore.firestore();
         
