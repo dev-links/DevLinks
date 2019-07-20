@@ -1,14 +1,78 @@
-/* COMPUTER RESPONSIVE */
+
 .login-container {
-    background-color: black;
-    /* background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'); */
+    background: rgba(40, 40, 40, .8);
     width: 100vw;
     height: 100vh;
-    /* filter: blur(8px); */
-    /* -webkit-filter: blur(8px); */ 
+    /* filter: blur(7px);
+    -webkit-filter: blur(7px);  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.dev {
+.login {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30vh;
+}
+
+.login h1 {
+    margin-bottom: 3rem;
+    font-size: 8vw;
+}
+
+.login h3 {
+    text-align: left;
+    color: whitesmoke;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: #F8E60B;
+}
+
+.login Input {
+    background: rgba(40, 40, 40, .8);
+    color: whitesmoke;
+    border: none;
+}
+
+.login Button {
+    background: #F8E60B;
+    color:white;
+    width: 40vw;
+    height: 5vh;
+    align-self: center;
+    margin-top: 3rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    
+}
+
+.altSignIn {
+    display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   margin-top: 2rem;
+   
+}
+
+.altSignIn img {
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+}
+
+/* .login-container {
+    background-color: black;
+    background-image: url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    width: 100vw;
+    height: 100vh;
+    filter: blur(8px);
+    -webkit-filter: blur(8px); 
+} */
+
+/* .dev {
     position: absolute;
     right: 54vw;
     bottom: 70vh;
@@ -134,7 +198,7 @@
 
 
 /* IPHONE X RESPONSIVE */
-@media (max-width: 375px) {
+/* @media (max-width: 375px) {
 .login-container {
     background-color: #292E31;
     width: 100vw;
@@ -170,20 +234,20 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
     /* border: solid white 1px; */
-    outline: none; 
-}
+    /* outline: none; 
+} */
 
-#or {
+/* #or {
     font-size: 2vh;
     position: absolute;
     bottom: 22vh;
     right:  47vw;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    /* font-weight: bolder; */
-}
+    font-weight: bolder;
+} */
 
-#line-1 {
+/* #line-1 {
     margin-top: 75.8vh;
     height: 1px;
     width: 40vw;
@@ -310,10 +374,10 @@ input {
     color: #111;
     }
 input:invalid {
-    outline: 0;
+    outline: 0; */
     /* // color: #ff2300; */
     /* //   border-color: #ff2300; */
-    }
+    /* }
 input:focus,
 input:valid {
     border-color: #2679E3;
@@ -356,10 +420,10 @@ input:valid~label {
         color: #111;
         }
     input:invalid {
-        outline: 0;
+        outline: 0; */
         /* // color: #ff2300; */
         /* //   border-color: #ff2300; */
-        }
+        /* }
     input:focus,
     input:valid {
         border-color: #2679E3;
@@ -370,4 +434,4 @@ input:valid~label {
         top: -24px;
         color: #2679E3;
         }
-        }
+        }   */

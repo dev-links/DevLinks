@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import NavBar from '../NavBar/NavBar'
 import './clientDashboard.css';
+import { connect } from 'react-redux'
 
 class ClientDashboard extends Component {
     constructor() {
@@ -9,9 +11,15 @@ class ClientDashboard extends Component {
         }
     }
 
+    // ClientDashboard - Firebase
+    componentDidMount() {
+        console.log(this.props.credentials)
+    }
+
     render() {
         return (
             <div>
+                <NavBar />
                 <div>
                     <img className='header-picture' src='https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' />
                 </div>
@@ -61,13 +69,15 @@ class ClientDashboard extends Component {
                     </h1>
                 </div>
 
-                <button className='logout'>
-                    LOGOUT
-                    <img id='bio-edit' src='https://cdn0.iconfinder.com/data/icons/entypo/78/pencil5-512.png' />
-                </button>
+            
             </div>
         )
     }
 }
 
-export default ClientDashboard;
+function mapStateToProps(state) {
+    let { credentials } = state
+    return { credentials }
+}
+
+export default connect()(ClientDashboard);

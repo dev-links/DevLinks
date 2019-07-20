@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NavBar from '../NavBar/NavBar'
 import firebase from '../../config/Firebase';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
@@ -87,6 +88,9 @@ export class ChatRoom extends Component {
         })
         return (
             <ScrollToBottom className={ROOT_CSS}>
+                <div className='navbar-chat'>
+                <NavBar />
+                </div>
                 <ul>
                 {currentMessages}
                 </ul>

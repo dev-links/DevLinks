@@ -1,4 +1,43 @@
-.map-container{
+
+.listings-container {
+    width: 100vw;
+    /* height: 20vh; */
+    max-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+    border-bottom: 1px black solid;
+}
+
+.listings-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.listings-info img {
+    width: 18vw;
+    height: 10vh;
+    border-radius: 50%;
+}
+
+.more-info {
+   margin: 0 auto;
+}
+
+.section-one, .section-three {
+    width: 95vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.section-two {
+    text-align: center;
+}
+
+/* .map-container{
 display: flex;
 justify-content: flex-end;
-}
+} */
