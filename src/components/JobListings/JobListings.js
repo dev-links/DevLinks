@@ -86,17 +86,17 @@ const mapStyles = {
 
           <UncontrolledCollapse toggler={`#toggler${index}`}>
 
-          <div className='section-one mb-3'>
+          <div className='section-one mx-3'>
             <h5>{job.Company}</h5>
             <h5>|</h5>
             <h5>{job.Address} {job.City} {job.State}</h5>
             <h5>|</h5>
             <h5>{job.EmploymentTypeMenu}</h5>
           </div>
-          <div className='section-two'>
+          <div className='section-two px-3'>
             {job.JobDescription}
           </div>
-          <div className='section-three'>
+          <div className='section-three mb-3'>
             <h5>{job.SeniorityLevelMenu}</h5>
             <h5>|</h5>
             <h5>{job.JobTitle}</h5>

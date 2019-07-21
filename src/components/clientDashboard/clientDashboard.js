@@ -20,34 +20,37 @@ class ClientDashboard extends Component {
 
     render() {
         return (
-        <div className='dash-container'>
+        <div>
             <NavBar />
+        <div className='dash-container'>
             <Container className='header-container'>
-                <Row className='header'>
-                    <Col  xs='12' >
-                    <img className='header-pic' src={travel} />
+                <div className='header'>
+                <Row>
+                    <Col>
+                    <img className='header-pic' src={travel} alt='header' />
                     </Col>
                 </Row>
                 <Row>
-                    <Col  xs='3' >
+                    <Col >
                     <img className='profile-header-pic' src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""/>
                     </Col>
                 </Row>
                 <Row className='header-info'>
-                <Col xs='6' className='header-info-left' >
+                <Col className='header-info-left' >
                     <h2>First LastName</h2>
                     <h5>Full Stack Developer</h5>
                     <h6>Dallas, Texas</h6>
                 </Col>
-                <Col xs='2'></Col>
-                <Col  xs='4' className='header-info-right'>
+                <Col></Col>
+                <Col className='header-info-right'>
                     <img src="#" alt="edit"/>
                     <Button>Contact Info</Button>
                 </Col>
                 
                 </Row>
-                <Row>
-                    <Col className='about-container'>
+                </div>
+                <Row style={{ justifyContent: 'center '}}>
+                    <Col className='about-container' xs='10'>
                     <div className='about-header'>
                     <h3>About</h3>
                     <img src="#" alt="edit"/>
@@ -57,8 +60,8 @@ class ClientDashboard extends Component {
                     </div>
                     </Col>
                 </Row>
-                <Row>
-                    <Col className='about-container'>
+                <Row style={{ justifyContent: 'center '}}>
+                    <Col className='about-container' xs='10'>
                     <div className='about-header'>
                     <h3>Experience</h3>
                     <img src="#" alt="edit"/>
@@ -68,8 +71,8 @@ class ClientDashboard extends Component {
                     </div>
                     </Col>
                 </Row>
-                <Row>
-                    <Col className='about-container'>
+                <Row style={{ justifyContent: 'center '}}>
+                    <Col className='about-container' xs='10'>
                     <div className='about-header'>
                     <h3>Education</h3>
                     <img src="#" alt="edit"/>
@@ -79,9 +82,9 @@ class ClientDashboard extends Component {
                     </div>
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{ justifyContent: 'center '}}>
                     
-                    <Col className='about-container'>
+                    <Col className='about-container' xs='10'>
                     <div className='about-header'>
                     <h3>Skills</h3>
                     <img src="#" alt="edit"/>
@@ -95,7 +98,7 @@ class ClientDashboard extends Component {
             
             
             </div>
-            
+            </div>
                
 
             
@@ -109,4 +112,4 @@ function mapStateToProps(state) {
     return { credentials }
 }
 
-export default connect()(ClientDashboard);
+export default connect(mapStateToProps)(ClientDashboard);

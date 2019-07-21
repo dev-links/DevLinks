@@ -17,6 +17,8 @@ toggleNavbar() {
     collapsed: !this.state.collapsed
     });
 }
+
+
 render() {
     return (
     <div>
@@ -45,3 +47,7 @@ render() {
     );
 }
 }
+
+// module.exports = {
+//     toggleNavbar
+// }

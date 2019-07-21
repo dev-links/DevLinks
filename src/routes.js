@@ -7,7 +7,7 @@ import ChatRoom from './components/Chat/ChatRoom'
 import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 import ClientRegister from './components/clientRegister/clientRegister';
-import AdminRegister from './components/adminRegister/adminRegister';
+import AdminRegister from './components/adminRegister/AdminRegister';
 import ClientDashboard from './components/clientDashboard/clientDashboard';
 import AdminDashboard from './components/adminDashboard/adminDashboard';
 import ChatDashboard from './components/Chat/ChatDashboard'
@@ -16,7 +16,7 @@ import JobListings from './components/JobListings/JobListings'
 
 export default (
     <Switch>
-        <Route exact path='/' component={Landing} />
+        <Route exact path='/' component={Login} />
         {/* <Route exact path='/app' component={App}/> */}
         <Route path='/step1' component={Step1}/>
         <Route path='/step2' component={Step2}/>

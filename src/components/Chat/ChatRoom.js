@@ -100,7 +100,7 @@ export class ChatRoom extends Component {
                 onChange={e => this.updateMessage(e)}
                 />
                 
-                <button
+                <button id='submit-btn'
                 onClick={() => this.submitMessage()}
                 >Send</button>
             </div>

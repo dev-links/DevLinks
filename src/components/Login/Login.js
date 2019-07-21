@@ -64,23 +64,26 @@ class Login extends Component {
         // }
 
         return (
-            
+
             <div className='login-container'>
                 <div className='login'>
                     <h1><span style={{ color: '#F8E60B'}}>DEV</span> LINKS</h1>
                     <h3>Username</h3>
-                    <Input type='text'
+                    <Input type='text' id='email'
                     name='email' type='email' value={this.state.email} onChange={this.handleChange}
                     />
                     <h3>Password</h3>
-                    <Input type='password'
+                    <Input type='password' id='password'
                     name='password' type='password' value={this.state.password} onChange={this.handleChange}
                     />
                     
-                    <Button 
+                    <Button id='loginBtn'
                     onClick={this.handleClick}
                     >Login</Button>
-
+                    
+                    <Link to='/admin-register'>
+                    <Button >Register</Button>
+                    </Link>
                 <div className="altSignIn">
                 {/* GITHUB */}
                 <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />

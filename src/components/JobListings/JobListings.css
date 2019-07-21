@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 2rem;
 }
 
 .listings-info img {
@@ -35,6 +36,7 @@
 
 .section-two {
     text-align: center;
+    padding: 2rem 0 2rem 0;
 }
 
 /* .map-container{
