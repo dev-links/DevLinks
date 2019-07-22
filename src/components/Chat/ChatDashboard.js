@@ -12,12 +12,12 @@ export class ChatDashboard extends Component {
                     {id:1,
                     user:'Bryan'},
                     {id:2,
-                    user:'Collins'
-                    },
+                    user:'Collins'},
                     {id:3,
-                    user:'Rachel'}]
+                    user:'Rachel'}
+                ]
         }
-    }
+    } 
 
 
     
@@ -31,6 +31,7 @@ export class ChatDashboard extends Component {
                         <img src="https://via.placeholder.com/50" alt="user"/>
                         <h6>{chat.user}</h6>
                     </div>
+                    {/* set up Link to /shat/bothUsersIds i.e. /chat/123_456*/}
                     <button>Chat</button>
                 </li>
             )
@@ -39,7 +40,7 @@ export class ChatDashboard extends Component {
             <div>
                 {/* <Nav /> */}
                 <nav className='dummyNav'>
-
+                    <h1>Dummy nav - replace with real nav</h1>
                 </nav>
                 <ul>
                     {displayChats}
