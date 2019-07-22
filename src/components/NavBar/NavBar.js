@@ -30,16 +30,16 @@ render() {
             <Nav navbar id='navItems'>
             <NavItem >
                 {/* link to client dashboard by id ie /client-dashboard/9034890483 */}
-                <Link to='/client-dashboard'>Dashboard</Link>
+                <Link to='/client-dashboard'><h1 id='link'>Dashboard</h1></Link>
             </NavItem>
             <NavItem >
-                <Link to='/jobListings'>Job Listings</Link>
+                <Link to='/jobListings'><h1 id='link'>Job Listing</h1></Link>
             </NavItem>
             <NavItem>
-                <Link to='/step1'>Add Jobs</Link>
+                <Link to='/step1'><h1 id='link'>Add Job</h1></Link>
             </NavItem>
             <NavItem>
-                <Link to='/chat'>Chat</Link>
+                <Link to='/chat'><h1 id='link'>Chat</h1></Link>
             </NavItem>
             </Nav>
         </Collapse>

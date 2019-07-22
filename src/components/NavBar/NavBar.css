@@ -11,6 +11,18 @@
 #nav-container {
     background: #292E31;
 }
+
+#navItems {
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    /* flex-direction: row; */
+    /* font-size: 40vh; */
+}
+
+#link {
+    padding-bottom: 1vh;
+    color: white;
+}
 /* #navItems{
     display: flex;
     justify-content: flex-end;

@@ -35,7 +35,7 @@ function App() {
       {/* <Login /> */}
       {/* <ClientRegister /> */}
       {/* <NavBar/> */}
-      <JobWizard/>
+      {/* <JobWizard/> */}
       {/* {routes} */}
 
       {/* <JobListings/> */}
