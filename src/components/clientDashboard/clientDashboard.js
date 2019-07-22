@@ -32,7 +32,7 @@ class ClientDashboard extends Component {
                 </Row>
                 <Row>
                     <Col >
-                    <img className='profile-header-pic' src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""/>
+                    <img id='profile-header-pic' src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""/>
                     </Col>
                 </Row>
                 <Row className='header-info'>
