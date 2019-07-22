@@ -1,4 +1,16 @@
-.hamburger-image {
+
+#navItems{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.nav Link{
+    background: black;
+}
+
+/* .hamburger-image {
     height: 30px;
     width:30px;
 }
@@ -6,4 +18,4 @@
 .hamburger-container {
     display: flex;
     justify-content: flex-end;
-}
+} */

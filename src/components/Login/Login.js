@@ -4,6 +4,7 @@ import axios from 'axios'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './Login.css';
+import {Button, Input} from 'reactstrap'
 
 class Login extends Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class Login extends Component {
             this.setState({
                 loading: false
             })
-            this.props.history.push('/')
+            this.props.history.push('/client-dashboard')
         })
         .catch(err => {
             this.setState({
@@ -63,41 +64,74 @@ class Login extends Component {
         // }
 
         return (
+
             <div className='login-container'>
+                <div className='login'>
+                    <h1><span style={{ color: '#F8E60B'}}>DEV</span> LINKS</h1>
+                    <h3>Username</h3>
+                    <Input type='text' id='email'
+                    name='email' type='email' value={this.state.email} onChange={this.handleChange}
+                    />
+                    <h3>Password</h3>
+                    <Input type='password' id='password'
+                    name='password' type='password' value={this.state.password} onChange={this.handleChange}
+                    />
+                    
+                    <Button id='loginBtn'
+                    onClick={this.handleClick}
+                    >Login</Button>
+                    
+                    <Link to='/admin-register'>
+                    <Button >Register</Button>
+                    </Link>
+                <div className="altSignIn">
+                {/* GITHUB */}
+                <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />
 
-                <div id= 'landing-image-container'><img id='landing-image' src='https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' /></div>
-
-
-                <Link to='/'><div className='dev'>
-                    DEV
-                </div></Link>
-
-                <Link to='/'><div className='links'>
-                    LINKS
-                </div></Link>
-
-                <h1 className='login-username-placeholder'>USERNAME</h1>
-
-                <input id='login-username' className='input'  name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
-
-                <h1 className='login-password-placeholder'>PASSWORD</h1>
-
-                <input id='login-password' className='input' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
-
-                <button className='login-button' onClick={this.handleClick} >
-                    LOGIN
-                </button>
-
-                <div className='or'>
-                    OR
+                {/* GOOGLE */}
+                <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
                 </div>
+                </div>
+                
 
-                    {/* GITHUB */}
-                    <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />
-
-                    {/* GOOGLE */}
-                    <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
             </div>
+
+
+            // <div className='login-container'>
+
+            //     <div id= 'landing-image-container'><img id='landing-image' src='https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' /></div>
+
+
+            //     <Link to='/'><div className='dev'>
+            //         DEV
+            //     </div></Link>
+
+            //     <Link to='/'><div className='links'>
+            //         LINKS
+            //     </div></Link>
+
+            //     <h1 className='login-username-placeholder'>USERNAME</h1>
+
+            //     <input id='login-username' className='input'  name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
+
+            //     <h1 className='login-password-placeholder'>PASSWORD</h1>
+
+            //     <input id='login-password' className='input' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
+
+            //     <button className='login-button' onClick={this.handleClick} >
+            //         LOGIN
+            //     </button>
+
+            //     <div className='or'>
+            //         OR
+            //     </div>
+
+            //         {/* GITHUB */}
+            //         <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />
+
+            //         {/* GOOGLE */}
+            //         <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
+            // </div>
         )
     }
 }

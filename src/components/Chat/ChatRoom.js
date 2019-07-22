@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import firebase from '../../config/Firebase'
+import NavBar from '../NavBar/NavBar'
+import firebase from '../../config/Firebase';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
 import './Chatroom.css'
+import { connect } from 'react-redux'
 
 
 const ROOT_CSS = css({
-    height: 650,
-    width: 400
+    height: 720,
+    // width: 400
   });
 
 export class ChatRoom extends Component {
@@ -20,6 +22,7 @@ export class ChatRoom extends Component {
     }
 
     componentDidMount() {
+
         firebase.database()
             .ref()
             .child('chatroom') // FIX change to the combined id of the two users to create a new chat room
@@ -30,12 +33,17 @@ export class ChatRoom extends Component {
                     this.setState({ messages: currentMessages })
                 }
         })
-        const db = firebase.firestore();
-     db.collection("users").get().then((querySnapshot) => {
-       querySnapshot.forEach((doc) => {
-           console.log(`${doc.id}` )
-       })
-    })
+
+        const db = firebase.firestore()
+
+        db.collection('users').get().then(snapshot => {
+            snapshot.forEach(doc => {
+                console.log(`${doc.id}`)
+            })
+        })
+
+        console.log(this.props.credentials)
+
     }
 
 
@@ -80,6 +88,9 @@ export class ChatRoom extends Component {
         })
         return (
             <ScrollToBottom className={ROOT_CSS}>
+                <div className='navbar-chat'>
+                <NavBar />
+                </div>
                 <ul>
                 {currentMessages}
                 </ul>
@@ -89,7 +100,7 @@ export class ChatRoom extends Component {
                 onChange={e => this.updateMessage(e)}
                 />
                 
-                <button
+                <button id='submit-btn'
                 onClick={() => this.submitMessage()}
                 >Send</button>
             </div>
@@ -98,5 +109,10 @@ export class ChatRoom extends Component {
     }
 }
 
-export default ChatRoom
+function mapStateToProps(state) {
+    let { credentials } = state
+    return {credentials}
+}
+
+export default connect(mapStateToProps)(ChatRoom)
 

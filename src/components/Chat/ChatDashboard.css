@@ -39,6 +39,7 @@
     width:100vw;
     height: 10vh;
     background: black;
+    color: white;
 }
 
 @media (max-width: 450px) {
@@ -50,5 +51,5 @@
         border-radius: 50%;
         margin-left: 1rem;
     }
-    
+
 }
