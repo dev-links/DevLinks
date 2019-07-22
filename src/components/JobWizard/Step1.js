@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {handleCompany, handleJobTitle, handleAddress, handleCity, handleState, handleZipcode} from '../../redux/jobReducer' ;
 import {Link} from 'react-router-dom';
+import '../JobWizard/Step1.css'
 import { Col, Form, FormGroup, Label, Input, FormText, Row } from 'reactstrap';
-import axios from 'axios'
 
 class Step1 extends Component {
     constructor(){
@@ -44,84 +44,84 @@ class Step1 extends Component {
         console.log(this.props)
         console.log(this.state.Address)
         return (
-            <div>
-                <Row>
+            <div className='body'>
+                <Row >
                 <Col sm={{size: 10, offset: 4}} >
-                <h1>Begin your Job Post Here</h1>
+                <h1 className='step1-container'>Begin your job post here</h1>
                 </Col>
                 </Row>
                 <br/>
-                <Form className='step1-container'>
+                <Form className='form-container'>
                     <FormGroup>
-                    <Col sm={{size:4, offset:4}}>
+                    <Col xs='10'>
                     <Input
                     placeholder='Company name'
                     onChange={e=>this.handleChange(e)}
                     value={this.state.Company}
                     name='Company'
-                    id='input-id'/>
+                    />
                     </Col>
                     </FormGroup>
                     <br/>
                     <FormGroup>
-                    <Col sm={{size:4, offset:4}}>
+                    <Col xs='10'>
                     <Input
                     placeholder='Job Title'
                     onChange={e=>this.handleChange(e)}
                     value={this.state.JobTitle}
                     name='JobTitle'
-                    id='input-id'/>
+                    />
                     </Col>
                     </FormGroup>
                     <br/>
                     <FormGroup>
-                    <Col sm={{size:4, offset:4}}>
+                    <Col xs='10'>
                     <Input
                     placeholder='Address'
                     onChange={e=>this.handleChange(e)}
                     value={this.state.Address}
                     name='Address'
-                    id='input-id'/>
+                    />
                     </Col>
                     </FormGroup>
                     <br/>
                     <FormGroup>
-                    <Col sm={{size:4, offset:4}}>
+                    <Col xs='10'>
                     <Input
                     placeholder='City'
                     onChange={e=>this.handleChange(e)}
                     value={this.state.City}
                     name='City'
-                    id='input-id'/>
+                    />
                     </Col>
                     </FormGroup>
                     <br/>
                     <FormGroup>
-                    <Col sm={{size:4, offset:4}}>
+                    <Col xs='10'>
                     <Input
                     placeholder='State'
                     onChange={e=>this.handleChange(e)}
                     value={this.state.State}
                     name='State'
-                    id='input-id'/>
+                    />
                     </Col>
                     </FormGroup>
                     <br/>
                     <FormGroup>
-                    <Col sm={{size:4, offset:4}}>
+                    <Col xs='10'>
                     <Input
                     placeholder='Zipcode'
                     onChange={e=>this.handleChange(e)}
                     value={this.state.Zipcode}
                     name='Zipcode'
-                    id='input-id'/>
+                    />
                     </Col>
                      </FormGroup>
                     <br/>
                     <FormGroup>
                     <Link to='/Step2'>
                     <Col sm={{ size: 10, offset:5 }}>
-                    <button 
+                    <button className='button'
                     onClick={this.handleStep1} 
                     >Start Job Post
                     </button>

@@ -4,6 +4,7 @@ import {handleJobTitle,handleJobDescription,handleEmploymentTypeMenu,handleSenio
 handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu,handleJobListings} from '../../redux/jobReducer' ;
 import firestore from '../../config/Firebase';
 import { Button, Form, FormGroup, Label, Input, FormText, Row, Col } from 'reactstrap';
+import '../JobWizard/Step2.css'
 import {Link} from 'react-router-dom';
 
 
@@ -182,7 +183,8 @@ class Step2 extends Component {
                 <option>Master's Degree and higher</option>
             </select>
             <br/>
-            <button
+            <br/>
+            <button className='submit-button'
             onClick={e=>this.handleStep2(e)}>Submit</button>
             <br/>
             <br/>
