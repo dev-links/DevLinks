@@ -27,7 +27,7 @@ class ClientDashboard extends Component {
                 <div className='header'>
                 <Row>
                     <Col>
-                    <img className='header-pic' src={travel} alt='header' />
+                    <img className='header-pic' src='https://images.pexels.com/photos/2473183/pexels-photo-2473183.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' alt='header' />
                     </Col>
                 </Row>
                 <Row>
