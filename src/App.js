@@ -26,6 +26,30 @@ function App() {
   return (
     <Router>
     <div className="App">
+<<<<<<< HEAD
+=======
+
+      {/* <JobListings/> */}
+      {/* <ClientDashboard /> */}
+      {/* <Landing /> */}
+      {/* <Login /> */}
+      {/* <ClientRegister /> */}
+      {/* <NavBar/> */}
+      {/* <JobWizard/> */}
+      {/* {routes} */}
+
+      {/* <JobListings/> */}
+      {/* <ClientDashboard /> */}
+      {/* <Landing /> */}
+      {/* <Login /> */}
+
+      {/* <ClientRegister /> */}
+
+      {/* <ClientRegister /> */}
+
+      {/* <Chat/> */}
+
+>>>>>>> master
 
       {routes}
 
