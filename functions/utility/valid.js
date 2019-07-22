@@ -42,14 +42,26 @@ exports.validateLoginData = (data) =>{
 
 exports.reduceUserDetails = (data) => {
     let userDetails = {};
-
-    if(!isEmpty(data.bio.trim())) userDetails.bio = data.bio;
+    //Profile card
+    if(!isEmpty(data.firstName.trim())) userDetails.firstName = data.firstName;
+    if(!isEmpty(data.lastName.trim())) userDetails.lastName = data.lastName;
+    if(!isEmpty(data.jobTitle.trim())) userDetails.jobTitle = data.jobTitle;
+    if(!isEmpty(data.location.trim())) userDetails.location = data.location;
+    //Contact info
+    if(!isEmpty(data.phoneNumber.trim())) userDetails.phoneNumber = data.phoneNumber;
+    if(!isEmpty(data.address.trim())) userDetails.address = data.address;
+    if(!isEmpty(data.birthDay.trim())) userDetails.birthDay = data.birthDay;
     if(!isEmpty(data.website.trim())){
         if(data.website.trim().substring(0,4) !== 'http'){
             userDetails.website = `http://${data.website.trim()}`
         }else userDetails.website = data.website;
     }
-    if(!isEmpty(data.location.trim())) userDetails.location = data.location;
+    //Additional info
+    if(!isEmpty(data.bio.trim())) userDetails.bio = data.bio;
+    if(!isEmpty(data.skills.trim())) userDetails.skills = data.skills;
+    if(!isEmpty(data.experience.trim())) userDetails.experience = data.experience;
+    if(!isEmpty(data.education.trim())) userDetails.education = data.education;
+    
     
     return userDetails
 }

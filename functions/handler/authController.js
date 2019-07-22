@@ -21,6 +21,7 @@ exports.signUp = functions.https.onRequest((req,res)=>{
     if(!valid) return res.status(400).json(errors)
 
     const noImg = 'no-img.png'
+    const noHeader = 'no-header.jpg'
 
    let token, userId;
    db.doc(`/users/${newUser.handle}`).get()
@@ -43,6 +44,7 @@ exports.signUp = functions.https.onRequest((req,res)=>{
                 email: newUser.email,
                 createAt: new Date().toLocaleString(),
                 imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noImg}?alt=media`,
+                headerUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${noHeader}?alt=media`,
                 userId
             };
             return db.doc(`/users/${newUser.handle}`).set(userCredentials)
@@ -222,6 +224,53 @@ exports.uploadImage = (req,res) =>{
         })
         .then(()=>{
             return res.json({message: 'Image uploaded successfully'})
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({error: err.code})
+        })
+    });
+    busboy.end(req.rawBody)
+}
+
+//Header Image
+exports.uploadHeaderImg = (req,res) =>{
+    const BusBoy = require('busboy');
+    const path = require('path');
+    const os = require('os');
+    const fs =require('fs');
+
+    const busboy = new BusBoy({ headers: req.headers})
+
+    let imageHeaderFileName;
+    let imageHeaderUploaded ={}
+
+    busboy.on('file', (fieldName, file, filename, encoding, mimeType) =>{
+        if(mimeType !== 'image/jpeg' && mimeType !== 'image/png'){
+            return res.status(400).json({ error: 'Wrong file type submitted'})
+        }
+        const imageExtension= filename.split('.')[filename.split('.').length -1]
+        imageHeaderFileName = `${Math.round(Math.random()*100000000000)}.${imageExtension}`;
+        const filePath=path.join(os.tmpdir(), imageHeaderFileName);
+        imageHeaderUploaded= {filePath, mimeType}
+        file.pipe(fs.createWriteStream(filePath))
+
+    });
+    busboy.on('finish', () =>{
+        admin.storage().bucket().upload(imageHeaderUploaded.filePath,{
+            resumable: false,
+            metadata:{
+                metadata:{
+                    contentType: imageHeaderUploaded.mimeType
+                }
+            }
+        })
+        .then(()=>{
+            const headerUrl = `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${imageHeaderFileName}?alt=media`
+            return db.doc(`users/${req.user.handle}`).update({headerUrl})
+        })
+        .then(()=>{
+            return res.json({message: 'Header Image uploaded successfully'})
         })
         .catch(err => {
             console.error(err);

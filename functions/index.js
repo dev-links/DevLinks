@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const { db }= require('./utility/admin')
 const AuthFB = require('./utility/AuthFB')
-const {signUp, login, uploadImage, addUserDetails, getAuthUser, getUserDetails, notificationsRead } = require('./handler/authController')
+const {signUp, login, uploadImage, addUserDetails, getAuthUser, getUserDetails, notificationsRead, uploadHeaderImg } = require('./handler/authController')
 const {getAllFeeds, createFeed, getFeed, commentOnFeed, deleteFeed} = require('./handler/feeds')
 
 
@@ -18,6 +18,7 @@ app.delete(`/feed/:feedId`, AuthFB, deleteFeed)
 app.post(`/signUp`, signUp)
 app.post(`/login`, login)
 app.post(`/user/image`, AuthFB, uploadImage)
+app.post(`/user/header`, AuthFB, uploadHeaderImg)
 app.get(`/user`, AuthFB, getAuthUser)
 app.post(`/user`, AuthFB, addUserDetails)
 app.get(`/user/:handle`, getUserDetails)
