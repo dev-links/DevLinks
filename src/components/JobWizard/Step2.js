@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {handleJobTitle,handleJobDescription,handleEmploymentTypeMenu,handleSeniorityLevelMenu,
 handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu,handleJobListings} from '../../redux/jobReducer' ;
 import firestore from '../../config/Firebase';
+import { Button, Form, FormGroup, Label, Input, FormText, Row, Col } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 
@@ -81,28 +82,42 @@ class Step2 extends Component {
         let {Company,Address,City,State,Zipcode} = this.props
         return (
         <div className='step2-container'>
-            <h1>Step 2: What job do you want to post</h1>
-            <br/>
-            <form className='form-container'>
-            <h3>Company</h3>
-            <input
+            <Row form>
+            <Col sm={{size: 10, offset: 4}} >
+            <h1>What job would you like to post?</h1>
+            </Col>
+            </Row>
+            <Form>
+            <FormGroup>
+             <h3>Company</h3>
+             <Col sm={4}>
+            <Input
             type='text'
             name='Company'
             value={`${Company}`}
             onChange={e=>this.handleChange(e)}/>
+            </Col>
+            </FormGroup>
             <br/>
             <h3>Job Title</h3>
-            <input
+            <Col sm={4}>
+
+            <Input
             type='text'
             name='JobTitle'
             onChange={e=>this.handleChange(e)}/>
+             </Col>
+
             <br/>
             <h3>Location</h3>
-            <input
+            <Col sm={4}>
+            <Input
             type='text'
             name='Location'
             value={`${Address} ${City}, ${State} ${Zipcode}`}
             onChange={e=>this.handleChange(e)}/>
+            </Col>
+            <br/>
             <br/>
             <h3>Employment Type</h3>
             <select onChange={e=>this.handleChange(e)}
@@ -114,6 +129,7 @@ class Step2 extends Component {
                 <option>Not Applicable</option>
             </select>
             <br/>
+            <br/>
             <h3>Seniority Level</h3>
             <select onChange={e=>this.handleChange(e)}
             name='SeniorityLevelMenu'>
@@ -124,12 +140,16 @@ class Step2 extends Component {
                 <option>Not Applicable</option>
             </select>
             <br/>
+            <br/>
             <h3>Job Description</h3>
-            <input
-            type='text'
+            <Col sm={4}>
+            <Input
+            type='textarea'
             name='JobDescription'
             onChange={e=>this.handleChange(e)}
             />
+            </Col>
+            <br/>
             <br/>
             <h3>Visa Status</h3>
             <h4>Will you now, or in the future, require sponsorship for employment visa status (e.g. H-1B visa status)?</h4>
@@ -140,6 +160,7 @@ class Step2 extends Component {
                 <option>No</option>  
             </select>
             <br/>
+            <br/>
             <h3>Submit Resume</h3>
             <h4>Do you want the candidate to submit a resume?</h4>
             <select onChange={e=>this.handleChange(e)}
@@ -148,6 +169,7 @@ class Step2 extends Component {
                 <option>yes</option>
                 <option>No</option>            
             </select>
+            <br/>
             <br/>
             <h3>Education</h3>
             <h4>Preferred level of education</h4>
@@ -162,7 +184,9 @@ class Step2 extends Component {
             <br/>
             <button
             onClick={e=>this.handleStep2(e)}>Submit</button>
-            </form>
+            <br/>
+            <br/>
+            </Form>   
         </div>
         )
     }
