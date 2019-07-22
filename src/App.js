@@ -43,7 +43,7 @@ function App() {
       {/* <Login /> */}
       {/* <ClientRegister /> */}
       {/* <NavBar/> */}
-      {/* <JobWizard/> */}
+      <JobWizard/>
       {/* {routes} */}
 
       {/* <JobListings/> */}
@@ -55,7 +55,7 @@ function App() {
 
       {/* <ClientRegister /> */}
 
-      <Chat/>
+      {/* <Chat/> */}
 
       {routes}
     </div>

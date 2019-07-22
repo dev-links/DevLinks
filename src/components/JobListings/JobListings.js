@@ -54,11 +54,6 @@ const mapStyles = {
     
 
     render() {
-      let listings = this.state.jobs.map( =>{
-        return <div>
-          <h3>{location}</h3>
-        </div>
-      })
       return (
         <div>
           <img alt='Company logo'/>
