@@ -60,10 +60,6 @@ const mapStyles = {
     
 
     render() {
-<<<<<<< HEAD
-=======
-
->>>>>>> master
       console.log(this.state.jobs)
       let listings = this.state.jobs.map((job,index) =>{
         return (
@@ -113,10 +109,6 @@ const mapStyles = {
         </div>
         )
       })
-<<<<<<< HEAD
-=======
-
->>>>>>> master
       return (
         <div>
           <NavBar />
