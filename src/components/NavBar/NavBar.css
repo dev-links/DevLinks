@@ -23,6 +23,11 @@
     padding-bottom: 1vh;
     color: white;
 }
+
+#nav-toggler {
+    outline: none;
+    border: solid #2679E3 .5px;
+}
 /* #navItems{
     display: flex;
     justify-content: flex-end;

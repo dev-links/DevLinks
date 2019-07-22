@@ -25,7 +25,7 @@ render() {
     <div id='nav-container'>
         <Navbar color="faded" light>
         <NavbarBrand href="/" className="mr-auto nav"><span id='nav-dev'>DEV</span> <span id='nav-links'>LINKS</span></NavbarBrand>
-        <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+        <NavbarToggler onClick={this.toggleNavbar} className="mr-2" id='nav-toggler' />
         <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar id='navItems'>
             <NavItem >
