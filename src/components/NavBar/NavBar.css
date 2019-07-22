@@ -1,5 +1,17 @@
+#nav-dev {
+    font-family: 'DM Sans', sans-serif;
+    color: #2679E3;
+}
 
-#navItems{
+#nav-links {
+    font-family: 'DM Sans', sans-serif;
+    color: white;
+}
+
+#nav-container {
+    background: #292E31;
+}
+/* #navItems{
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -8,7 +20,7 @@
 
 .nav Link{
     background: black;
-}
+} */
 
 /* .hamburger-image {
     height: 30px;
@@ -18,4 +30,4 @@
 .hamburger-container {
     display: flex;
     justify-content: flex-end;
-} */
+} */ 

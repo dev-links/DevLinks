@@ -1,4 +1,4 @@
-#register-dev {
+/* #register-dev {
     position: absolute;
     right: 54vw;
     bottom: 70vh;
@@ -14,9 +14,9 @@
     font-size: 4vh;
     font-family: 'DM Sans', sans-serif;
     color: white;
-}
+} */
 
-#register-button {
+/* #register-button {
     position: absolute;
     bottom: 28vh;
     right:  10vw;
@@ -28,7 +28,7 @@
     font-weight: bolder;
     border: solid #2679E3 1px;
     outline: none;
-}
+} */ 
 
 #employee {
     position: absolute;

@@ -1,53 +1,186 @@
 
 .login-container {
-    background: rgba(40, 40, 40, .8);
+    background: #292E31;
     width: 100vw;
     height: 100vh;
     /* filter: blur(7px);
     -webkit-filter: blur(7px);  */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
 }
 
-.login {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 30vh;
+#login-dev {
+    position: absolute;
+    right: 54vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: #2679E3;
 }
 
-.login h1 {
-    margin-bottom: 3rem;
-    font-size: 8vw;
+#login-links {
+    position: absolute;
+    right: 47.7vw;
+    bottom: 70vh;
+    font-size: 4vh;
+    font-family: 'DM Sans', sans-serif;
+    color: white;
 }
 
-.login h3 {
-    text-align: left;
-    color: whitesmoke;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    color: #F8E60B;
-}
-
-.login Input {
-    background: rgba(40, 40, 40, .8);
-    color: whitesmoke;
-    border: none;
-}
-
-.login Button {
-    background: #F8E60B;
-    color:white;
-    width: 40vw;
-    height: 5vh;
-    align-self: center;
-    margin-top: 3rem;
+#login-button {
+    background: #2679E3;
+    font-family: 'Montserrat', sans-serif;
+    color: #292E31;
     border-radius: 30px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    
+    outline: none;
+    position: absolute;
+    bottom: 30vh;
+    width: 20vw;
+    left: 36.5vw;
 }
+
+#register-button {
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    color: #2679E3;
+    border-radius: 30px;
+    outline: none;
+    position: absolute;
+    bottom: 23vh;
+    width: 20vw;
+    left: 36.5vw;
+    outline: none;
+    border: solid #2679E3 1px;
+}
+
+form {
+        margin: 100px;
+        }
+    #password-input-field {
+        position: absolute;
+        width: 20vw;
+        height: 44px;
+        line-height: 44px;
+        top: 49vh;
+        right: 43.5vw;
+        }
+    label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: #d3d3d3;
+        transition: 0.2s all;
+        cursor: text;
+        }
+    input {
+        background-color: transparent;
+        width: 100%;
+        border: 0;
+        outline: 0;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid #d3d3d3;
+        box-shadow: none;
+        color: #111;
+        }
+    input:invalid {
+        /* outline: 0; */
+        /* // color: #ff2300; */
+        /* //   border-color: #ff2300; */
+        }
+    input:focus,
+    input:valid {
+        border-color: #2679E3;
+        }
+    input:focus~label,
+    input:valid~label {
+        font-size: 14px;
+        top: -24px;
+        color: #2679E3;
+        }
+
+        form {
+            margin: 100px;
+            }
+        #email-input-field {
+            position: absolute;
+            width: 20vw;
+            height: 44px;
+            line-height: 44px;
+            top: 36vh;
+            right: 43.5vw;
+            }
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: #d3d3d3;
+            transition: 0.2s all;
+            cursor: text;
+            }
+        input {
+            background-color: transparent;
+            width: 100%;
+            border: 0;
+            outline: 0;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid #d3d3d3;
+            box-shadow: none;
+            color: #111;
+            }
+        input:invalid {
+            /* outline: 0; */
+            /* // color: #ff2300; */
+            /* //   border-color: #ff2300; */
+            }
+        input:focus,
+        input:valid {
+            border-color: #2679E3;
+            }
+        input:focus~label,
+        input:valid~label {
+            font-size: 14px;
+            top: -24px;
+            color: #2679E3;
+            }
+    
+        .lds-ripple {
+            display: inline-block;
+            position: absolute;
+            right: 45vw;
+            top: 22vh;
+            width: 64px;
+            height: 64px;
+            }
+        .lds-ripple div {
+            position: absolute;
+            border: 4px solid #2679E3;
+            opacity: 1;
+            border-radius: 50%;
+            animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+            }
+        .lds-ripple div:nth-child(2) {
+            animation-delay: -0.7s;
+            }
+        @keyframes lds-ripple {
+        0% {
+            top: 28px;
+            left: 28px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+            }
+        100% {
+            top: -1px;
+            left: -1px;
+            width: 58px;
+            height: 58px;
+            opacity: 0;
+                }
+                    }
 
 .altSignIn {
     display: flex;
@@ -62,6 +195,41 @@
     height: 5rem;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* .login-container {
     background-color: black;
@@ -389,7 +557,7 @@ input:valid~label {
     color: #2679E3;
     }
 
-    form {
+    /* form {
         margin: 100px;
         }
     #password-input-field {
@@ -434,4 +602,245 @@ input:valid~label {
         top: -24px;
         color: #2679E3;
         }
-        }   */
+        }   */ 
+
+
+
+
+
+        @media (max-width: 375px) {
+            .login-container {
+                background: #292E31;
+                width: 100vw;
+                height: 100vh;
+                /* filter: blur(7px);
+                -webkit-filter: blur(7px);  */
+                display: flex;
+                /* justify-content: center; */
+                /* align-items: center; */
+                /* text-align: center; */
+            }
+            
+            /* .login {
+                display: flex;
+                flex-direction: column;
+                flex-basis: 30vh;
+            } */
+            
+            /* .login h1 {
+                margin-bottom: 3rem;
+                font-size: 8vw;
+            } */
+            
+            /* .login h3 {
+                text-align: left;
+                color: whitesmoke;
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+                color: #2679E3;
+            } */
+            
+            /* .login Input {
+                background: rgba(40, 40, 40, .8);
+                color: whitesmoke;
+                border: none;
+            } */
+            
+            /* .login Button {
+                background: #1CACF4;
+                color:white;
+                width: 40vw;
+                height: 5vh;
+                align-self: center;
+                margin-top: 3rem;
+                border-radius: 30px;
+                font-weight: bold;
+                font-size: 1.5rem;
+                
+            } */
+            #login-dev {
+                position: absolute;
+                right: 54vw;
+                bottom: 70vh;
+                font-size: 4vh;
+                font-family: 'DM Sans', sans-serif;
+                color: #2679E3;
+            }
+            
+            #login-links {
+                position: absolute;
+                right: 30vw;
+                bottom: 70vh;
+                font-size: 4vh;
+                font-family: 'DM Sans', sans-serif;
+                color: white;
+            }
+            
+            #login-button {
+                background: #2679E3;
+                font-family: 'Montserrat', sans-serif;
+                color: #292E31;
+                border-radius: 30px;
+                outline: none;
+                position: absolute;
+                bottom: 30vh;
+                width: 65vw;
+                left: 17vw;
+            }
+            
+            #register-button {
+                background-color: transparent;
+                font-family: 'Montserrat', sans-serif;
+                color: #2679E3;
+                border-radius: 30px;
+                outline: none;
+                position: absolute;
+                bottom: 23vh;
+                width: 65vw;
+                left: 17vw;
+                outline: none;
+                border: solid #2679E3 1px;
+            }
+            
+            form {
+                    margin: 100px;
+                    }
+                #password-input-field {
+                    position: absolute;
+                    width: 250px;
+                    height: 44px;
+                    line-height: 44px;
+                    top: 49vh;
+                    right: 16vw;
+                    }
+                label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    color: #d3d3d3;
+                    transition: 0.2s all;
+                    cursor: text;
+                    }
+                input {
+                    background-color: transparent;
+                    width: 100%;
+                    border: 0;
+                    outline: 0;
+                    padding: 0.5rem 0;
+                    border-bottom: 2px solid #d3d3d3;
+                    box-shadow: none;
+                    color: #111;
+                    }
+                input:invalid {
+                    /* outline: 0; */
+                    /* // color: #ff2300; */
+                    /* //   border-color: #ff2300; */
+                    }
+                input:focus,
+                input:valid {
+                    border-color: #2679E3;
+                    }
+                input:focus~label,
+                input:valid~label {
+                    font-size: 14px;
+                    top: -24px;
+                    color: #2679E3;
+                    }
+            
+                    form {
+                        margin: 100px;
+                        }
+                    #email-input-field {
+                        position: absolute;
+                        width: 250px;
+                        height: 44px;
+                        line-height: 44px;
+                        top: 36vh;
+                        right: 16vw;
+                        }
+                    label {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        color: #d3d3d3;
+                        transition: 0.2s all;
+                        cursor: text;
+                        }
+                    input {
+                        background-color: transparent;
+                        width: 100%;
+                        border: 0;
+                        outline: 0;
+                        padding: 0.5rem 0;
+                        border-bottom: 2px solid #d3d3d3;
+                        box-shadow: none;
+                        color: #111;
+                        }
+                    input:invalid {
+                        /* outline: 0; */
+                        /* // color: #ff2300; */
+                        /* //   border-color: #ff2300; */
+                        }
+                    input:focus,
+                    input:valid {
+                        border-color: #2679E3;
+                        }
+                    input:focus~label,
+                    input:valid~label {
+                        font-size: 14px;
+                        top: -24px;
+                        color: #2679E3;
+                        }
+                
+                    .lds-ripple {
+                        display: inline-block;
+                        position: absolute;
+                        right: 20vw;
+                        top: 22vh;
+                        width: 64px;
+                        height: 64px;
+                        }
+                    .lds-ripple div {
+                        position: absolute;
+                        border: 4px solid #2679E3;
+                        opacity: 1;
+                        border-radius: 50%;
+                        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+                        }
+                    .lds-ripple div:nth-child(2) {
+                        animation-delay: -0.7s;
+                        }
+                    @keyframes lds-ripple {
+                    0% {
+                        top: 28px;
+                        left: 28px;
+                        width: 0;
+                        height: 0;
+                        opacity: 1;
+                        }
+                    100% {
+                        top: -1px;
+                        left: -1px;
+                        width: 58px;
+                        height: 58px;
+                        opacity: 0;
+                            }
+                                }
+            
+            .altSignIn {
+                display: flex;
+               justify-content: space-evenly;
+               align-items: center;
+               margin-top: 2rem;
+               
+            }
+            
+            .altSignIn img {
+                width: 5rem;
+                height: 5rem;
+                cursor: pointer;
+            }
+        
+        }
