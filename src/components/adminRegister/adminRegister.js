@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import { Input, Button } from 'reactstrap'
 import './adminRegister.css';
 
 class adminRegister extends Component {
@@ -17,33 +18,37 @@ class adminRegister extends Component {
         return (
             //need to change login container
             <div className='login-container'>
-                <Link to='/'><div className='dev'>
-                    DEV
-                </div></Link>
+                <div className='login'>
+                    <h1><span style={{ color: '#F8E60B'}}>DEV</span> LINKS</h1>
+                    <h3>Username</h3>
+                    <Input type='text'
+                    name='username' type='text' value={this.state.email} onChange={this.handleChange}
+                    />
+                    <h3>Eamil</h3>
+                    <Input type='text'
+                    name='email' type='email' value={this.state.email} onChange={this.handleChange}
+                    />
+                    <h3>Password</h3>
+                    <Input type='password'
+                    name='password' type='password' value={this.state.password} onChange={this.handleChange}
+                    />
+                
+               {/* add register */}
+                    <Button >Register</Button>
+                   
 
-                <Link to='/'><div className='links'>
-                    LINKS
-                </div></Link>
+                <Link to='/'>
+                    <Button >Login</Button>
+                    </Link>
+                {/* <div className="altSignIn">
+                GITHUB
+                <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />
 
-                <h1 className='admin-username-placeholder'>USERNAME</h1>
-
-                <input id='admin-username' className='register-admin-input' />
-
-                <h1 className='admin-password-placeholder'>PASSWORD</h1>
-
-                <input id='admin-password' className='register-admin-input' type='password' />
-
-                <h1 className='company-placeholder'>COMPANY</h1>
-
-                <input id='register-company' className='register-admin-input' />
-
-                <button className='admin-register'>REGISTER</button>
-
-                {/* Add line */}
-                <Link to='admin-register'><button className='employer-button'>EMPLOYER</button></Link>
-
-                <Link to='client-register'><button className='client-button'>CLIENT</button></Link>
-            </div>
+                
+                <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
+                </div> */}
+                </div>
+                </div>
         )
     }
 }

@@ -2,6 +2,15 @@ body {
     background: whitesmoke;
 }
 
+.navbar-chat {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #4e565e;
+    z-index: 99;
+}
+
 .input {
     display: flex;
     position:fixed;
