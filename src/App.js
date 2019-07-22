@@ -26,6 +26,8 @@ function App() {
   return (
     <Router>
     <div className="App">
+<<<<<<< HEAD
+=======
 
       {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
@@ -47,6 +49,7 @@ function App() {
 
       {/* <Chat/> */}
 
+>>>>>>> master
 
       {routes}
 
