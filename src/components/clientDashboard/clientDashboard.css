@@ -1,12 +1,9 @@
 /* body {
     background-color: #E6E6E6;
 } */
-body {
-    
-}
 
 .dash-container  {
-    background-color: #E6E6E6;
+    background: #292E31;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,7 +85,7 @@ body {
 
 .about-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
 }
 

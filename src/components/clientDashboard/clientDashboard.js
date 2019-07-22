@@ -15,7 +15,7 @@ class ClientDashboard extends Component {
 
     // ClientDashboard - Firebase
     componentDidMount() {
-        console.log(this.props.credentials)
+        console.log(this.props.credentials) 
     }
 
     render() {

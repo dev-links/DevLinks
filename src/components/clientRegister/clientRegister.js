@@ -71,7 +71,7 @@ class clientRegister extends Component {
                         <input name='email' type='email' value={this.state.email} onChange={this.handleChange} type="text" id="name" required />
                         <label for="name">Email:</label>
                     </div>
-                </form>
+                </form> 
 
                 <form action="">
                     <div id="password-input-field">
