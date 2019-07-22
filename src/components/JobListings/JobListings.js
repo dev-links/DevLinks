@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+// import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import firestore from '../../config/Firebase';
 import '../JobListings/JobListings.css'
-import GoogleMapReact from 'google-map-react'
+// import GoogleMapReact from 'google-map-react'
 import NavBar from '../NavBar/NavBar'
 import Axios from 'axios';
 import avatar from '../../assets/avatar.jpg'
@@ -11,11 +11,7 @@ import { Button, UncontrolledCollapse } from 'reactstrap'
 
 
 
-const mapStyles = {
-    width: '50%',
-    height: '50%',
-    
-  }
+// 
 
 
  
@@ -60,10 +56,6 @@ const mapStyles = {
     
 
     render() {
-<<<<<<< HEAD
-=======
-
->>>>>>> master
       console.log(this.state.jobs)
       let listings = this.state.jobs.map((job,index) =>{
         return (
@@ -113,10 +105,6 @@ const mapStyles = {
         </div>
         )
       })
-<<<<<<< HEAD
-=======
-
->>>>>>> master
       return (
         <div>
           <NavBar />
@@ -196,3 +184,9 @@ const mapStyles = {
     // GoogleApiWrapper({
     //   apiKey: 'AIzaSyD_EZ0L3z6RTmVbrPG1Z1IZ3zsuZopE-aQ'
     // })(JobListings);
+
+    // const mapStyles = {
+    //   //     width: '50%',
+    //   //     height: '50%',
+          
+    //   //   }
