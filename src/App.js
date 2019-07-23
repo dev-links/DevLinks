@@ -26,11 +26,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-=======
       {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
@@ -51,9 +47,6 @@ function App() {
 
       {/* <Chat/> */}
 
->>>>>>> master
-
->>>>>>> master
       {routes}
 
     </div>
