@@ -16,6 +16,9 @@ class ClientDashboard extends Component {
             modalExperience: false,
             modalEducation: false,
             modalSkills: false,
+            firstName:'',
+            lastName:'',
+            location:'',
             email:'',
             phone: '',
             repository:'',
@@ -146,7 +149,22 @@ class ClientDashboard extends Component {
                         <ModalHeader toggle={this.toggleContact}>Contact Info</ModalHeader>
                         <ModalBody>
                         <Form>
+                        <FormGroup>
+                        <FormGroup>
+                            <Input type="text" name="firstName"  placeholder="First name" 
+                            onChange={e => this.handleChange(e)}
+                            />
+                            </FormGroup>
                             <FormGroup>
+                            <Input type="text" name="lastName" placeholder="LastName" 
+                            onChange={e => this.handleChange(e)}
+                            />
+                            </FormGroup>
+                            <FormGroup>
+                            <Input type="text" name="location" placeholder="123 Main St. Dallas, TX" 
+                            onChange={e => this.handleChange(e)}
+                            />
+                            </FormGroup>
                             <Input type="email" name="email"  placeholder="email" 
                             onChange={e => this.handleChange(e)}
                             />
@@ -166,6 +184,8 @@ class ClientDashboard extends Component {
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
+                            
+                            
                             
                         </Form>
                         </ModalBody>
@@ -273,9 +293,9 @@ class ClientDashboard extends Component {
                     <Col className='about-container' xs='10'>
                     <div className='about-header'>
                     <h3>Skills</h3>
-                    <Button color="primary" onClick={this.toggleExperience}>Experience</Button>
-                    <Modal isOpen={this.state.modalExperience} toggle={this.toggleExperience} >
-                        <ModalHeader toggle={this.toggleExperience}>Tell us about yourself</ModalHeader>
+                    <Button color="primary" onClick={this.toggleSkills}>Skills</Button>
+                    <Modal isOpen={this.state.modalSkills} toggle={this.toggleSkills} >
+                        <ModalHeader toggle={this.toggleSkills}>Tell us about yourself</ModalHeader>
                         <ModalBody>
                         <Form>
                             <FormGroup>
@@ -294,8 +314,8 @@ class ClientDashboard extends Component {
                         </ModalBody>
                         <ModalFooter>
                             {/* add submit button to send to firebase */}
-                            <Button color="primary" onClick={this.toggleExperience}>Save</Button>{' '}
-                            <Button color="secondary" onClick={this.toggleExperience}>Cancel</Button>
+                            <Button color="primary" onClick={this.toggleSkills}>Save</Button>{' '}
+                            <Button color="secondary" onClick={this.toggleSkills}>Cancel</Button>
                         </ModalFooter>
                     </Modal>
                     </div>
