@@ -98,6 +98,22 @@
 .about-info {
 
 }
+.textArea {
+    width: 70vw;
+    height: 40vh !important;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-body{
+    margin: 0;
+    
+}
+
+div.modal-body {
+    margin: 0;
+    padding: 0;
+}
 
 
 
