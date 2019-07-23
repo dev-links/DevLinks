@@ -295,3 +295,22 @@ exports.notificationsRead = (req,res) =>{
             return res.status(500).json({error: err.code})
         })
 }
+
+exports.getAllUsers = ((req,res) =>{
+    db.collection('users')
+        .orderBy('createAt', 'desc')
+        .get()
+        .then(data =>{
+        let users = [];
+        data.forEach(doc =>{
+            users.push({
+                userId: doc.id,
+                handle: doc.data().handle,
+                createAt: doc.data().createAt,
+                imageUrl: doc.data().imageUrl
+            });
+        })
+        return res.json(users)
+        })
+        .catch(err => console.error(err))
+})
