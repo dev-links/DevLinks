@@ -41,8 +41,6 @@ class Step1 extends Component {
 
 
     render(){
-        console.log(this.props)
-        console.log(this.state.Address)
         return (
             <div className='body'>
                 <Row >

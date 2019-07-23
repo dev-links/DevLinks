@@ -56,7 +56,6 @@ import { Button, UncontrolledCollapse } from 'reactstrap'
     
 
     render() {
-      console.log(this.state.jobs)
       let listings = this.state.jobs.map((job,index) =>{
         return (
         <div key={job.id} className='listings-container'>
