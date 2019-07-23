@@ -1,9 +1,9 @@
 describe('login actually works', () => {
     it('Should load the page', () => {
-        cy.visit('http://localhost:9011/#/login')
+        cy.visit('http://localhost:9009/#/login')
     })
 })
-
+ 
 describe('Add Item Input Field', () => {
     it('Should be able to type in the email input field', () => {
         cy.get('#email')
