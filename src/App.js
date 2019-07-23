@@ -29,6 +29,8 @@ function App() {
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
+=======
       {/* <JobListings/> */}
       {/* <ClientDashboard /> */}
       {/* <Landing /> */}
@@ -51,6 +53,7 @@ function App() {
 
 >>>>>>> master
 
+>>>>>>> master
       {routes}
 
     </div>
