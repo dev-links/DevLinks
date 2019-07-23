@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {handleJobTitle,handleJobDescription,handleEmploymentTypeMenu,handleSeniorityLevelMenu,
 handleVisaStatusMenu,handleSubmitResumeMenu,handleEducationMenu,handleJobListings} from '../../redux/jobReducer' ;
 import firestore from '../../config/Firebase';
-import { Button, Form, FormGroup, Label, Input, FormText, Row, Col } from 'reactstrap';
+import {  Form, FormGroup,  Input,  Row, Col } from 'reactstrap';
+import '../JobWizard/Step2.css'
 import {Link} from 'react-router-dom';
 
 
@@ -30,7 +31,7 @@ class Step2 extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
     handleStep2 = (e) =>{
-        e.preventDefault()
+        // e.preventDefault()
         let {JobTitle,
         JobDescription,
         EmploymentTypeMenu,
@@ -63,7 +64,7 @@ class Step2 extends Component {
         })
         const db = firestore.firestore();
         
-        const jobListingss = db.collection('jobListings').add({
+        const jobListings = db.collection('jobListings').add({
             Company,Address,City,State,Zipcode,
             JobTitle,
             JobDescription,
@@ -84,14 +85,14 @@ class Step2 extends Component {
         <div className='step2-container'>
             <Row form>
             <Col sm={{size: 10, offset: 4}} >
-            <h1>What job would you like to post?</h1>
+            <h1 className='title'>What job would you like to post?</h1>
             </Col>
             </Row>
             <Form>
             <FormGroup>
              <h3>Company</h3>
              <Col sm={4}>
-            <Input
+            <Input className='input1'
             type='text'
             name='Company'
             value={`${Company}`}
@@ -102,7 +103,7 @@ class Step2 extends Component {
             <h3>Job Title</h3>
             <Col sm={4}>
 
-            <Input
+            <Input className='input1'
             type='text'
             name='JobTitle'
             onChange={e=>this.handleChange(e)}/>
@@ -120,7 +121,7 @@ class Step2 extends Component {
             <br/>
             <br/>
             <h3>Employment Type</h3>
-            <select onChange={e=>this.handleChange(e)}
+            <select className='select1'onChange={e=>this.handleChange(e)}
             name='EmploymentTypeMenu'>
                 <option>Choose one...</option>
                 <option>Full-Time</option>
@@ -131,7 +132,7 @@ class Step2 extends Component {
             <br/>
             <br/>
             <h3>Seniority Level</h3>
-            <select onChange={e=>this.handleChange(e)}
+            <select className='select2'onChange={e=>this.handleChange(e)}
             name='SeniorityLevelMenu'>
                 <option>Choose one...</option>
                 <option>Entry Level</option>
@@ -153,7 +154,7 @@ class Step2 extends Component {
             <br/>
             <h3>Visa Status</h3>
             <h4>Will you now, or in the future, require sponsorship for employment visa status (e.g. H-1B visa status)?</h4>
-            <select onChange={e=>this.handleChange(e)}
+            <select className='select3'onChange={e=>this.handleChange(e)}
             name='VisaStatusMenu'>
                  <option>Choose one...</option>
                 <option>yes</option>
@@ -163,7 +164,7 @@ class Step2 extends Component {
             <br/>
             <h3>Submit Resume</h3>
             <h4>Do you want the candidate to submit a resume?</h4>
-            <select onChange={e=>this.handleChange(e)}
+            <select className='select4'onChange={e=>this.handleChange(e)}
             name='SubmitResumeMenu'>
                 <option>Choose one...</option>
                 <option>yes</option>
@@ -173,7 +174,7 @@ class Step2 extends Component {
             <br/>
             <h3>Education</h3>
             <h4>Preferred level of education</h4>
-            <select onChange={e=>this.handleChange(e)}
+            <select className='select5'onChange={e=>this.handleChange(e)}
             name='EducationMenu'>
                 <option>Choose one...</option>
                 <option>High Diploma or equivalent and higher</option>
@@ -182,8 +183,11 @@ class Step2 extends Component {
                 <option>Master's Degree and higher</option>
             </select>
             <br/>
-            <button
+            <br/>
+            <Link to='/jobListings'>
+            <button className='submit-button'
             onClick={e=>this.handleStep2(e)}>Submit</button>
+            </Link>
             <br/>
             <br/>
             </Form>   

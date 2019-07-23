@@ -4,7 +4,8 @@ import axios from 'axios'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './Login.css';
-import {Button, Input} from 'reactstrap'
+// import {Input} from 'reactstrap';
+import Button from '@material-ui/core/Button';
 
 class Login extends Component {
     constructor(props) {
@@ -53,43 +54,59 @@ class Login extends Component {
 
     render() {
 
-        //Checking to see if client or admin
-        // if(this.state.redirect === true && this.state.user.admin === true) {
-        //     console.log('Logged in as Employer')
-        //     return <Redirect to='admin-dashboard' />
-        // }
-        // if(this.state.redirect === true && this.state.user.admin === false) {
-        //     console.log('Logged in as Client')
-        //     return <Redirect to='client-dashboard' />
-        // }
-
         return (
 
             <div className='login-container'>
                 <div className='login'>
-                    <h1><span style={{ color: '#F8E60B'}}>DEV</span> LINKS</h1>
-                    <h3>Username</h3>
+                    <span id='login-dev'>DEV</span> <span id='login-links'>LINKS</span>
+                    {/* <h3>Username</h3>
                     <Input type='text' id='email'
                     name='email' type='email' value={this.state.email} onChange={this.handleChange}
-                    />
-                    <h3>Password</h3>
+                    /> */}
+                    {/* <h3>Password</h3>
                     <Input type='password' id='password'
                     name='password' type='password' value={this.state.password} onChange={this.handleChange}
-                    />
+                    /> */}
                     
-                    <Button id='loginBtn'
+                    <Button onClick={this.handleClick} id='login-button' variant="contained" color="primary">
+                    Login
+                    </Button>
+
+                    <Link to='/admin-register'><Button id='register-button' variant="contained" color="primary">
+                    Register
+                    </Button></Link>
+
+                    <form action="">
+                        <div id="email-input-field">
+                            <input type='text' id='email'
+                            name='email' type='email' value={this.state.email} onChange={this.handleChange} required />
+                            <label for="name">Email:</label>
+                        </div>
+                    </form>
+
+                    <form action="">
+                        <div id="password-input-field">
+                            <input type='password' id='password'
+                            name='password' type='password' value={this.state.password} onChange={this.handleChange} required />
+                            <label for="name">Password:</label>
+                        </div>
+                    </form>
+
+                <div class="lds-ripple"><div></div><div></div></div>
+
+                    {/* <Button id='loginBtn'
                     onClick={this.handleClick}
-                    >Login</Button>
+                    >Login</Button> */}
                     
-                    <Link to='/admin-register'>
+                    {/* <Link to='/admin-register'>
                     <Button >Register</Button>
-                    </Link>
+                    </Link> */}
                 <div className="altSignIn">
                 {/* GITHUB */}
-                <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' />
+                {/* <img className='github' src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' /> */}
 
                 {/* GOOGLE */}
-                <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' />
+                {/* <img className='google' src='https://cdn1.iconfinder.com/data/icons/social-media-icon-1/112/google-plus-256.png' /> */}
                 </div>
                 </div>
                 

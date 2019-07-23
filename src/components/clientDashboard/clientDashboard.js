@@ -15,7 +15,7 @@ class ClientDashboard extends Component {
 
     // ClientDashboard - Firebase
     componentDidMount() {
-        console.log(this.props.credentials)
+        console.log(this.props.credentials) 
     }
 
     render() {
@@ -27,12 +27,12 @@ class ClientDashboard extends Component {
                 <div className='header'>
                 <Row>
                     <Col>
-                    <img className='header-pic' src={travel} alt='header' />
+                    <img className='header-pic' src='https://images.pexels.com/photos/2473183/pexels-photo-2473183.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' alt='header' />
                     </Col>
                 </Row>
                 <Row>
                     <Col >
-                    <img className='profile-header-pic' src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""/>
+                    <img id='profile-header-pic' src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""/>
                     </Col>
                 </Row>
                 <Row className='header-info'>

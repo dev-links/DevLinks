@@ -1,12 +1,9 @@
 /* body {
     background-color: #E6E6E6;
 } */
-body {
-    
-}
 
 .dash-container  {
-    background-color: #E6E6E6;
+    background: #292E31;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,18 +20,19 @@ body {
 
 .header-pic {
     width: 90vw;
-   
+    height: 35vh;
 }
 
-.profile-header-pic {
+#profile-header-pic {
     width: 20vw;
     height: 20vh;
     z-index: 9;
-    border: 1px white solid;
+    border: 1px #181A1B solid;
     border-radius: 50%;
     box-shadow: #000;
     margin-top: -11vh;
     margin-left: 12vw;
+    margin-right: 18vw;
 }
 
 .header {
@@ -49,9 +47,12 @@ body {
 .header-info {
     width: 90vw;
     height: 40vh;
-    background: white;
+    background: #181A1B;
     margin-top: -9rem;
     margin-bottom: 2rem;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    border-bottom: solid #181A1B 1px;
 }
 
 .header-info h2, .header-info h5, .header-info h6  {
@@ -81,14 +82,16 @@ body {
 .about-container {
     width: 90vw;
     height: 15vh;
-    background: white;
+    background: #181A1B;
     margin: 1rem 2rem;
-    
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    border-bottom: solid #181A1B 1px;
 }
 
 .about-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
 }
 
@@ -102,38 +105,50 @@ body {
 
 @media only screen and (min-width:800px) {
 
-   
 
     .header-info {   
         height: 25vh;
     }
 
     
-    .profile-header-pic {
+    #profile-header-pic {
         height: 25vh;
         width: 15vw;
         margin-top: -11vh;
         margin-left: 12vw;
+        right: 70vw;
     }
 
     .header-info {
         margin-top: -10rem;
         height: 15rem;
+    }
+
+    .header-pic {
+        width: 90vw;
+        height: 20vh;
     }
     
 }
 
 @media only screen and (max-width: 450px) {
     .header-info {
-        margin-top: -10rem;
+        margin-top: -10vh;
         height: 15rem;
+        /* border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;  */
     }
 
-     .profile-header-pic {
-        height: 15vh;
-        width: 25vw;
+    #profile-header-pic {
+        height: 10vh;
+        width: 24vw;
         margin-top: -7vh;
-        margin-left: -1rem;
+        margin-left: 20vw;
+    }
+
+    .header-pic {
+        width: 90vw;
+        height: 20vh;
     }
     
 }
