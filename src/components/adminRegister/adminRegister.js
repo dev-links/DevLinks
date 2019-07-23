@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 // import { Input, Button } from 'reactstrap';
 import Button from '@material-ui/core/Button';
 import './adminRegister.css';
+import axios from 'axios';
 
 class adminRegister extends Component {
     constructor() {
@@ -13,7 +14,40 @@ class adminRegister extends Component {
             password: '',
             redirect: false
         }
-    } 
+    }
+
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+    
+    handleClick = (e) => {
+        e.preventDefault();
+        this.setState({
+            loading : true
+        })
+        const userData = {
+            email : this.state.email,
+            password : this.state.password,
+            handle: this.state.handle
+        }
+        axios.post('/signUp', userData)
+        .then(res => {
+            console.log(res.data)
+            this.setState({
+                loading: false
+            })
+            this.props.history.push('/')
+        })
+        .catch(err => {
+            this.setState({
+                errors: err.response.data,
+                loading: false
+            })
+        })
+    }
 
     render() { 
         return (
@@ -48,7 +82,7 @@ class adminRegister extends Component {
                     <form action="">
                         <div id="username-input-field">
                             <input type='text'
-                            name='username' type='text' value={this.state.email} onChange={this.handleChange} required />
+                            name='username' type='text' value={this.state.username} onChange={this.handleChange} required />
                             <label for="name">Username:</label>
                         </div>
                     </form>
@@ -62,11 +96,11 @@ class adminRegister extends Component {
                     </form>
 
 
-                <Link to='/'><Button onClick={this.handleClick} id='login-button' variant="contained" color="primary">
+                <Link to='/'><Button id='login-button' variant="contained" color="primary">
                     LOGIN
                     </Button></Link>
 
-                    <Button id='register-button' variant="contained" color="primary">
+                    <Button  onClick={this.handleClick} id='register-button' variant="contained" color="primary">
                     REGISTER
                     </Button>
                {/* add register */}
