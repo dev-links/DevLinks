@@ -86,7 +86,7 @@ class Step2 extends Component {
         return (
         <div className='step2-container'>
             <Row form>
-            <Col sm={{size: 10, offset: 4}} >
+            <Col xs='12' >
             <h1 className='title'>What job would you like to post?</h1>
             </Col>
             </Row>
@@ -94,7 +94,7 @@ class Step2 extends Component {
             <FormGroup>
              <h3>Company</h3>
              <br/>
-             <Col sm={4}>
+             <Col xs='10'>
             <Input className='input1'
             type='text'
             name='Company'
@@ -105,7 +105,7 @@ class Step2 extends Component {
             <br/>
             <h3>Job Title</h3>
             <br/>
-            <Col sm={4}>
+            <Col xs='11'>
             <Input className='input1'
             type='text'
             name='JobTitle'
@@ -116,7 +116,7 @@ class Step2 extends Component {
             <br/>
             <h3>Location</h3>
             <br/>
-            <Col sm={4}>
+            <Col xs='11'>
             <Input
             type='text'
             name='Location'
@@ -149,7 +149,7 @@ class Step2 extends Component {
             <br/>
             <h3>Job Description</h3>
             <br/>
-            <Col sm={4}>
+            <Col xs='10'>
             <Input
             type='textarea'
             name='JobDescription'

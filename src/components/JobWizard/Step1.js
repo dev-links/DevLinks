@@ -44,7 +44,7 @@ class Step1 extends Component {
         return (
             <div className='body'>
                 <Row >
-                <Col sm={{size: 10, offset: 4}} >
+                <Col xs='12' >
                 <h1 className='step1-container'>Begin your job post here</h1>
                 </Col>
                 </Row>
@@ -118,7 +118,7 @@ class Step1 extends Component {
                     <br/>
                     <FormGroup>
                     <Link to='/Step2'>
-                    <Col sm={{ size: 10, offset:5 }}>
+                    <Col sm='10'>
                     <button className='button'
                     onClick={this.handleStep1} 
                     >Start Job Post
