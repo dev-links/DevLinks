@@ -32,14 +32,17 @@ class Step2 extends Component {
     }
     handleStep2 = (e) =>{
         // e.preventDefault()
-        let {JobTitle,
+        let {
         JobDescription,
         EmploymentTypeMenu,
         SeniorityLevelMenu,
         VisaStatusMenu,
         SubmitResumeMenu,
         EducationMenu,} = this.state
-        let {Company,Address,City,State,Zipcode} = this.props
+        if(e =''){
+            alert('Please fill out all information')
+        } else {
+        let {Company,Address,City,State,Zipcode,JobTitle} = this.props
         this.props.handleJobTitle(JobTitle)
         this.props.handleJobDescription(JobDescription)
         this.props.handleEmploymentTypeMenu(EmploymentTypeMenu)
@@ -61,7 +64,7 @@ class Step2 extends Component {
             City,
             State,
             Zipcode
-        })
+        }) 
         const db = firestore.firestore();
         
         const jobListings = db.collection('jobListings').add({
@@ -74,13 +77,14 @@ class Step2 extends Component {
             SubmitResumeMenu,
             EducationMenu,
 
-          });
+          })};
     }
 
 
     render(){
         console.log(this.props)
-        let {Company,Address,City,State,Zipcode} = this.props
+        let {Company,JobTitle,Address,City,State,Zipcode} = this.props
+        console.log(JobTitle)
         return (
         <div className='step2-container'>
             <Row form>
@@ -91,6 +95,7 @@ class Step2 extends Component {
             <Form>
             <FormGroup>
              <h3>Company</h3>
+             <br/>
              <Col sm={4}>
             <Input className='input1'
             type='text'
@@ -101,16 +106,18 @@ class Step2 extends Component {
             </FormGroup>
             <br/>
             <h3>Job Title</h3>
+            <br/>
             <Col sm={4}>
-
             <Input className='input1'
             type='text'
             name='JobTitle'
+            value={`${JobTitle}`}
             onChange={e=>this.handleChange(e)}/>
              </Col>
 
             <br/>
             <h3>Location</h3>
+            <br/>
             <Col sm={4}>
             <Input
             type='text'
@@ -143,6 +150,7 @@ class Step2 extends Component {
             <br/>
             <br/>
             <h3>Job Description</h3>
+            <br/>
             <Col sm={4}>
             <Input
             type='textarea'
@@ -184,7 +192,7 @@ class Step2 extends Component {
             </select>
             <br/>
             <br/>
-            <Link to='/jobListings'>
+            <Link to='/client-dashboard'>
             <button className='submit-button'
             onClick={e=>this.handleStep2(e)}>Submit</button>
             </Link>
