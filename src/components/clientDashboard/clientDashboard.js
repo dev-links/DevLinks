@@ -38,6 +38,12 @@ class ClientDashboard extends Component {
         console.log(this.props.credentials) 
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.skills.length !== this.state.skills.length){
+            this.addSkill()
+        }
+    }
+
     handleChange = e => {
         this.setState({ [e.target.name]:e.target.value})
     }
@@ -157,39 +163,39 @@ class ClientDashboard extends Component {
                         <Form>
                         <FormGroup>
                         <FormGroup>
-                            <Input type="text" name="firstName"  placeholder="First name" 
+                            <Input type="text" name="firstName" value={firstName} placeholder="First name" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
                             <FormGroup>
-                            <Input type="text" name="lastName" placeholder="Last name" 
+                            <Input type="text" name="lastName" value={lastName} placeholder="Last name" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
                             <FormGroup>
-                            <Input type="text" name="location" placeholder="123 Main St. Dallas, TX" 
+                            <Input type="text" name="location" value={location} placeholder="123 Main St. Dallas, TX" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
-                            <Input type="email" name="email"  placeholder="email" 
-                            onChange={e => this.handleChange(e)}
-                            />
-                            </FormGroup>
-                            <FormGroup>
-                            <Input type="text" name="phone" placeholder="877-867-5309" 
+                            <Input type="email" name="email"  value={email} placeholder="email" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
                             <FormGroup>
-                            <Input type="text" name="repository" placeholder="Github" 
+                            <Input type="text" name="phone"value={phoneNumber} placeholder="877-867-5309" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
-                            <FormGroup>    
+                            <FormGroup>
+                            <Input type="text" name="repository" value={website} placeholder="Github" 
+                            onChange={e => this.handleChange(e)}
+                            />
+                            </FormGroup>
+                            {/* <FormGroup>    
                             <Input type="text" name="portfolio" placeholder="MyPortfolio.com" 
                             onChange={e => this.handleChange(e)}
                             />
-                            </FormGroup>
+                            </FormGroup> */}
                             
                             
                             
