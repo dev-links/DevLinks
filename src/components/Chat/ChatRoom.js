@@ -3,6 +3,7 @@ import NavBar from '../NavBar/NavBar'
 import firebase from '../../config/Firebase';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { css } from 'glamor';
+import { getUserData } from '../../redux/actions/userAction'
 import './Chatroom.css'
 import { connect } from 'react-redux'
 
@@ -25,11 +26,12 @@ export class ChatRoom extends Component {
 
         firebase.database()
             .ref()
-            .child('chatroom') // FIX change to the combined id of the two users to create a new chat room
+            .child('chatroom') 
             .limitToLast(40)
             .on('value', (snapshot) => {
                 const currentMessages = snapshot.val()
                 if (currentMessages != null) {
+                    console.log(currentMessages)
                     this.setState({ messages: currentMessages })
                 }
         })
@@ -54,14 +56,16 @@ export class ChatRoom extends Component {
     submitMessage = () => {
         let { message, messages } = this.state
         let time = new Date().toLocaleTimeString()
-        
+        const {user: {
+            credentials : {handle, userId}}} = this.props
+            console.log(handle)
         if(this.state.message !== '') {
             let nextMessage = {
                 id:messages.length,
                 text: message,
                 // FIX start user and senderId with '' add values when logged in -- delete hard code
-                user: 'chris',
-                senderId: '109',
+                user: {handle},
+                senderId: {userId},
                 time: `${time}`
             }
             firebase.database().ref().child('chatroom/'+nextMessage.id).set(nextMessage)
@@ -74,14 +78,16 @@ export class ChatRoom extends Component {
     
 
     render() {
-        // console.log(this.state.message)
+        console.log(this.state.messages)
+        
         
         let { message } = this.state
         const currentMessages = this.state.messages.map(message => {
+           console.log(message.user)
             return (
-                <div key={message.id} >
+                <div key={message.id}>
                 {/* fix to add the right user when a message is added */}
-                <h6>{message.user}</h6>
+                <h6>{message.user.handle}</h6>
                 <li className='speech-bubble'>{message.text}</li>
                 </div>
             )
@@ -109,10 +115,9 @@ export class ChatRoom extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    let { credentials } = state
-    return {credentials}
-}
+const mapStateToProps = (state) => ({
+    user: state.user
+})
 
-export default connect(mapStateToProps)(ChatRoom)
+export default connect(mapStateToProps, { getUserData })(ChatRoom)
 
