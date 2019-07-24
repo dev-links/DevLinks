@@ -1,3 +1,4 @@
+const path = require('path');
 require('dotenv').config()
 const express = require('express'),
     session = require('express-session'),
@@ -25,3 +26,7 @@ app.post(`/api/signUp`, signUp)
 app.listen(PORT, () => {
     console.log(`${PORT} is listening`)
 })
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
