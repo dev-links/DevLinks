@@ -92,3 +92,17 @@ describe('Logging In', function () {
         })
     })
 })
+
+describe('Password', function () {
+    const email = 'bryantest@gmail.com'
+
+    context('HTML form submission', function () {
+
+        it('displays errors on login', function () {
+            
+            cy.visit('http://localhost:9009/#/')
+            cy.get('#email').type(email)
+            cy.get('#password').type('password123{enter}')
+        })
+    })
+})
