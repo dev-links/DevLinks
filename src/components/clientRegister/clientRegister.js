@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 // import {registerUser} from "../redux/actions/userAction"
 import axios from 'axios'
 import './clientRegister.css';
+import {connect} from 'react-redux';
+import {registerUser} from '../../redux/actions/userAction'
 
 class clientRegister extends Component {
     constructor() {
@@ -30,20 +32,22 @@ class clientRegister extends Component {
             password : this.state.password,
             handle: this.state.handle
         }
-        axios.post('/signUp', userData)
-        .then(res => {
-            console.log(res.data)
-            this.setState({
-                loading: false
-            })
-            this.props.history.push('/')
-        })
-        .catch(err => {
-            this.setState({
-                errors: err.response.data,
-                loading: false
-            })
-        })
+
+        this.props.registerUser(userData, this.props.history)
+        // axios.post('/signUp', userData)
+        // .then(res => {
+        //     console.log(res.data)
+        //     this.setState({
+        //         loading: false
+        //     })
+        //     this.props.history.push('/')
+        // })
+        // .catch(err => {
+        //     this.setState({
+        //         errors: err.response.data,
+        //         loading: false
+        //     })
+        // })
     }
 
     handleChange = (e) => {
@@ -98,4 +102,11 @@ class clientRegister extends Component {
     }
 }
 
-export default clientRegister;
+const mapStateToProps = (state) => {
+    return{
+        user: state.user,
+        UI: state.UI
+    }
+}
+
+export default connect(mapStateToProps, {registerUser})(clientRegister);

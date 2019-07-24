@@ -5,6 +5,7 @@ import {firebaseReducer} from 'react-redux-firebase';
 import userReducer from './userReducer';
 import dataReducer from './dataReducer'; 
 import uiReducer from './uiReducer';
+import jobReducer from './jobReducer'
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     firebase: firebaseReducer,
     user: userReducer,
     data: dataReducer,
-    UI: uiReducer
+    UI: uiReducer,
+    job:jobReducer
 });
 
 export default rootReducer

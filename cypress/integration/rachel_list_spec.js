@@ -55,7 +55,6 @@ describe('Logging In', function () {
         })
 
         it('displays errors on login', function () {
-          // incorrect email on purpose
             cy.get('#email').type('jane.lae')
             cy.get('#password').type('password123{enter}')
         })
@@ -64,6 +63,33 @@ describe('Logging In', function () {
             cy.get('#email').type(email)
             cy.get('#password').type(password)
             cy.get('#login-button').click()
+        })
+    })
+})
+
+describe('Logging In', function () {
+    const takenEmail = 'bryantest@gmail.com'
+    const username = 'rvchel'
+    const password = '1234567'
+    const email = '1234@gmail.com'
+
+    context('HTML form submission', function () {
+        beforeEach(function () {
+            cy.visit('localhost:9009/#/admin-register')
+        })
+
+        it('displays errors on login', function () {
+        cy.get('input[name=email]').type(takenEmail)
+        cy.get('input[name=password]').type(password)
+        cy.get('input[name=username]').type(username)
+        cy.get('#register-button').click()
+        })
+
+        it('redirects to /client-dashboard on success', function () {
+            cy.get('input[name=email]').type(email)
+            cy.get('input[name=password]').type(password)
+            cy.get('input[name=username]').type(username)
+            cy.get('#register-button').click()
         })
     })
 })
