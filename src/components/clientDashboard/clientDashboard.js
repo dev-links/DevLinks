@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import NavBar from '../NavBar/NavBar'
 import './clientDashboard.css';
 import { connect } from 'react-redux'
-import travel from '../../assets/travelpic.PNG'
 import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import firestore from '../../config/Firebase';
+import {editUserDetails} from '../../redux/actions/userAction'
 
 
 class ClientDashboard extends Component {
@@ -106,7 +106,8 @@ class ClientDashboard extends Component {
     }
 
     addSkill = () => {
-        let { skills, skillsInput } = this.state
+        let {skills} = this.props.credentials
+        let { skillsInput } = this.state
         let copySkills = skills.slice()
         copySkills.push(skillsInput)
         this.setState({ skills:copySkills })
@@ -117,7 +118,8 @@ class ClientDashboard extends Component {
     
     render() {
         console.log(this.state.modalContact)
-        console.log(this.state.skills)
+        console.log(this.props.credentials.skills)
+        console.log(this.props.credentials)
         const {user: {
             credentials : {handle, createAt, imageUrl, bio, website, location, address, birthDay, 
                 education, email, experience, firstName, lastName,headerUrl, jobTitle, phoneNumber, skills}
@@ -342,7 +344,8 @@ class ClientDashboard extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user
+    user: state.user,
+    credentials : state.user.credentials
 })
 
-export default connect(mapStateToProps)(ClientDashboard);
+export default connect(mapStateToProps ,{editUserDetails})(ClientDashboard);
