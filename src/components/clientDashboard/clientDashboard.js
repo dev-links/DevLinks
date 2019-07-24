@@ -118,6 +118,10 @@ class ClientDashboard extends Component {
     render() {
         console.log(this.state.modalContact)
         console.log(this.state.skills)
+        const {user: {
+            credentials : {handle, createAt, imageUrl, bio, website, location, address, birthDay, 
+                education, email, experience, firstName, lastName,headerUrl, jobTitle, phoneNumber, skills}
+        }} = this.props
         return (
         <div>
             <NavBar />
@@ -126,20 +130,20 @@ class ClientDashboard extends Component {
                 <div className='header'>
                 <Row>
                     <Col>
-                    <img className='header-pic' src='https://images.pexels.com/photos/2473183/pexels-photo-2473183.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' alt='header' />
+                    <img className='header-pic' src={headerUrl} alt='header' />
                     </Col>
                 </Row>
                 <Row>
                     <Col >
-                    <img id='profile-header-pic' src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""/>
+                    <img id='profile-header-pic' src={imageUrl} alt=""/>
                     </Col>
                 </Row>
                 <Row className='header-info'>
                 <Col className='header-info-left' >
                     {/* reference the user session to fill these headers in */}
-                    <h2>First LastName</h2>
-                    <h5>Full Stack Developer</h5>
-                    <h6>Dallas, Texas</h6>
+                    <h2>{firstName} {lastName}</h2>
+                    <h5>{jobTitle}</h5>
+                    <h6>{location}</h6>
                 </Col>
                 <Col></Col>
                 <Col className='header-info-right'>
@@ -156,7 +160,7 @@ class ClientDashboard extends Component {
                             />
                             </FormGroup>
                             <FormGroup>
-                            <Input type="text" name="lastName" placeholder="LastName" 
+                            <Input type="text" name="lastName" placeholder="Last name" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
@@ -226,7 +230,7 @@ class ClientDashboard extends Component {
                     </Modal>
                     </div>
                     <div className="about-info">
-                        {/* add editable input textarea */}
+                        {bio}
                     </div>
                     </Col>
                 </Row>
@@ -255,7 +259,7 @@ class ClientDashboard extends Component {
                     </Modal>
                     </div>
                     <div className="about-info">
-                        {/* add editable input textarea */}
+                        {experience}
                     </div>
                     </Col>
                 </Row>
@@ -284,7 +288,7 @@ class ClientDashboard extends Component {
                     </Modal>
                     </div>
                     <div className="about-info">
-                        {/* add editable input textarea */}
+                        {education}
                     </div>
                     </Col>
                 </Row>
@@ -320,7 +324,7 @@ class ClientDashboard extends Component {
                     </Modal>
                     </div>
                     {/* add dropdown for skills */}
-                    {/* list skills */}
+                    {skills}
                     </Col>
                     
                 </Row>
@@ -337,9 +341,8 @@ class ClientDashboard extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    let { credentials } = state
-    return { credentials }
-}
+const mapStateToProps = (state) => ({
+    user: state.user
+})
 
 export default connect(mapStateToProps)(ClientDashboard);

@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 
 import {Link, Redirect} from 'react-router-dom';
 
-import axios from 'axios';
-
 import {connect} from 'react-redux';
+
+import {loginUser} from '../../redux/actions/userAction'
 
 import PropTypes from 'prop-types';
 
@@ -30,8 +30,6 @@ class Login extends Component {
 
             errors: {},
 
-            loading: false,
-
             redirect: false
 
         }
@@ -44,12 +42,6 @@ class Login extends Component {
 
         e.preventDefault();
 
-        this.setState({
-
-            loading : true
-
-        })
-
         const userData = {
 
             email : this.state.email,
@@ -58,35 +50,7 @@ class Login extends Component {
 
         }
 
-        axios.post('/login', userData)
-
-        .then(res => {
-
-            console.log(res.data)
-
-            localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
-
-            this.setState({
-
-                loading: false
-
-            })
-
-            this.props.history.push('/client-dashboard')
-
-        })
-
-        .catch(err => {
-
-            this.setState({
-
-                errors: err.data,
-
-                loading: false
-
-            })
-
-        })
+        this.props.loginUser(userData, this.props.history)
 
     }
 
@@ -306,6 +270,17 @@ class Login extends Component {
 
 }
 
+const mapStateToProps = (state) => {
+    return{
+        user: state.user,
+        UI: state.UI
+    }
+}
+
+const mapActionsToProps = {
+   loginUser
+}
 
 
-export default Login;
+
+export default connect(mapStateToProps, mapActionsToProps)(Login);

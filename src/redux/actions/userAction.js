@@ -38,7 +38,7 @@ export const registerUser = (newUserData, history) => (dispatch) =>{
             setAuthHeader(res.data.token)
             dispatch(getUserData());
             dispatch({ type: "CLEAR_ERRORS"})
-            history.push("/dashboard")
+            history.push("/client-dashboard")
         })
         .catch(err =>{
             dispatch({
@@ -58,4 +58,13 @@ export const logOutUser = () => (dispatch) =>{
     localStorage.removeItem('FBIdToken');
     delete axios.defaults.headers.common['Authorization'];
     dispatch({ type: 'SET_UNAUTHENTICATED'})
+}
+
+export const editUserDetails = (userDetails) => (dispatch) =>{
+    dispatch({type: 'LOADING_USER'})
+    axios.post('/user', userDetails)
+        .then(() => {
+            dispatch(getUserData())
+        })
+        .catch(err => console.log(err))
 }
