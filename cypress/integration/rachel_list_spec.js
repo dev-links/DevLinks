@@ -45,7 +45,6 @@ describe('Input Check', function() {
 
 // END TO END TESTS
 describe('Logging In', function () {
-// we can use these values to log in
     const email = 'bryantest@gmail.com'
     const password = 'test1234'
 
