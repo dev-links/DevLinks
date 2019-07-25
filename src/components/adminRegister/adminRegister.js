@@ -3,7 +3,8 @@ import {Link, Redirect} from 'react-router-dom';
 // import { Input, Button } from 'reactstrap';
 import Button from '@material-ui/core/Button';
 import './adminRegister.css';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import {registerUser} from '../../redux/actions/userAction'
 
 class adminRegister extends Component {
     constructor() {
@@ -24,29 +25,12 @@ class adminRegister extends Component {
     }
     
     handleClick = (e) => {
-        e.preventDefault();
-        this.setState({
-            loading : true
-        })
-        const userData = {
+        const newUserData = {
             email : this.state.email,
             password : this.state.password,
-            handle: this.state.handle
+            handle: this.state.username
         }
-        axios.post('/signUp', userData)
-        .then(res => {
-            console.log(res.data)
-            this.setState({
-                loading: false
-            })
-            this.props.history.push('/')
-        })
-        .catch(err => {
-            this.setState({
-                errors: err.response.data,
-                loading: false
-            })
-        })
+        this.props.registerUser(newUserData, this.props.history)
     }
 
     render() { 
@@ -81,7 +65,7 @@ class adminRegister extends Component {
 
                     <form action="">
                         <div id="username-input-field">
-                            <input type='text'
+                            <input type='text' id='username'
                             name='username' type='text' value={this.state.username} onChange={this.handleChange} required />
                             <label for="name">Username:</label>
                         </div>
@@ -123,4 +107,11 @@ class adminRegister extends Component {
     }
 }
 
-export default adminRegister;
+const mapStateToProps = (state) => {
+    return{
+        user: state.user,
+        UI: state.UI
+    }
+}
+
+export default connect(mapStateToProps, {registerUser})(adminRegister);

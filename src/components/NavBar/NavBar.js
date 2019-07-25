@@ -33,7 +33,7 @@ render() {
                 <Link to='/client-dashboard'><h1 id='link'>Dashboard</h1></Link>
             </NavItem>
             <NavItem >
-                <Link to='/jobListings'><h1 id='link'>Job Listing</h1></Link>
+                <Link to='/jobListings'><h1 id='link' className='job-listing'>Job Listing</h1></Link>
             </NavItem>
             <NavItem>
                 <Link to='/step1'><h1 id='link'>Add Job</h1></Link>
