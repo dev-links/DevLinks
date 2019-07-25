@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
     user: userReducer,
     data: dataReducer,
     UI: uiReducer,
-    job:jobReducer
+    jobReducer:jobReducer
 });
 
 export default rootReducer

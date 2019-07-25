@@ -19,7 +19,7 @@ const initialState = {
 const HANDLE_COMPANY = 'HANDLE_COMPANY'
 
 export const handleCompany = (Company) => {
-    console.log(Company)
+    
     return {
         type: HANDLE_COMPANY,
         payload: Company
@@ -29,6 +29,7 @@ export const handleCompany = (Company) => {
  const HANDLE_JOBTITLE = 'HANDLE_JOBTITLE'
 
 export const handleJobTitle = (JobTitle) => {
+    console.log(JobTitle)
     return {
         type: HANDLE_JOBTITLE,
         payload: JobTitle

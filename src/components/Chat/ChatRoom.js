@@ -26,7 +26,7 @@ export class ChatRoom extends Component {
 
         firebase.database()
             .ref()
-            .child('chatroom') 
+            .child('chatroom1') 
             .limitToLast(40)
             .on('value', (snapshot) => {
                 const currentMessages = snapshot.val()
@@ -68,7 +68,7 @@ export class ChatRoom extends Component {
                 senderId: {userId},
                 time: `${time}`
             }
-            firebase.database().ref().child('chatroom/'+nextMessage.id).set(nextMessage)
+            firebase.database().ref().child('chatroom1/'+nextMessage.id).set(nextMessage)
             
             this.setState({ message: '' })
             
@@ -97,7 +97,7 @@ export class ChatRoom extends Component {
                 <div className='navbar-chat'>
                 <NavBar />
                 </div>
-                <ul>
+                <ul className='chats'>
                 {currentMessages}
                 </ul>
 
