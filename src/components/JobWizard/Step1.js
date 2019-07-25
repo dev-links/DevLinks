@@ -133,7 +133,7 @@ class Step1 extends Component {
     }
 }
 const mapStateToProps = (state) => {
-const {Company, JobTitle, Address, City, State, Zipcode} = state
+const {Company, JobTitle, Address, City, State, Zipcode} = state.jobReducer
 return {
     Company,
     JobTitle,
