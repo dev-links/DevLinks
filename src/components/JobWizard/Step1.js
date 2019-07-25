@@ -35,8 +35,9 @@ class Step1 extends Component {
         this.props.handleAddress(Address)
         this.props.handleCity(City)
         this.props.handleState(State)
-        this.props.handleZipcode(Zipcode) 
-    }
+        this.props.handleZipcode(Zipcode) }
+    // }
+
   
 
 
@@ -134,7 +135,7 @@ class Step1 extends Component {
     }
 }
 const mapStateToProps = (state) => {
-const {Company, JobTitle, Address, City, State, Zipcode} = state
+const {Company, JobTitle, Address, City, State, Zipcode} = state.jobReducer
 return {
     Company,
     JobTitle,

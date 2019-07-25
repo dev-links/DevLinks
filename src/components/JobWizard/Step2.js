@@ -43,6 +43,7 @@ class Step2 extends Component {
         //     alert('Please fill out all information')
         // } else {
         let {Company,Address,City,State,Zipcode,JobTitle} = this.props
+        console.log(JobTitle)
         this.props.handleJobTitle(JobTitle)
         this.props.handleJobDescription(JobDescription)
         this.props.handleEmploymentTypeMenu(EmploymentTypeMenu)
@@ -80,6 +81,7 @@ class Step2 extends Component {
             VisaStatusMenu,
             SubmitResumeMenu,
             EducationMenu,
+
           });
     }
 
@@ -87,6 +89,9 @@ class Step2 extends Component {
     render(){
         let {Company,JobTitle,Address,City,State,Zipcode} = this.props
         console.log(this.props)
+
+        // console.log(`${JobTitle}`)
+
         return (
         <div className='step2-container'>
             <Row form>
@@ -196,7 +201,7 @@ class Step2 extends Component {
             <br/>
             <Link to='/client-dashboard'>
             <button className='submit-button'
-            onClick={e=>this.handleStep2(e)}>Submit</button>
+            onClick={()=>this.handleStep2()}>Submit</button>
             </Link>
             <br/>
             <br/>
@@ -207,7 +212,7 @@ class Step2 extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const {Company, JobTitle, Location, JobDescription, EmploymentTypeMenu, SeniorityLevelMenu,VisaStatusMenu,SubmitResumeMenu,EducationMenu,Address,City,State,Zipcode, JobListing} = state
+    const {Company, JobTitle, Location, JobDescription, EmploymentTypeMenu, SeniorityLevelMenu,VisaStatusMenu,SubmitResumeMenu,EducationMenu,Address,City,State,Zipcode, JobListing} = state.jobReducer
 
     return {
         Company,
@@ -215,11 +220,11 @@ const mapStateToProps = (state) => {
         Location,
         JobDescription,
         EmploymentTypeMenu,
-            SeniorityLevelMenu,
-            VisaStatusMenu,
-            SubmitResumeMenu,
-            EducationMenu,
-            Address,
+        SeniorityLevelMenu,
+        VisaStatusMenu,
+        SubmitResumeMenu,
+        EducationMenu,
+        Address,
         City,
         State,
         Zipcode,
