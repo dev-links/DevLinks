@@ -67,7 +67,7 @@ class Login extends Component {
 
                     <form action="">
                         <div id="email-input-field">
-                            <input type='text' id='email'
+                            <input type='text' id='email' data-test-id="email"
                             name='email' type='email' value={this.state.email} onChange={this.handleChange} required />
                             <label className='label' for="name">Email:</label>
                         </div>

@@ -97,7 +97,7 @@ export class ChatRoom extends Component {
                 <div className='navbar-chat'>
                 <NavBar />
                 </div>
-                <ul>
+                <ul className='chats'>
                 {currentMessages}
                 </ul>
 
