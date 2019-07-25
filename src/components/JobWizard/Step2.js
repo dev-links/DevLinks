@@ -39,9 +39,9 @@ class Step2 extends Component {
         VisaStatusMenu,
         SubmitResumeMenu,
         EducationMenu,} = this.state
-        if(e =''){
-            alert('Please fill out all information')
-        } else {
+        // if(e =''){
+        //     alert('Please fill out all information')
+        // } else {
         let {Company,Address,City,State,Zipcode,JobTitle} = this.props
         this.props.handleJobTitle(JobTitle)
         this.props.handleJobDescription(JobDescription)
@@ -68,7 +68,11 @@ class Step2 extends Component {
         const db = firestore.firestore();
         
         const jobListings = db.collection('jobListings').add({
-            Company,Address,City,State,Zipcode,
+            Company,
+            Address,
+            City,
+            State,
+            Zipcode,
             JobTitle,
             JobDescription,
             EmploymentTypeMenu,
@@ -76,13 +80,13 @@ class Step2 extends Component {
             VisaStatusMenu,
             SubmitResumeMenu,
             EducationMenu,
-
-          })};
+          });
     }
 
 
     render(){
         let {Company,JobTitle,Address,City,State,Zipcode} = this.props
+        console.log(this.props)
         return (
         <div className='step2-container'>
             <Row form>
