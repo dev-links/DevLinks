@@ -37,10 +37,12 @@ class Step1 extends Component {
         this.props.handleState(State)
         this.props.handleZipcode(Zipcode) }
     // }
+
   
 
 
     render(){
+        console.log(this.state)
         return (
             <div className='body'>
                 <Row >

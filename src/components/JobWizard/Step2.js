@@ -89,7 +89,9 @@ class Step2 extends Component {
     render(){
         let {Company,JobTitle,Address,City,State,Zipcode} = this.props
         console.log(this.props)
+
         // console.log(`${JobTitle}`)
+
         return (
         <div className='step2-container'>
             <Row form>
