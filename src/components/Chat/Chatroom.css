@@ -21,6 +21,7 @@ body {
 .input input {
     width: 75vw;
     font-size: 1.3rem;
+    color: white;
 }
 
 .input button {
@@ -34,6 +35,10 @@ li {
 
 h6 {
     margin-top: .7rem;
+}
+
+.chats {
+    margin-top: 5rem;
 }
 
 .speech-bubble {
