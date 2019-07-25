@@ -26,9 +26,9 @@ class Step1 extends Component {
     }
 
     handleStep1 = (e) => {
-        if(e ='') {
-            alert('Please fill out all information')
-        } else {
+        // if(e ='') {
+        //     alert('Please fill out all information')
+        // } else {
         let {Company, JobTitle, Address,City,State,Zipcode} = this.state
         this.props.handleCompany(Company)
         this.props.handleJobTitle(JobTitle)
@@ -36,7 +36,7 @@ class Step1 extends Component {
         this.props.handleCity(City)
         this.props.handleState(State)
         this.props.handleZipcode(Zipcode) }
-    }
+    // }
   
 
 
