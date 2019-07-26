@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import NavBar from '../NavBar/NavBar'
 import './clientDashboard.css';
 import { connect } from 'react-redux'
-import travel from '../../assets/travelpic.PNG'
 import { Button, Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import firestore from '../../config/Firebase';
+import {editUserDetails} from '../../redux/actions/userAction'
 
 
 class ClientDashboard extends Component {
@@ -36,6 +36,12 @@ class ClientDashboard extends Component {
     // ClientDashboard - Firebase
     componentDidMount() {
         console.log(this.props.credentials) 
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.skills.length !== this.state.skills.length){
+            this.addSkill()
+        }
     }
 
     handleChange = e => {
@@ -106,7 +112,8 @@ class ClientDashboard extends Component {
     }
 
     addSkill = () => {
-        let { skills, skillsInput } = this.state
+        let {skills} = this.props.credentials
+        let { skillsInput } = this.state
         let copySkills = skills.slice()
         copySkills.push(skillsInput)
         this.setState({ skills:copySkills })
@@ -117,7 +124,8 @@ class ClientDashboard extends Component {
     
     render() {
         console.log(this.state.modalContact)
-        console.log(this.state.skills)
+        console.log(this.props.credentials.skills)
+        console.log(this.props.credentials)
         const {user: {
             credentials : {handle, createAt, imageUrl, bio, website, location, address, birthDay, 
                 education, email, experience, firstName, lastName,headerUrl, jobTitle, phoneNumber, skills}
@@ -155,39 +163,39 @@ class ClientDashboard extends Component {
                         <Form>
                         <FormGroup>
                         <FormGroup>
-                            <Input type="text" name="firstName"  placeholder="First name" 
+                            <Input type="text" name="firstName" value={firstName} placeholder="First name" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
                             <FormGroup>
-                            <Input type="text" name="lastName" placeholder="Last name" 
+                            <Input type="text" name="lastName" value={lastName} placeholder="Last name" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
                             <FormGroup>
-                            <Input type="text" name="location" placeholder="123 Main St. Dallas, TX" 
+                            <Input type="text" name="location" value={location} placeholder="123 Main St. Dallas, TX" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
-                            <Input type="email" name="email"  placeholder="email" 
-                            onChange={e => this.handleChange(e)}
-                            />
-                            </FormGroup>
-                            <FormGroup>
-                            <Input type="text" name="phone" placeholder="877-867-5309" 
+                            <Input type="email" name="email"  value={email} placeholder="email" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
                             <FormGroup>
-                            <Input type="text" name="repository" placeholder="Github" 
+                            <Input type="text" name="phone"value={phoneNumber} placeholder="877-867-5309" 
                             onChange={e => this.handleChange(e)}
                             />
                             </FormGroup>
-                            <FormGroup>    
+                            <FormGroup>
+                            <Input type="text" name="repository" value={website} placeholder="Github" 
+                            onChange={e => this.handleChange(e)}
+                            />
+                            </FormGroup>
+                            {/* <FormGroup>    
                             <Input type="text" name="portfolio" placeholder="MyPortfolio.com" 
                             onChange={e => this.handleChange(e)}
                             />
-                            </FormGroup>
+                            </FormGroup> */}
                             
                             
                             
@@ -342,7 +350,8 @@ class ClientDashboard extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user
+    user: state.user,
+    credentials : state.user.credentials
 })
 
-export default connect(mapStateToProps)(ClientDashboard);
+export default connect(mapStateToProps ,{editUserDetails})(ClientDashboard);
